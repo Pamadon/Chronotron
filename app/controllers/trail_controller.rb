@@ -32,7 +32,11 @@ class TrailController < ApplicationController
 
   def maps
     puts 'in maps ctrl'
-    for i in 0..$hikes.length
+    puts 'hikes length', $hikes.length
+    puts 'hikes size', $hikes.size
+    @loop = $hikes.size-2
+    for i in (0...10)
+      puts 'i', i
       map_response = HTTParty.get "https://maps.googleapis.com/maps/api/directions/json", {
           query: {
           origin: $hikes[i]['origin'],
