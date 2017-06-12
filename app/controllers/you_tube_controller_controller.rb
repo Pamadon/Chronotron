@@ -4,11 +4,10 @@ class YouTubeControllerController < ApplicationController
   end
 
   def show
-  @keyWord =
-	response = HTTParty.get('https://www.googleapis.com/youtube/v3/search?part=snippet&q=french+lessons&key=AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM')
 
-	puts response.body, response.code, response.message, response.headers.inspect
-
+ videos = Yt::Collections::Videos.new
+ puts videos.where(order: 'viewCount').first.title
+ puts videos.where()
  # 	response = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=lady+-gaga&key=AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'", {
 	# 	query: {term: params['search']['query']}
 	# })
@@ -18,6 +17,9 @@ class YouTubeControllerController < ApplicationController
  #  end
 end
   def search
+  @keyWord = params[:keyWord]
+  puts @keyWord
+  response = HTTParty.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=@keyWord&type=video&videoDuration=short&key=AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM')
   end
 
 
