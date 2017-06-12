@@ -1,2 +1,8 @@
 <h1>YouTubeController#search</h1>
-<p>Find me in app/views/you_tube_controller/search.html.erb</p>
+<h1>Search Youtube</h1>
+
+<%= form_tag("/you_tube_controller/search", method: "post") do %>
+  <%= label_tag(:keyWord, "Search Youtube") %>
+  <%= text_field_tag(:keyWord) %>
+  <%= submit_tag("Search") %>
+<% end %>
