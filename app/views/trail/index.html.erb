@@ -1,0 +1,12 @@
+<%= render partial: maps_path%>
+<h1>Search for Hike</h1>
+
+<%= form_tag("/trail/show", method: "post") do %>
+  <%= label_tag(:length, "Search for hike by length (miles):") %>
+  <%= text_field_tag(:length) %>
+  <%= label_tag(:origin, "Map Start:") %>
+  <%= text_field_tag(:origin) %>
+  <%= label_tag(:mode, "Mode:") %>
+  <%= text_field_tag(:mode) %>
+  <%= submit_tag("Search") %>
+<% end %>
