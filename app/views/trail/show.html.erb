@@ -1,0 +1,21 @@
+
+<% for hike in @hikes%>
+	Name: <span><%=hike['name']%></span>
+	<br>
+	Description: <span><%=hike['activities'][0]['description']%></span>
+	<br>
+	lat: <span><%=hike['lat']%></span>
+	<br>
+	lon: <span><%=hike['lon']%></span>
+	<br>
+	length of hike: <span><%=hike['activities'][0]['length']%></span>
+	<br>
+	time for hike: <span><%=hike['activities'][0]['length'].to_i/3.1*60.round%> minutes</span>
+	<br>
+	distance to hike: <span><%=hike['distance']['text']%></span>
+	<br>
+	time to get to hike: <span><%=hike['duration']['text']%></span>
+	<br>
+	address of hike: <span><%=hike['end_address']%></span>
+	<hr>
+<%end%>
