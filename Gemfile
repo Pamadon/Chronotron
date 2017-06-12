@@ -42,7 +42,11 @@ gem 'render_async', '~> 0.1.2'
 
 gem 'rspotify', git: 'https://github.com/guilhermesad/rspotify.git'
 
+gem 'google-api-client', '>0.7'
 
+gem 'trollop'
+
+gem 'yt', '~> 0.28.0'
 
 
 group :development, :test do
