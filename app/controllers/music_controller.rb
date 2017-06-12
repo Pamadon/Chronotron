@@ -1,4 +1,10 @@
 class MusicController < ApplicationController
+
+  def spotify
+    @user = RSpotify::User.new(request.env['omniauth.auth'])
+    hash = spotify_user.to_hash
+  end
+
   def show
 
     @user = RSpotify::User.new(request.env['omniauth.auth'])
@@ -23,6 +29,8 @@ class MusicController < ApplicationController
 
     @playlist.add_tracks!(your_playlist)
   end
+
+
 
 
 end
