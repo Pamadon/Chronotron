@@ -1,5 +1,7 @@
 class MusicController < ApplicationController
   def show
+
+
     # when we need to have genres available
     wanted_playlist_time_in_min = 30 * 60000
     # @genres = RSpotify::Recommendations.available_genre_seeds
@@ -19,6 +21,10 @@ class MusicController < ApplicationController
     end
 
     @playlist = your_playlist
+  end
+
+  def spotify_user
+    @user = RSpotify::User.new(request.env['omniauth.auth'])
 
   end
 end
