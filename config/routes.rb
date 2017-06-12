@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'you_tube_controller/index'
   get 'you_tube_controller/show'
   get 'you_tube_controller/search'
+  post 'you_tube_controller/search'
 
 	get 'you_tube_controller/main'
   get 'music' => 'music#show'
