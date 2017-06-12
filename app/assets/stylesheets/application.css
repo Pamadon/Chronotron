@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	font-family: 'Droid Sans', sans-serif ;
+}
+
+a {
+	text-transform: uppercase;
+	text-decoration-line: none;
+	font-weight: 700;
+}
+
+h1 {
+	text-align: center;
+}
+
+.time {
+	margin-top: 4em;
+	text-align: center;
+	margin-bottom: 4em;
+}
+
+.choices {
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: auto;
+}
+
+.choice {
+	border: 1px solid black;
+	width: 19%;
+	text-align: center;
+	background-color: #fff;
+	padding: 20px;
+}
+
+.choice img {
+	width: 100%;
+	margin-bottom: 1em;
+}
+
