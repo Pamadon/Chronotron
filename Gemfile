@@ -40,6 +40,10 @@ gem 'foreman'
 
 gem 'render_async', '~> 0.1.2'
 
+gem 'rspotify', git: 'https://github.com/guilhermesad/rspotify.git'
+
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
