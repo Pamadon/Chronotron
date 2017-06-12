@@ -1,16 +1,7 @@
 class YouTubeControllerController < ApplicationController
 
   def index
-    def search_list_by_keyword(service, part, **params)
-  params = params.delete_if { |p, v| v == ''}
-  response = service.list_searches(part, params)
-  print_results(response)
-end
 
-search_list_by_keyword(service, 'snippet',
-  max_results: 25,
-  q: 'surfing',
-  type: '')
   end
 
   def show
