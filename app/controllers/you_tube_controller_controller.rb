@@ -1,6 +1,16 @@
 class YouTubeControllerController < ApplicationController
 
   def index
+    def search_list_by_keyword(service, part, **params)
+  params = params.delete_if { |p, v| v == ''}
+  response = service.list_searches(part, params)
+  print_results(response)
+end
+
+search_list_by_keyword(service, 'snippet',
+  max_results: 25,
+  q: 'surfing',
+  type: '')
   end
 
   def show
@@ -19,8 +29,12 @@ end
   def search
   @keyWord = params[:keyWord]
   puts @keyWord
-  response = HTTParty.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=@keyWord&type=video&videoDuration=short&key=AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM')
+  response = HTTParty.get('https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM', {
+
+  })
+  puts response
   end
 
 
 end
+
