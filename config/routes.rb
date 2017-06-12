@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   # ~~~~~~~~~Trails~~~~~~~~~~~
   get '/trail' => 'trail#index'
   post '/trail/show' => 'trail#show'
-  post 'directions' => 'trail#directions'
-  get :maps, :controller => :trail
+  get '/trail/maps'  => 'trail#maps'
 
   #~~~~~~~~~~~youtube~~~~~~~~~~~~~
   get 'you_tube_controller/index'

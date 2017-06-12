@@ -1,4 +1,5 @@
-
+<%= render_async trail_maps_path(@hikes)%>
+<hr>
 <% for hike in @hikes%>
 	Name: <span><%=hike['name']%></span>
 	<br>
@@ -12,10 +13,8 @@
 	<br>
 	time for hike: <span><%=hike['activities'][0]['length'].to_i/3.1*60.round%> minutes</span>
 	<br>
-	distance to hike: <span><%=hike['distance']['text']%></span>
+	your origin: <span><%=hike['origin']%></span>
 	<br>
-	time to get to hike: <span><%=hike['duration']['text']%></span>
-	<br>
-	address of hike: <span><%=hike['end_address']%></span>
+	your mode: <span><%=hike['mode']%></span>
 	<hr>
 <%end%>
