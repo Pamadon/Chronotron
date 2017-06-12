@@ -1,3 +1,4 @@
 
-<%=@playlist.inspect%>
-
+<% for song in @playlist do%>
+<iframe src="https://open.spotify.com/embed?uri=<%=song.uri%>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+<%end%>
