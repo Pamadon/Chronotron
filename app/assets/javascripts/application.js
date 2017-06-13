@@ -37,6 +37,8 @@ $(document).ready(function(){
 });
 
 // TRIVIA GAME LOGIC
+var questions = gon.trivia;
+console.log(questions);
 var counter = 0;
 var quiz = $('#quiz');
 var selection = "";
