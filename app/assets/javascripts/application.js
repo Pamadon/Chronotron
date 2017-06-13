@@ -110,6 +110,7 @@ function displayAnswer() {
 function displayNext() {
   $('#next').hide();
   $('#submit').show();
+  $('#answer').remove();
   $('#question').remove();
 
   if(counter < questions.length){
