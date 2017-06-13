@@ -16,6 +16,7 @@
 //= require_tree .
 
 
+
 $(document).ready(function(){
 var modal = document.getElementById('hpmodal');
 var btn = document.getElementById('modalbtn');
@@ -38,25 +39,39 @@ var span = document.getElementsByClassName('close')[0];
 });
 
 
+  btn.onclick = function() {
+   modal.style.display = "block";
+  };
+  span.onclick = function() {
+  modal.style.display = "none";
+  };
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+   }
+  };
+  function createQuestionElement(index) {
+    var qElement = $('<div>', {
+      id: 'question'
+    });
+
+
+    var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+    qElement.append(header);
+
+    var question = $('<p>').append(questions[index].question);
+    qElement.append(question);
+
+    var radioButtons = createRadios(index);
+    qElement.append(radioButtons);
+
+    return qElement;
+  }
+});
+
 
 // Creates and returns the div that contains the questions and
 // the answer selections
-function createQuestionElement(index) {
-  var qElement = $('<div>', {
-    id: 'question'
-  });
-
-  var header = $('<h2>Question ' + (index + 1) + ':</h2>');
-  qElement.append(header);
-
-  var question = $('<p>').append(questions[index].question);
-  qElement.append(question);
-
-  var radioButtons = createRadios(index);
-  qElement.append(radioButtons);
-
-  return qElement;
-}
 
 // Creates a list of the answer choices as radio inputs
 // function createRadios(index) {
