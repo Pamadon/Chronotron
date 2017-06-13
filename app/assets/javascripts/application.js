@@ -36,9 +36,31 @@ $(document).ready(function(){
     $(".spinner").hide();
 });
 
+// TRIVIA GAME LOGIC
+var counter = 0;
+var quiz = $('#quiz');
+var selection = "";
 
-// Creates and returns the div that contains the questions and
-// the answer selections
+//Submit button functionality
+$('#submit').on('click', function (e) {
+  e.preventDefault();
+
+  $('#next').show();
+  $('#submit').hide();
+
+  choose();
+  displayAnswer();
+});
+
+//Next button functionality
+$('#next').on('click', function (e) {
+  e.preventDefault();
+
+  counter++;
+  displayNext();
+});
+
+//Create a div with a question and True/False radio inputs
 function createQuestionElement(index) {
   var qElement = $('<div>', {
     id: 'question'
@@ -50,23 +72,55 @@ function createQuestionElement(index) {
   var question = $('<p>').append(questions[index].question);
   qElement.append(question);
 
-  var radioButtons = createRadios(index);
-  qElement.append(radioButtons);
+  var true_input = '<input type="radio" id="true" name="answer" value="True" />';
+  var true_label = '<label for="true">True</label>';
+  var false_input = '<input type="radio" id="false" name="answer" value="False" />';
+  var false_label = '<label for="false">False</label>';
+
+  qElement.append(true_input).append(true_label).append(false_input).append(false_label);
 
   return qElement;
 }
 
-// Creates a list of the answer choices as radio inputs
-// function createRadios(index) {
-//   var radioList = $('<ul>');
-//   var item;
-//   var input = '';
-//   for (var i = 0; i < questions[index].choices.length; i++) {
-//     item = $('<li>');
-//     input = '<input type="radio" name="answer" value=' + i + ' />';
-//     input += questions[index].choices[i];
-//     item.append(input);
-//     radioList.append(item);
-//   }
-//   return radioList;
-// }
+//Create a div with either "Correct"/"Wrong" based on user answer
+function createAnswerElement(index) {
+  var aElement = $('<div>', {
+    id: 'answer'
+  });
+
+  var correct = $('<h3>Correct!</h3>');
+  var wrong = $('<h3>Wrong!</h3>');
+
+  if (selection === questions[index].correct_answer) {
+    aElement.append(correct);
+  } else {
+    aElement.append(wrong);
+  }
+
+  return aElement;
+}
+
+//Show user if they were right or wrong
+function displayAnswer() {
+  var answer = createAnswerElement(counter);
+  quiz.append(answer);
+}
+
+//Show next question
+function displayNext() {
+  $('#next').hide();
+  $('#submit').show();
+  $('#question').remove();
+
+  if(counter < questions.length){
+    var nextQuestion = createQuestionElement(counter);
+    quiz.append(nextQuestion);
+  }
+}
+
+//Save user's answer
+function choose() {
+  selection = $('input[name="answer"]:checked').val();
+}
+
+displayNext();
