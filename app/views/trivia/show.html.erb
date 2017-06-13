@@ -1,1 +1,8 @@
-<div id='quiz'></div>
+<h3><%= @trivia %></h3>
+<%= form_tag do %>
+	<%= radio_button_tag(:answer, "True") %>
+	<%= label_tag(:true, "True") %>
+	<%= radio_button_tag(:answer, "False") %>
+	<%= label_tag(:false, "False") %>
+	<%= submit_tag("Submit") %>
+<% end %>
