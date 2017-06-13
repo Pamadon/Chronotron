@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$( document ).ready(function() {
+  // hide spinner on AJAX stop
+  $('.hikes-load').ready(function(){
+    $(".spinner").hide();
+  });
+});
