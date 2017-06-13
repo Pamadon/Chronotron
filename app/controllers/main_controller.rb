@@ -10,7 +10,7 @@ class MainController < ApplicationController
       $time = params[:time_limit]
       $genre = params[:genre]
       $video_search = params[:video_query]
-      puts $video_search
+
       if params[:music]
         redirect_to '/auth/spotify'
       elsif params[:videos]
