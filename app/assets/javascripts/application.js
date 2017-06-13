@@ -18,6 +18,7 @@
 
 
 
+
 $(document).ready(function(){
 var modal = document.getElementById('hpmodal');
 var btn = document.getElementById('modalbtn');
@@ -37,22 +38,33 @@ var span = document.getElementsByClassName('close')[0];
   $(document).ajaxStop(function(){
     $(".spinner").hide();
   });
+     var questions = gon.trivia;
+  console.log(questions);
+  var counter = 0;
+  var quiz = $('#quiz');
+  var selection = "";
 
-});
+  //Submit button functionality
+  $('#submit').on('click', function (e) {
+    e.preventDefault();
 
+    $('#next').show();
+    $('#submit').hide();
 
+    choose();
+    displayAnswer();
+  });
 
-  btn.onclick = function() {
-   modal.style.display = "block";
-  };
-  span.onclick = function() {
-  modal.style.display = "none";
-  };
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-   }
-  };
+  //Next button functionality
+  $('#next').on('click', function (e) {
+    e.preventDefault();
+
+    counter++;
+    displayNext();
+  });
+
+  // Creates and returns the div that contains the questions and
+  // the answer selections
   function createQuestionElement(index) {
     var qElement = $('<div>', {
       id: 'question'
@@ -65,29 +77,57 @@ var span = document.getElementsByClassName('close')[0];
     var question = $('<p>').append(questions[index].question);
     qElement.append(question);
 
-    var radioButtons = createRadios(index);
-    qElement.append(radioButtons);
+    var true_input = '<input type="radio" id="true" name="answer" value="True" />';
+    var true_label = '<label for="true">True</label>';
+    var false_input = '<input type="radio" id="false" name="answer" value="False" />';
+    var false_label = '<label for="false">False</label>';
 
-    return qElement;
+    qElement.append(true_input).append(true_label).append(false_input).append(false_label);
+
+      return qElement;
+    }
+    function createAnswerElement(index) {
+    var aElement = $('<div>', {
+      id: 'answer'
+    });
+
+    var correct = $('<h3>Correct!</h3>');
+    var wrong = $('<h3>Wrong!</h3>');
+
+    if (selection === questions[index].correct_answer) {
+      aElement.append(correct);
+    } else {
+      aElement.append(wrong);
+    }
+
+    return aElement;
+  }
+
+  //Show user if they were right or wrong
+  function displayAnswer() {
+    var answer = createAnswerElement(counter);
+    quiz.append(answer);
+  }
+
+  //Show next question
+  function displayNext() {
+    $('#next').hide();
+    $('#submit').show();
+    $('#answer').remove();
+    $('#question').remove();
+
+    if(counter < questions.length){
+      var nextQuestion = createQuestionElement(counter);
+      quiz.append(nextQuestion);
+    }
   }
 
 
-// Creates and returns the div that contains the questions and
-// the answer selections
+  //Save user's answer
+  function choose() {
+    selection = $('input[name="answer"]:checked').val();
+  }
 
-// Creates a list of the answer choices as radio inputs
-// function createRadios(index) {
-//   var radioList = $('<ul>');
-//   var item;
-//   var input = '';
-//   for (var i = 0; i < questions[index].choices.length; i++) {
-//     item = $('<li>');
-//     input = '<input type="radio" name="answer" value=' + i + ' />';
-//     input += questions[index].choices[i];
-//     item.append(input);
-//     radioList.append(item);
-//   }
-//   return radioList;
-// }
+  displayNext();
 
-});
+  });
