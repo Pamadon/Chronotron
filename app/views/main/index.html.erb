@@ -1,5 +1,7 @@
 <h1>Chronotron</h1>
-<button id="modalbtn">Instructions</button>
+<div class="intro">
+	<button id="modalbtn">Wait, what is this?</button>
+</div>
 <div class="time">
 	How much time would you like to waste?
 	<%= form_tag('/', method: "post") do%>
@@ -23,16 +25,16 @@
 </div>
 <div class="choices">
 	<div class="choice">
-		<img src="/images/music.png">
-		<%= link_to 'Music', '/auth/spotify' %>
+		<img src="/images/video.png">
+		<a href="/you_tube_controller/search">Videos</a>
 	</div>
-	<div class="choice">
+		<div class="choice">
 		<img src="/images/trivia.png">
 		<a href="/trivia">Trivia</a>
 	</div>
 	<div class="choice">
-		<img src="/images/video.png">
-		<a href="/you_tube_controller/search">Videos</a>
+		<img src="/images/music.png">
+		<%= link_to 'Music', '/auth/spotify' %>
 	</div>
 	<div class="choice">
 		<img class="trail-icon" src="/images/hike.png">
@@ -41,8 +43,9 @@
 </div>
 <div id="hpmodal" class="modal">
 	<div class="modal-content">
-		<span class="close">&times;</span>
+		<img src="/images/robot.png">
 		<p>Chronotron helps you do something semi-productive with the extra time in your day instead of refreshing your FacePage repeatedly.</p>
 		<p>To get started, choose the amount of time you have to waste. Then select how you'd like to spend that time. You'll be taken to a page with content that will help you fill that time, and you'll also be given suggestions for related content you might enjoy.</p>
+		<span class="close">&times;</span>
 	</div>
 </div>

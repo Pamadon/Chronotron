@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~spotify~~~~~~~~~~~~~
   get '/music' => 'music#show'
- get '/auth/spotify/callback', to: 'music#spotify'
- get '/auth/logout' => 'music#logout'
- get '/auth/failure' => 'music#failure'
+  get '/auth/spotify/callback', to: 'music#spotify'
+  get '/auth/logout' => 'music#logout'
+  get '/auth/failure' => 'music#failure'
 
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
