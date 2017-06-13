@@ -1,27 +1,21 @@
 <div class="hikes-loaded"></div>
 <%for i in (0...@loops)%>
-	<%if $hikes[i]['distance']%>
+	<%if $hikes[i]['distance'] and $hikes[i]['duration']['text'].sub(/\D+/, '').to_i + $hikes[i]['activities'][0]['length'].to_i/3.1*60 <= $time_to_kill%>
 		Name: <span><%=$hikes[i]['name']%></span>
 		<br>
 		Description: <span><%=$hikes[i]['activities'][0]['description']%></span>
 		<br>
-		lat: <span><%=$hikes[i]['lat']%></span>
+		length of hike: <span><%=$hikes[i]['activities'][0]['length']%></span>
 		<br>
-		lon: <span><%=$hikes[i]['lon']%></span>
+		Estimated time for hike: <span><%=$hikes[i]['activities'][0]['length'].to_i/3.1*60.round%> minutes</span>
 		<br>
-		length of hikes: <span><%=$hikes[i]['activities'][0]['length']%></span>
+		distance to hike: <span><%=$hikes[i]['distance']['text']%></span>
 		<br>
-		time for hike: <span><%=$hikes[i]['activities'][0]['length'].to_i/3.1*60.round%> minutes</span>
-		<br>
-		your origin: <span><%=$hikes[i]['origin']%></span>
-		<br>
-		your mode: <span><%=$hikes[i]['mode']%></span>
-		<br>
-		distance to hikes: <span><%=$hikes[i]['distance']['text']%></span>
-		<br>
-		time to get to hikes: <span><%=$hikes[i]['duration']['text']%></span>
+		time to get to hike: <span><%=$hikes[i]['duration']['text'].sub(/\D+/, '').to_i%> minutes</span>
 		<br>
 		address of hike: <span><%=$hikes[i]['end_address']%></span>
+		<br>
+		Total event time: <span><%=($hikes[i]['duration']['text'].sub(/\D+/, '').to_i + $hikes[i]['activities'][0]['length'].to_i/3.1*60).round %>minutes</span>
 		<hr>
 	<%end%>
 <%end%>

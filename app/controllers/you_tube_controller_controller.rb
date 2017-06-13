@@ -1,42 +1,40 @@
 class YouTubeControllerController < ApplicationController
 
   def index
-
-
   end
-
 
   def show
-
-    videos = Yt::Collections::Videos.new
-    puts videos.inspect
-    puts videos.where()
-
- # 	response = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=lady+-gaga&key=AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'", {
-	# 	query: {term: params['search']['query']}
-	# })
-	# 	@data = nil
-	# 	if response.code == 200
-	# 		@data = JSON.parse(response.body)
- #  end
   end
+
   def search
     @keyWord = params[:keyWord]
+    if $time.to_i <= 20
+      @time == 'short'
+    end
+    @time = params[:time]
+    @numberVideos = params[:numberVideos]
     puts @keyWord
     response = HTTParty.get('https://www.googleapis.com/youtube/v3/search?', {
       query: {
-         part: 'snippet',
-          maxResults: '3',
+          part: 'snippet',
+          maxResults: @numberVideos,
           order: 'rating',
           q: @keyWord,
           type: 'video',
-          videoDuration: 'short',
+          videoDuration: @time,
           videoEmbeddable: 'true',
           key: 'AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'
           }
   })
-    @data = response['items'][0]['id']['videoId']
-
+    $videos = []
+    if response.code == 200
+      @video_result = JSON.parse(response.body)
+        for item in  @video_result['items']
+        $videos.push(item['id']['videoId'])
+        puts @video_result
+        end
+     end
+    puts $videos[1]
   end
 
 end

@@ -1,12 +1,28 @@
+<div>
+<div>
 <h1>YouTubeController#search</h1>
-<h1>Search Youtube</h1>
+<div>
+  <h1>Search Youtube</h1>
+  <%= @data %>
+  <%= form_tag("/you_tube_controller/search", method: "post") do %>
+    <%= label_tag(:keyWord, "Search Youtube") %>
+    <%= text_field_tag(:keyWord) %>
+ 	  <%= label_tag(:time, "how long?") %>
+    <%= text_field_tag(:time) %>
+	  <%= label_tag(:numberVideos, "how many?") %>
+    <%= text_field_tag(:numberVideos) %>
+    <%= submit_tag("Search") %>
+  <% end %>
 
-<%= form_tag("/you_tube_controller/search", method: "post") do %>
-  <%= label_tag(:keyWord, "Search Youtube") %>
-  <%= text_field_tag(:keyWord) %>
-  <%= submit_tag("Search") %>
-<% end %>
 
-<%= @data %>
+</div>
+<div>
 
-<iframe src='https://www.youtube.com/embed/eq--uvbjoxW3LMk?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
+<% for link in $videos do %>
+<iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/<%=link%>?autoplay=1&origin=http://example.com" frameborder="0"></iframe>
+  <%end%>
+
+
+
+
+</div>
