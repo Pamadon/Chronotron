@@ -17,6 +17,7 @@
 
 
 
+
 $(document).ready(function(){
 var modal = document.getElementById('hpmodal');
 var btn = document.getElementById('modalbtn');
@@ -37,6 +38,7 @@ var span = document.getElementsByClassName('close')[0];
     $(".spinner").hide();
   });
 });
+
 
 
   btn.onclick = function() {
@@ -67,7 +69,6 @@ var span = document.getElementsByClassName('close')[0];
 
     return qElement;
   }
-});
 
 
 // Creates and returns the div that contains the questions and
@@ -87,3 +88,5 @@ var span = document.getElementsByClassName('close')[0];
 //   }
 //   return radioList;
 // }
+
+});
