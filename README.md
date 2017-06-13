@@ -1,5 +1,6 @@
 <h1>Chronotron</h1>
 <h4>WDI 13 | Project 4 | Alaina, Andrew, Mark, Peter, Sara</h4>
+<p>UX/UI Consultant: Ben Frates</p>
 
 <p>“There's never enough time to do all the nothing you want.”</p>
 
