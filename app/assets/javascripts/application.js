@@ -18,11 +18,26 @@
 
 
 $(document).ready(function(){
-  console.log('spinnaaa');
+var modal = document.getElementById('hpmodal');
+var btn = document.getElementById('modalbtn');
+var span = document.getElementsByClassName('close')[0];
+	btn.onclick = function() {
+		modal.style.display = "block";
+	};
+	span.onclick = function() {
+		modal.style.display = "none";
+	};
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	};
+	// hide spinner on AJAX stop
+  $(document).ajaxStop(function(){
     $(".spinner").hide();
-  var modal = document.getElementById('hpmodal');
-  var btn = document.getElementById('modalbtn');
-  var span = document.getElementsByClassName('close')[0];
+  });
+});
+
 
   btn.onclick = function() {
    modal.style.display = "block";
@@ -39,6 +54,7 @@ $(document).ready(function(){
     var qElement = $('<div>', {
       id: 'question'
     });
+
 
     var header = $('<h2>Question ' + (index + 1) + ':</h2>');
     qElement.append(header);
