@@ -7,19 +7,17 @@
   <%= form_tag("/you_tube_controller/search", method: "post") do %>
     <%= label_tag(:keyWord, "Search Youtube") %>
     <%= text_field_tag(:keyWord) %>
- 	  <%= label_tag(:time, "how long?") %>
-    <%= text_field_tag(:time) %>
+ 	  <%= label_tag(:time, "Video Length:") %>
+    <%= select_tag(:time, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
 	  <%= label_tag(:numberVideos, "how many?") %>
     <%= text_field_tag(:numberVideos) %>
     <%= submit_tag("Search") %>
   <% end %>
-
-
 </div>
 <div>
 
 <% for link in $videos do %>
-<iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/<%=link%>?autoplay=1&origin=http://example.com" frameborder="0"></iframe>
+<div><iframe id="ytplayer" type="text/html" width="600" height="360" src="https://www.youtube.com/embed/<%=link%>?autoplay=0&origin=http://example.com" frameborder="0"></iframe></div>
   <%end%>
 
 
