@@ -5,7 +5,7 @@
   <%= @data %>
   <%= form_tag("/you_tube_controller/search", method: "post") do %>
     <%= label_tag(:keyWord, "Search Youtube") %>
-    <%= text_field_tag(:keyWord) %>
+    <%= text_field_tag :keyWord, (params[:keyWord] or $video_search) %>
  	  <%= label_tag(:time, "Video Length:") %>
     <%= select_tag(:time, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
 	  <%= label_tag(:numberVideos, "how many?") %>
