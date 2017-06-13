@@ -17,9 +17,11 @@ Rails.application.routes.draw do
   get 'music' => 'music#show'
 
   get '/auth/spotify/callback', to: 'music#show'
+  # get '/auth/spotify/callback', to: 'spotify'
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
   get 'trivia' => 'trivia#show'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
