@@ -4,7 +4,8 @@ class MusicController < ApplicationController
   def spotify
     @user = RSpotify::User.new(request.env['omniauth.auth'])
     spotify_hash = @user.to_hash
-
+    puts "music time"
+    puts $time
     user = User.find_or_create_by(email: @user.email) do |u|
       u.email = @user.email
       u.spotify_hash = spotify_hash
@@ -30,7 +31,7 @@ class MusicController < ApplicationController
     # when we need to have genres available
     wanted_playlist_time_in_ms = 30 * 60000
     # @genres = RSpotify::Recommendations.available_genre_seeds
-    result = RSpotify::Recommendations.generate(limit: 20, seed_genres: ['iranian'])
+    result = RSpotify::Recommendations.generate(limit: 20, seed_genres: ['dubstep'])
     tracks = result.tracks
 
     @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'main#index'
-
+  post '/' => 'main#index'
   # ~~~~~~~~~Trails~~~~~~~~~~~
   get '/trail' => 'trail#index'
   post '/trail/show' => 'trail#show'
