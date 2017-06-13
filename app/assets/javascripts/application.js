@@ -31,6 +31,10 @@ var span = document.getElementsByClassName('close')[0];
 			modal.style.display = "none";
 		}
 	};
+	// hide spinner on AJAX stop
+  $(document).ajaxStop(function(){
+    $(".spinner").hide();
+  });
 });
 
 
