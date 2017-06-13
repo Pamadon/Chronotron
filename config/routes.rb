@@ -15,13 +15,11 @@ Rails.application.routes.draw do
 
   get 'you_tube_controller/main'
 
-
-
-
-  #~~~~~~~~~~~music~~~~~~~~~~~~~
-  get 'music' => 'music#show'
-  get '/auth/spotify/callback', to: 'music#show'
-
+  #~~~~~~~~~~~spotify~~~~~~~~~~~~~
+  get '/music' => 'music#show'
+ get '/auth/spotify/callback', to: 'music#spotify'
+ get '/auth/logout' => 'music#logout'
+ get '/auth/failure' => 'music#failure'
 
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
