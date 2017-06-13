@@ -32,3 +32,9 @@ window.onclick = function(event) {
 		modal.style.display = "none";
 	}
 }
+$( document ).ready(function() {
+  // hide spinner on AJAX stop
+  $('.hikes-load').ready(function(){
+    $(".spinner").hide();
+  });
+});
