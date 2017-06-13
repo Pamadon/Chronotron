@@ -1,2 +1,7 @@
 <%= render_async trail_maps_path%>
-<div class="spinner">Loading...</div>
+<div id="spinner">Loading...</div>
+<script>
+	$(document).ajaxStop(function(){
+		$('#spinner').hide();
+	});
+</script>
