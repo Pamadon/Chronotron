@@ -21,8 +21,7 @@ Rails.application.routes.draw do
   #~~~~~~~~~~~music~~~~~~~~~~~~~
   get 'music' => 'music#show'
   get '/auth/spotify/callback', to: 'music#show'
-
-
+  # get '/auth/spotify/callback', to: 'spotify'
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
   get 'trivia' => 'trivia#show'
