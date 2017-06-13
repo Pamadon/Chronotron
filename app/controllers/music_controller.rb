@@ -43,7 +43,7 @@ class MusicController < ApplicationController
     # initialize variables for generating
     wanted_playlist_time_in_ms = time * 60000
     current_playlist_time = wanted_playlist_time_in_ms;
-    result = RSpotify::Recommendations.generate(limit: 20, seed_genres: ['dubstep'])
+    result = RSpotify::Recommendations.generate(limit: 50, seed_genres: ['dubstep'])
     @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")
     tracks = result.tracks
     your_playlist = []
