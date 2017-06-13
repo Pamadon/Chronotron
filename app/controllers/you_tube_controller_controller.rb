@@ -28,16 +28,10 @@ class YouTubeControllerController < ApplicationController
       @video_result = JSON.parse(response.body)
         for item in  @video_result['items']
         $videos.push(item['id']['videoId'])
+        puts @video_result
         end
      end
     puts $videos[1]
-
-    @data = response['items'][0]['id']['videoId']
-    @data1 = response['items'][1]['id']['videoId']
-    @data2 = response['items'][2]['id']['videoId']
-
-
-
   end
 
 end
