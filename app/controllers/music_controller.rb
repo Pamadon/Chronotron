@@ -38,8 +38,8 @@ class MusicController < ApplicationController
       time = 60
    end
     # get genre
-    # @genres = RSpotify::Recommendations.available_genre_seeds
-
+    genre = $genre
+    puts $genre
     # initialize variables for generating
     wanted_playlist_time_in_ms = time * 60000
     current_playlist_time = wanted_playlist_time_in_ms;
