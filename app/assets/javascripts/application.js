@@ -15,6 +15,13 @@
 //= require turbolinks
 //= require_tree .
 
+
+$( document ).ready(function() {
+  // hide spinner on AJAX stop
+  $('.hikes-load').ready(function(){
+    $(".spinner").hide();
+  });
+
 var modal = document.getElementById('hpmodal');
 var btn = document.getElementById('modalbtn');
 var span = document.getElementsByClassName('close')[0];
@@ -32,9 +39,5 @@ window.onclick = function(event) {
 		modal.style.display = "none";
 	}
 }
-$( document ).ready(function() {
-  // hide spinner on AJAX stop
-  $('.hikes-load').ready(function(){
-    $(".spinner").hide();
-  });
+
 });
