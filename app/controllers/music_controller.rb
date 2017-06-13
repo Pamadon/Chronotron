@@ -26,8 +26,9 @@ class MusicController < ApplicationController
   end
 
   def show
+    user = @current_user.spotify_hash
 
-    # @user = RSpotify::User.new(@current_user.spotify_hash)
+    # @user = RSpotify::User.new(user)
     # # when we need to have genres available
     # wanted_playlist_time_in_ms = 30 * 60000
     # # @genres = RSpotify::Recommendations.available_genre_seeds
