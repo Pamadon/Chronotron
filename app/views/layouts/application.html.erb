@@ -12,7 +12,12 @@
     <!-- <script src="js/main.js"></script> -->
   </head>
   <body>
-    <%= yield %>
-    <%= content_for :render_async %>
+    <div class="sidebar">
+      <%= render 'layouts/navbar' unless @disable_nav %>
+    </div>
+    <div class="section">
+      <%= yield %>
+      <%= content_for :render_async %>
+    </div>
   </body>
 </html>
