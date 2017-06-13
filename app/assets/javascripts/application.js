@@ -15,6 +15,9 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function(){
+
+
 var modal = document.getElementById('hpmodal');
 var btn = document.getElementById('modalbtn');
 var span = document.getElementsByClassName('close')[0];
@@ -31,10 +34,8 @@ window.onclick = function(event) {
 	}
 };
 
-$(document).ready(function(){
   console.log('spinnaaa');
     $(".spinner").hide();
-});
 
 
 // Creates and returns the div that contains the questions and
@@ -55,7 +56,6 @@ function createQuestionElement(index) {
 
   return qElement;
 }
-
 // Creates a list of the answer choices as radio inputs
 // function createRadios(index) {
 //   var radioList = $('<ul>');
@@ -70,3 +70,6 @@ function createQuestionElement(index) {
 //   }
 //   return radioList;
 // }
+
+
+});
