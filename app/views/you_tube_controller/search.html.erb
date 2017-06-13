@@ -6,3 +6,7 @@
   <%= text_field_tag(:keyWord) %>
   <%= submit_tag("Search") %>
 <% end %>
+
+<%= @data %>
+
+<iframe src='https://www.youtube.com/embed/eq--uvbjoxW3LMk?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
