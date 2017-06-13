@@ -1,5 +1,5 @@
-
 <h1>Chronotron</h1>
+<button id="modalbtn">Instructions</button>
 <div class="time">
 	How much time would you like to waste?
 	<input type="radio" name="time-limit" value="five"> 5 min
@@ -22,12 +22,14 @@
 		<a href="/youtube">Videos</a>
 	</div>
 	<div class="choice">
-		<img src="/images/hike.png">
+		<img class="trail-icon" src="/images/hike.png">
 		<a href="/trail">Trails</a>
 	</div>
 </div>
-<div class="go">
-		<button>Let's go!</button>
+<div id="hpmodal" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<p>Chronotron helps you do something semi-productive with the extra time in your day instead of refreshing your FacePage repeatedly.</p>
+		<p>To get started, choose the amount of time you have to waste. Then select how you'd like to spend that time. You'll be taken to a page with content that will help you fill that time, and you'll also be given suggestions for related content you might enjoy.</p>
+	</div>
 </div>
-
-
