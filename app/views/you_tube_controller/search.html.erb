@@ -7,6 +7,10 @@
 <%= form_tag("/you_tube_controller/search", method: "post") do %>
   <%= label_tag(:keyWord, "Search Youtube") %>
   <%= text_field_tag(:keyWord) %>
+ 	<%= label_tag(:time, "how long?") %>
+  <%= text_field_tag(:time) %>
+	<%= label_tag(:numberVideos, "how many?") %>
+  <%= text_field_tag(:numberVideos) %>
   <%= submit_tag("Search") %>
 <% end %>
 
