@@ -17,27 +17,28 @@
 
 
 
-$(document).ready(function() {
-  console.log('spinnaaa');
-  $(".spinner").hide();
-  var modal = document.getElementById('hpmodal');
-  var btn = document.getElementById('modalbtn');
-  var span = document.getElementsByClassName('close')[0];
 
-  btn.onclick = function() {
-   modal.style.display = "block";
-  };
-  span.onclick = function() {
-    modal.style.display = "none";
-  };
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-   }
-  };
-  
-  // TRIVIA GAME LOGIC
-  var questions = gon.trivia;
+
+$(document).ready(function(){
+var modal = document.getElementById('hpmodal');
+var btn = document.getElementById('modalbtn');
+var span = document.getElementsByClassName('close')[0];
+	btn.onclick = function() {
+		modal.style.display = "block";
+	};
+	span.onclick = function() {
+		modal.style.display = "none";
+	};
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	};
+	// hide spinner on AJAX stop
+  $(document).ajaxStop(function(){
+    $(".spinner").hide();
+  });
+     var questions = gon.trivia;
   console.log(questions);
   var counter = 0;
   var quiz = $('#quiz');
@@ -69,6 +70,7 @@ $(document).ready(function() {
       id: 'question'
     });
 
+
     var header = $('<h2>Question ' + (index + 1) + ':</h2>');
     qElement.append(header);
 
@@ -84,10 +86,7 @@ $(document).ready(function() {
 
       return qElement;
     }
-  });
-
-  //Create a div with either "Correct"/"Wrong" based on user answer
-  function createAnswerElement(index) {
+    function createAnswerElement(index) {
     var aElement = $('<div>', {
       id: 'answer'
     });
@@ -123,10 +122,12 @@ $(document).ready(function() {
     }
   }
 
+
   //Save user's answer
   function choose() {
     selection = $('input[name="answer"]:checked').val();
   }
 
   displayNext();
-}
+
+  });
