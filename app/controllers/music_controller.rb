@@ -38,9 +38,12 @@ class MusicController < ApplicationController
       # defaults to 1 hour if time was undefined
       time = 60
    end
-    # get genre
-    genre = $genre
-
+    # get genre, default dubstep if not selected
+    if ($genre)
+      genre = $genre
+    else
+      genre = "dubstep"
+    end
     # initialize variables for generating
     wanted_playlist_time_in_ms = time * 60000
     current_playlist_time = wanted_playlist_time_in_ms;

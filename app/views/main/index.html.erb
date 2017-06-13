@@ -15,38 +15,32 @@
 		<%= label_tag(:time_limit_60, "1 hr") %>
 		<%= radio_button_tag(:time_limit, "120") %>
 		<%= label_tag(:time_limit_120, "2+ hours") %>
-		<%= submit_tag("Choose your time wisely") %>
 
-	<%if ($time) %>
-		<p>You have <%=$time%> minutes to spare.</p>
-		<p>Now choose a category below:</p>
-	<%end%>
 </div>
 <div class="choices">
 	<div class="choice">
 		<img src="/images/video.png">
-		<a href="/you_tube_controller/search">Videos</a>
-		<p>Dropdown here</p>
+		<p>Videos</p>
+		<p>Dropdown/input here</p>
+		<%=submit_tag "pick videos", name: 'videos'%>
 	</div>
 	<div class="choice">
 		<img src="/images/trivia.png">
-		<a href="/trivia">Trivia</a>
-		<p>Dropdown here</p>
+		<p>Trivia</p>
+		<p>Dropdown/input here</p>
+		<%=submit_tag "pick trivia", name: 'trivia'%>
 	</div>
 	<div class="choice">
 		<img src="/images/music.png">
-		<%= link_to 'Music', '/auth/spotify' %>
-
-
+		<p>Music</p>
 		<%=select_tag(:genre, options_for_select(@genres)) %>
-			<%=submit_tag "pick genre", name: 'music'%>
-
-
+		<%=submit_tag "pick genre", name: 'music'%>
 	</div>
 	<div class="choice">
 		<img class="trail-icon" src="/images/hike.png">
-		<a href="/trail">Trails</a>
-		<p>Dropdown here</p>
+		<p>Trails</p>
+		<p>Dropdown/input here</p>
+		<%=submit_tag "pick trails", name: 'trails'%>
 	</div>
 	<%end%>
 </div>
