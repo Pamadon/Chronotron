@@ -26,35 +26,37 @@ class MusicController < ApplicationController
   end
 
   def show
+    # get user and create RspotifyUser instance
     @user = RSpotify::User.new(session[:spotify_hash])
-    # when we need to have genres available
 
+    # get time from the global variable defined on front page
     time = $time.to_i
     if ($time)
       time = $time.to_i
-    else
+   else
       # defaults to 1 hour if time was undefined
       time = 60
-    end
-
-    wanted_playlist_time_in_ms = time * 60000
+   end
+    # get genre
     # @genres = RSpotify::Recommendations.available_genre_seeds
-    result = RSpotify::Recommendations.generate(limit: 20, seed_genres: ['dubstep'])
-    tracks = result.tracks
 
-    @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")
+    # initialize variables for generating
+    wanted_playlist_time_in_ms = time * 60000
     current_playlist_time = wanted_playlist_time_in_ms;
-    track_counter = 0
+    result = RSpotify::Recommendations.generate(limit: 20, seed_genres: ['dubstep'])
+    @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")
+    tracks = result.tracks
     your_playlist = []
+    track_counter = 0
 
+    # loop that adds songs from recommendations to playlist
     while current_playlist_time > 0 do
       current_track = tracks[track_counter]
       your_playlist.push(current_track)
       track_counter += 1
       current_playlist_time -= current_track.duration_ms
-
     end
-
+    # add final list of tracks to Spotify Playlist
     @playlist.add_tracks!(your_playlist)
   end
 end
