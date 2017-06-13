@@ -53,7 +53,6 @@ class TrailController < ApplicationController
       }
       @weather = JSON.parse(weather_response.body)
       puts  @weather
-      # $hikes[i]['weather'] = 9/5*(@weather['main']['temp']-273)+32
       $hikes[i]['weather'] = ((9*(@weather['main']['temp']-273)/5)+32).round
     end
     render :partial => "maps"
