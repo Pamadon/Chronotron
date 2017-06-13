@@ -26,9 +26,9 @@ class MusicController < ApplicationController
   end
 
   def show
-    user = @current_user.spotify_hash
+    user = @current_user.spotify_hash.gsub(/[{}:]/,'').split(', ').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
 
-    # @user = RSpotify::User.new(user)
+    @user = RSpotify::User.new(user)
     # # when we need to have genres available
     # wanted_playlist_time_in_ms = 30 * 60000
     # # @genres = RSpotify::Recommendations.available_genre_seeds
