@@ -9,10 +9,15 @@
     <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+
   </head>
   <body>
-    <%= yield %>
-    <%= content_for :render_async %>
+    <div class="sidebar">
+      <%= render 'layouts/navbar' unless @disable_nav %>
+    </div>
+    <div class="section">
+      <%= yield %>
+      <%= content_for :render_async %>
+    </div>
   </body>
 </html>
