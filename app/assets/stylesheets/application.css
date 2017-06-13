@@ -31,9 +31,20 @@ a {
 
 h1 {
 	text-align: center;
-	font-family: 'Jura', sans-serif;
 	font-size: 5em;
 	margin-bottom: .2em;
+}
+
+h2 {
+	font-size: 3em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Jura', sans-serif;
 }
 
 .time {
@@ -153,17 +164,37 @@ h1 {
 /* navbar */
 
 .navbar {
-	height: 100vh;
 	width: 20%;
-	background-color: #000;
-	margin-right: 2em;
+	margin-right: 3em;
 	padding: 1em;
 }
 
 .navbar a {
-	color: #fff;
+	color: #000;
 }
 
 .category {
 	width: 100%;
 }
+
+/* Video */
+.video-color {
+	color: #FF0037;
+}
+
+/* Music */
+.music-color {
+	color: #CAFF2D;
+}
+
+/* Trails */
+.trails-color {
+	color: #06D5DB;
+}
+
+/* Trivia */
+
+.trivia-color {
+	color: #FF6600;
+}
+
