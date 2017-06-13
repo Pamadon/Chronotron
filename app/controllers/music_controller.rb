@@ -1,13 +1,33 @@
 class MusicController < ApplicationController
+    before_action :current_user
 
   def spotify
     @user = RSpotify::User.new(request.env['omniauth.auth'])
-    hash = spotify_user.to_hash
+    spotify_hash = @user.to_hash
+    puts "music time"
+    puts $time
+    user = User.find_or_create_by(email: @user.email) do |u|
+      u.email = @user.email
+      u.spotify_hash = spotify_hash
+    end
+
+    session[:user_id] = user.id
+    session[:spotify_hash] = spotify_hash
+    redirect_to '/music'
+  end
+
+  def logout
+     session[:user_id] = nil
+     session[:spotify_hash] = nil
+    redirect_to root_path
+  end
+
+  def failure
+    render plain: 'this is a failure'
   end
 
   def show
-
-    @user = RSpotify::User.new(request.env['omniauth.auth'])
+    @user = RSpotify::User.new(session[:spotify_hash])
     # when we need to have genres available
     wanted_playlist_time_in_ms = 30 * 60000
     # @genres = RSpotify::Recommendations.available_genre_seeds

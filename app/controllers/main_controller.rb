@@ -1,6 +1,8 @@
 class MainController < ApplicationController
-def index
-
-end
+    def index
+      $time = params[:time_limit]
+      puts "root time"
+      puts $time
+    end
 
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'main#index'
-
+  post '/' => 'main#index'
   # ~~~~~~~~~Trails~~~~~~~~~~~
   get '/trail' => 'trail#index'
   post '/trail/show' => 'trail#show'
@@ -15,13 +15,12 @@ Rails.application.routes.draw do
 
   get 'you_tube_controller/main'
 
+  #~~~~~~~~~~~spotify~~~~~~~~~~~~~
+  get '/music' => 'music#show'
+  get '/auth/spotify/callback', to: 'music#spotify'
+  get '/auth/logout' => 'music#logout'
+  get '/auth/failure' => 'music#failure'
 
-
-
-  #~~~~~~~~~~~music~~~~~~~~~~~~~
-  get 'music' => 'music#show'
-  get '/auth/spotify/callback', to: 'music#show'
-  # get '/auth/spotify/callback', to: 'spotify'
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
   get 'trivia' => 'trivia#show'
