@@ -1,3 +1,4 @@
+console.log('main.js')
 function createQuestionElement(index) {
   var qElement = $('<div>', {
     id: 'question'
@@ -29,3 +30,9 @@ function createRadios(index) {
   }
   return radioList;
 }
+$(document).ready(function(){
+  console.log('sjdkfl')
+  $('.spinner').click(function(){
+    console.log('spinnnnnnerrrr')
+  })
+})

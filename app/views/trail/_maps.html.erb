@@ -1,6 +1,6 @@
-<div class="hikes-loaded"></div>
+<div class="hikes-loaded">FFFF</div>
 <%for i in (0...@loops)%>
-	<%if $hikes[i]['distance'] and $hikes[i]['duration']['text'].sub(/\D+/, '').to_i + $hikes[i]['activities'][0]['length'].to_i/3.1*60 <= $time_to_kill%>
+	<%if $hikes[i]['distance'] and $hikes[i]['duration']['text'].sub(/\D+/, '').to_i + $hikes[i]['activities'][0]['length'].to_i/3.1*60 <= $time.to_i%>
 		Name: <span><%=$hikes[i]['name']%></span>
 		<br>
 		Description: <span><%=$hikes[i]['activities'][0]['description']%></span>
