@@ -8,6 +8,9 @@ class YouTubeControllerController < ApplicationController
 
   def search
     @keyWord = params[:keyWord]
+    if $time.to_i <= 20
+      @time == 'short'
+    end
     @time = params[:time]
     @numberVideos = params[:numberVideos]
     puts @keyWord
