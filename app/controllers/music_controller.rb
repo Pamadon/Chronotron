@@ -4,8 +4,7 @@ class MusicController < ApplicationController
   def spotify
     @user = RSpotify::User.new(request.env['omniauth.auth'])
     spotify_hash = @user.to_hash
-    puts "music time"
-    puts $time
+
     user = User.find_or_create_by(email: @user.email) do |u|
       u.email = @user.email
       u.spotify_hash = spotify_hash
@@ -29,7 +28,15 @@ class MusicController < ApplicationController
   def show
     @user = RSpotify::User.new(session[:spotify_hash])
     # when we need to have genres available
+
     time = $time.to_i
+    if ($time)
+      time = $time.to_i
+    else
+      # defaults to 1 hour if time was undefined
+      time = 60
+    end
+
     wanted_playlist_time_in_ms = time * 60000
     # @genres = RSpotify::Recommendations.available_genre_seeds
     result = RSpotify::Recommendations.generate(limit: 20, seed_genres: ['dubstep'])
@@ -40,12 +47,12 @@ class MusicController < ApplicationController
     track_counter = 0
     your_playlist = []
 
-
     while current_playlist_time > 0 do
       current_track = tracks[track_counter]
       your_playlist.push(current_track)
       track_counter += 1
       current_playlist_time -= current_track.duration_ms
+
     end
 
     @playlist.add_tracks!(your_playlist)
