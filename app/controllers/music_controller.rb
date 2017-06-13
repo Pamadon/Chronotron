@@ -11,13 +11,13 @@ class MusicController < ApplicationController
     end
 
     session[:user_id] = user.id
-    puts "-------------------------------------------------------------------"
-    puts session[:user_id]
+    session[:spotify_hash] = spotify_hash
     redirect_to '/music'
   end
 
   def logout
      session[:user_id] = nil
+     session[:spotify_hash] = nil
     redirect_to root_path
   end
 
@@ -26,28 +26,26 @@ class MusicController < ApplicationController
   end
 
   def show
-    user = @current_user.spotify_hash.gsub(/[{}:]/,'').split(', ').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
+    @user = RSpotify::User.new(session[:spotify_hash])
+    # when we need to have genres available
+    wanted_playlist_time_in_ms = 30 * 60000
+    # @genres = RSpotify::Recommendations.available_genre_seeds
+    result = RSpotify::Recommendations.generate(limit: 20, seed_genres: ['iranian'])
+    tracks = result.tracks
 
-    @user = RSpotify::User.new(user)
-    # # when we need to have genres available
-    # wanted_playlist_time_in_ms = 30 * 60000
-    # # @genres = RSpotify::Recommendations.available_genre_seeds
-    # result = RSpotify::Recommendations.generate(limit: 20, seed_genres: ['iranian'])
-    # tracks = result.tracks
+    @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")
+    current_playlist_time = wanted_playlist_time_in_ms;
+    track_counter = 0
+    your_playlist = []
 
-    # @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")
-    # current_playlist_time = wanted_playlist_time_in_ms;
-    # track_counter = 0
-    # your_playlist = []
+    while current_playlist_time > 0 do
+      current_track = tracks[track_counter]
+      your_playlist.push(current_track)
+      track_counter += 1
+      current_playlist_time -= current_track.duration_ms
+      puts current_playlist_time
+    end
 
-    # while current_playlist_time > 0 do
-    #   current_track = tracks[track_counter]
-    #   your_playlist.push(current_track)
-    #   track_counter += 1
-    #   current_playlist_time -= current_track.duration_ms
-    #   puts current_playlist_time
-    # end
-
-    # @playlist.add_tracks!(your_playlist)
+    @playlist.add_tracks!(your_playlist)
   end
 end
