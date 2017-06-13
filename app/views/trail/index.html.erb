@@ -1,5 +1,6 @@
 <div class="category">
 <h1>Search for Hike</h1>
+
 	<%= form_tag("/trail/show", method: "post") do %>
 	  <%= label_tag(:length, "Search for hike by length (miles):") %>
 	  <%= text_field_tag(:length) %>
@@ -10,3 +11,4 @@
 	  <%= submit_tag("Search") %>
 	<% end %>
 </div>
+
