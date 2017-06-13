@@ -15,15 +15,31 @@
 //= require turbolinks
 //= require_tree .
 
+
+
+
 $(document).ready(function(){
-
-
 var modal = document.getElementById('hpmodal');
 var btn = document.getElementById('modalbtn');
 var span = document.getElementsByClassName('close')[0];
-
-  console.log('spinnaaa');
+	btn.onclick = function() {
+		modal.style.display = "block";
+	};
+	span.onclick = function() {
+		modal.style.display = "none";
+	};
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	};
+	// hide spinner on AJAX stop
+  $(document).ajaxStop(function(){
     $(".spinner").hide();
+  });
+});
+
+
 
   btn.onclick = function() {
    modal.style.display = "block";
@@ -40,6 +56,7 @@ var span = document.getElementsByClassName('close')[0];
     var qElement = $('<div>', {
       id: 'question'
     });
+
 
     var header = $('<h2>Question ' + (index + 1) + ':</h2>');
     qElement.append(header);

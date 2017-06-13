@@ -25,7 +25,6 @@ class TrailController < ApplicationController
   end
 
   def maps
-    $time_to_kill = 240
     $hikes.size>10 ? @loops = 10 : @loops = $hikes.size
     for i in (0...@loops)
       map_response = HTTParty.get "https://maps.googleapis.com/maps/api/directions/json", {
