@@ -25,13 +25,9 @@ class TrailController < ApplicationController
   end
 
   def maps
-    puts '~~~~~~~~~~~~~~~in maps ctrl'
-    puts 'hikes size', $hikes.size
-    puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+    $time_to_kill = 240
     $hikes.size>10 ? @loops = 10 : @loops = $hikes.size
     for i in (0...@loops)
-    puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-      puts 'i', i
       map_response = HTTParty.get "https://maps.googleapis.com/maps/api/directions/json", {
           query: {
           origin: $hikes[i]['origin'],
@@ -39,23 +35,17 @@ class TrailController < ApplicationController
           mode: $hikes[i]['mode']
           }
         }
-        puts map_response['status']
         @map = nil
         if map_response.code == 200 and map_response['status'] == "OK"
           @map = JSON.parse(map_response.body)
-          puts 'hike name', $hikes[i]['name'], @map['routes'][0]['legs'][0]['end_address']
           @end_address = @map['routes'][0]['legs'][0]['end_address']
           @distance = @map['routes'][0]['legs'][0]['distance']
           @duration = @map['routes'][0]['legs'][0]['duration']
-          puts @distance, @duration
           $hikes[i]['end_address'] = @end_address
           $hikes[i]['distance'] = @distance
           $hikes[i]['duration'] = @duration
-          puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~'
         end
     end
-    puts '~~~~~~~~~~~~~~~~~~~~~~~~'
-    puts $hikes[@loops]
     render :partial => "maps"
   end
 end
