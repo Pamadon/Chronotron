@@ -8,9 +8,6 @@ class YouTubeControllerController < ApplicationController
 
   def search
     @keyWord = params[:keyWord]
-    if $time.to_i <= 20
-      @time == 'short'
-    end
     @time = params[:time]
     @numberVideos = params[:numberVideos]
     puts @keyWord
@@ -18,7 +15,7 @@ class YouTubeControllerController < ApplicationController
       query: {
           part: 'snippet',
           maxResults: @numberVideos,
-          order: 'rating',
+          order: 'relevance',
           q: @keyWord,
           type: 'video',
           videoDuration: @time,
@@ -31,7 +28,7 @@ class YouTubeControllerController < ApplicationController
       @video_result = JSON.parse(response.body)
         for item in  @video_result['items']
         $videos.push(item['id']['videoId'])
-        puts @video_result
+
         end
      end
     puts $videos[1]

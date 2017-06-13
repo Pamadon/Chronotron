@@ -1,8 +1,4 @@
-<div id="question"></div>
-<%= form_tag do %>
-	<%= radio_button_tag(:answer, "True") %>
-	<%= label_tag(:true, "True") %>
-	<%= radio_button_tag(:answer, "False") %>
-	<%= label_tag(:false, "False") %>
-	<%= submit_tag("Submit") %>
-<% end %>
+<div id="quiz"></div>
+<div class='button' id='next'><a href='#'>Next</a></div>
+<div class='button' id='submit'><a href='#'>Submit</a></div>
+<script src="js/trivia.js"></script>

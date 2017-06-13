@@ -16,7 +16,10 @@
 
 body {
 	font-family: 'Droid Sans', sans-serif ;
+	display: flex;
+	flex-direction: row;
 }
+
 
 a {
 	text-transform: uppercase;
@@ -133,7 +136,8 @@ h1 {
 }
 
 .close {
-	font-size: 1em;
+	font-size: 2em;
+	font-weight: 700;
 	color: black;
 	float: right;
 }
@@ -143,4 +147,15 @@ h1 {
 	color: #9D2EF2;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+/* navbar */
+
+.sidebar {
+	height: 100vh;
+	width: 30%;
+}
+
+.category {
+	width: 70%;
 }
