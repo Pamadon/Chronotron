@@ -133,7 +133,7 @@ h1 {
 }
 
 .close {
-	font-size: 28px;
+	font-size: 1em;
 	color: black;
 	float: right;
 }

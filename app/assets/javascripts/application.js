@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-
 var modal = document.getElementById('hpmodal');
 var btn = document.getElementById('modalbtn');
 var span = document.getElementsByClassName('close')[0];
@@ -36,6 +35,7 @@ $(document).ready(function(){
   console.log('spinnaaa');
     $(".spinner").hide();
 });
+
 
 // Creates and returns the div that contains the questions and
 // the answer selections

@@ -4,11 +4,24 @@
 </div>
 <div class="time">
 	How much time would you like to waste?
-	<input type="radio" name="time-limit" value="five"> 5 min
-	<input type="radio" name="time-limit" value="twenty"> 20 min
-	<input type="radio" name="time-limit" value="fourty"> 40 min
-	<input type="radio" name="time-limit" value="hour"> 1 Hour
-	<input type="radio" name="time-limit" value="two-hour"> 2+ Hours
+	<%= form_tag('/', method: "post") do%>
+		<%= radio_button_tag(:time_limit, "5") %>
+		<%= label_tag(:time_limit_5, "5 min") %>
+		<%= radio_button_tag(:time_limit, "20") %>
+		<%= label_tag(:time_limit_20, "20 mintue") %>
+		<%= radio_button_tag(:time_limit, "40") %>
+		<%= label_tag(:time_limit_40, "40 mintue") %>
+		<%= radio_button_tag(:time_limit, "60") %>
+		<%= label_tag(:time_limit_60, "1 hour") %>
+		<%= radio_button_tag(:time_limit, "120") %>
+		<%= label_tag(:time_limit_120, "2+ hours") %>
+		<%= submit_tag("Choose your time wisely") %>
+	<%end%>
+
+	<%if ($time) %>
+		<p>You have <%=$time%> minutes to spare.</p>
+		<p>Now choose your category!</p>
+	<%end%>
 </div>
 <div class="choices">
 	<div class="choice">
