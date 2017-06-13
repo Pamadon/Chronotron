@@ -38,6 +38,7 @@ class MusicController < ApplicationController
     track_counter = 0
     your_playlist = []
 
+
     while current_playlist_time > 0 do
       current_track = tracks[track_counter]
       your_playlist.push(current_track)
