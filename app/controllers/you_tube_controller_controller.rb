@@ -7,7 +7,7 @@ class YouTubeControllerController < ApplicationController
   end
 
   def search
-    @keyWord = params[:keyWord]
+    @keyWord = params[:keyword]
     @time = params[:time]
     @numberVideos = params[:numberVideos]
     puts @keyWord
@@ -16,7 +16,7 @@ class YouTubeControllerController < ApplicationController
           part: 'snippet',
           maxResults: @numberVideos,
           order: 'relevance',
-          q: @keyWord,
+          q: $video_search,
           type: 'video',
           videoDuration: @time,
           videoEmbeddable: 'true',
