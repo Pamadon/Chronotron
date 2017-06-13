@@ -15,5 +15,26 @@
 //= require turbolinks
 //= require_tree .
 
-// Creates and returns the div that contains the questions and
-// the answer selections
+var modal = document.getElementById('hpmodal');
+var btn = document.getElementById('modalbtn');
+var span = document.getElementsByClassName('close')[0];
+
+btn.onclick = function() {
+	modal.style.display = "block";
+}
+
+span.onclick = function() {
+	modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
+$( document ).ready(function() {
+  // hide spinner on AJAX stop
+  $('.hikes-load').ready(function(){
+    $(".spinner").hide();
+  });
+});
