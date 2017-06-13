@@ -17,9 +17,9 @@
 
 
 $(document).ready(function(){
-var modal = document.getElementById('hpmodal');
-var btn = document.getElementById('modalbtn');
-var span = document.getElementsByClassName('close')[0];
+	var modal = document.getElementById('hpmodal');
+	var btn = document.getElementById('modalbtn');
+	var span = document.getElementsByClassName('close')[0];
 	btn.onclick = function() {
 		modal.style.display = "block";
 	};
@@ -31,10 +31,6 @@ var span = document.getElementsByClassName('close')[0];
 			modal.style.display = "none";
 		}
 	};
-	// hide spinner on AJAX stop
-  $(document).ajaxStop(function(){
-    $(".spinner").hide();
-  });
 });
 
 
