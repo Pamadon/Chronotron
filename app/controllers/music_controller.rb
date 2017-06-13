@@ -4,8 +4,6 @@ class MusicController < ApplicationController
   def spotify
     @user = RSpotify::User.new(request.env['omniauth.auth'])
 
-    puts 'global variables at music are' + $time + $genre
-
     spotify_hash = @user.to_hash
 
     user = User.find_or_create_by(email: @user.email) do |u|
@@ -32,7 +30,7 @@ class MusicController < ApplicationController
     # get user and create RspotifyUser instance
     @user = RSpotify::User.new(session[:spotify_hash])
 
-    # get time from the global variable defined on front page
+    # gets time from the global variable defined on front page
     time = $time.to_i
     if ($time)
       time = $time.to_i
@@ -40,13 +38,16 @@ class MusicController < ApplicationController
       # defaults to 1 hour if time was undefined
       time = 60
    end
-    # get genre
-    genre = $genre
-    puts time, genre
+    # get genre, default dubstep if not selected
+    if ($genre)
+      genre = $genre
+    else
+      genre = "dubstep"
+    end
     # initialize variables for generating
     wanted_playlist_time_in_ms = time * 60000
     current_playlist_time = wanted_playlist_time_in_ms;
-    result = RSpotify::Recommendations.generate(limit: 50, seed_genres: ['dubstep'])
+    result = RSpotify::Recommendations.generate(limit: 50, seed_genres: [genre])
     @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")
     tracks = result.tracks
     your_playlist = []
