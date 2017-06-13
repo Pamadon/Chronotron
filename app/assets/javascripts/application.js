@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// Creates and returns the div that contains the questions and
+// the answer selections

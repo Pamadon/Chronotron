@@ -4,8 +4,8 @@ class TriviaController < ApplicationController
 	end
 
 	def show
-		@trivia =
+		response = HTTParty.get('https://opentdb.com/api.php?amount=1&category=15&type=boolean')
 
-		response = HTTParty.get('https://opentdb.com/api.php?amount=1&category=15')
+		@trivia = response["results"][0]["question"].to_s
 	end
 end

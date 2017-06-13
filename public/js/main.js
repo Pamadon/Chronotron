@@ -1,5 +1,3 @@
-// Creates and returns the div that contains the questions and
-// the answer selections
 function createQuestionElement(index) {
   var qElement = $('<div>', {
     id: 'question'
