@@ -37,6 +37,7 @@ var span = document.getElementsByClassName('close')[0];
   $(document).ajaxStop(function(){
     $(".spinner").hide();
   });
+
 });
 
 
