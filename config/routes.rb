@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'you_tube_controller/main'
 
+
   #~~~~~~~~~~~music~~~~~~~~~~~~~
   get 'music' => 'music#show'
   get '/auth/spotify/callback', to: 'music#show'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
   get 'trivia' => 'trivia#show'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
