@@ -9,6 +9,7 @@ class MainController < ApplicationController
       def choice
       $time = params[:time_limit]
       $genre = params[:genre]
+      $categories = params[:categories]
       $video_search = params[:video_query]
 
       if params[:music]
