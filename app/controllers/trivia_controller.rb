@@ -1,6 +1,5 @@
 class TriviaController < ApplicationController
 	def index
-
 	end
 
 	def show
@@ -11,4 +10,7 @@ class TriviaController < ApplicationController
 
 		gon.trivia = response.body
 	end
+
 end
+
+

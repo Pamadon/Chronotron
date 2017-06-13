@@ -62,4 +62,5 @@ class MusicController < ApplicationController
     # add final list of tracks to Spotify Playlist
     @playlist.add_tracks!(your_playlist)
   end
+
 end
