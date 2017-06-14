@@ -1,19 +1,9 @@
 <div class="hikes-loaded"></div>
 <%for i in (0...@loops)%>
-	<%if $hikes[i]['distance'] and ($hikes[i]['duration']['text'].sub(/\D+/, '').to_i)*2 + $hikes[i]['activities'][0]['length'].to_i/3.1*60 <= $time.to_i%>
+	<%if $hikes[i]['distance'] and ($hikes[i]['duration']['value'].to_i)/60*2 + $hikes[i]['activities'][0]['length'].to_i/3.1*60 <= $time.to_i%>
 		<div class="hike">
 			Name: <span><%=$hikes[i]['name']%></span>
 			<br>
-
-			Origin: <span><%=$hikes[i]['origin']%></span>
-			<br>
-			Mode: <span><%=$hikes[i]['mode']%></span>
-			<br>
-			Mode: <span><%=$hikes[i]['mode']%></span>
-			<br>
-			Duration: <span><%=$hikes[i]['duration']['text']%></span>
-			<br>
-
 			Description: <span><%=$hikes[i]['activities'][0]['description']%></span>
 			<br>
 			Temp: <span><%=$hikes[i]['weather']%></span>
@@ -22,7 +12,7 @@
 			<br>
 			address of hike: <span><%=$hikes[i]['end_address']%></span>
 			<br>
-			Total roundtrip time: <span><%=($hikes[i]['duration']['text'].sub(/\D+/, '').to_i + $hikes[i]['activities'][0]['length'].to_i/3.1*60).round %>minutes</span>
+			Total roundtrip time: <span><%=($hikes[i]['duration']['value'].to_i/60*2 + $hikes[i]['activities'][0]['length'].to_i/3.1*60).round %>minutes</span>
 			<br>
 			<iframe
 			  width="600"
