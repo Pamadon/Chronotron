@@ -4,17 +4,36 @@
 	padding: 2em;
 }
 
+.hikes-loaded h2 {
+	margin-bottom: 1em;
+}
+
 .trail-pg,
 .trails-loading,
 .no-hikes {
 	height: 100vh;
 }
 
+.hike {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.hike-info,
+.map {
+	width: 45%;
+}
+
+.info-bit {
+	margin-bottom: 1em;
+}
+
 .trails-loading {
 	color: #fff;
 }
 
-.trail-search {
+/*.trail-search {
 	box-sizing: border-box;
 	background-color: #fff;
 	width: 50%;
@@ -24,16 +43,13 @@
 
 .trail-search p {
 	margin-top: 0;
-}
+}*/
 
 .hike {
-	width: 70%;
+	width: 80%;
 	padding: 1em;
 	background-color: #fff;
-}
-
-.map {
-
+	margin-bottom: 2em;
 }
 
 .map iframe {
