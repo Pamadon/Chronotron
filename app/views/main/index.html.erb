@@ -20,7 +20,7 @@
 	<div class="choice">
 		<img src="/images/video.png">
 		<p>Videos</p>
-		<%=text_field_tag(:video_query, placeholder="search for a video") %>
+		<%=text_field_tag(:video_query, nil, :placeholder=> "search for a video") %>
 		<%=submit_tag "pick videos", name: 'videos'%>
 	</div>
 	<div class="choice">
@@ -38,7 +38,7 @@
 	<div class="choice">
 		<img class="trail-icon" src="/images/hike.png">
 		<p>Trails</p>
-		<%=text_field_tag(:location, placeholder="enter your location") %>
+		<%=text_field_tag(:location, nil, :placeholder=> "enter your location") %>
 		<%=submit_tag "pick trails", name: 'trails'%>
 		</div>
 		<%end%>
