@@ -31,7 +31,7 @@
       <p>Choose a new video search:</p>
       <%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %>
       <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
-      <%= text_field_tag(:numberVideos, nil,:placeholder=> "Number of Videos", :required=> true) %><br><br>
+      <%= number_field_tag(:numberVideos, nil, min: 5, max: 50) %>
       <%=submit_tag "I'm Ready for Change", name: 'videos'%>
     <%elsif $choice == "trivia"%>
       <p>You're answering <span class="nav-value"><%=$trivia_category%></span> trivia questions.</p>
