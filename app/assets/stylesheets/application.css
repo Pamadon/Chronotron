@@ -86,7 +86,7 @@ h5 {
 }
 
 .choice:nth-child(3) {
-	background-color: #CAFF2D;
+	background-color: #1ED760;
 }
 
 .choice:nth-child(4) {
@@ -164,9 +164,10 @@ h5 {
 /* navbar */
 
 .navbar {
-	width: 20%;
+	width: 30%;
 	margin-right: 3em;
 	padding: 1em;
+	background-color: #fff;
 }
 
 .navbar a {
@@ -177,6 +178,8 @@ h5 {
 	width: 100%;
 }
 
+/* ------- GLOBAL COLORS ------- */
+
 /* Video */
 .video-color {
 	color: #FF0037;
@@ -184,7 +187,7 @@ h5 {
 
 /* Music */
 .music-color {
-	color: #CAFF2D;
+	color: #1ED760;
 }
 
 /* Trails */
