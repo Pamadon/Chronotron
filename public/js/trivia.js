@@ -2,20 +2,22 @@ var questions = (JSON.parse(gon.trivia)).results;
 var counter = 0;
 var quiz = $('#quiz');
 var selection = "";
+var numCorrect = 0;
 var score = 0;
 
 //Submit button functionality
 $('#submit').on('click', function (e) {
   e.preventDefault();
 
-  if (selection === "") {
-  	$('#errMsg').remove();
+  choose();
+  $('#errMsg').remove();
+
+  if (selection === undefined) {
   	quiz.append($('<h3 id="errMsg">Please make a selection</h3>'));
   } else {
   	$('#next').show();
 	  $('#submit').hide();
 
-	  choose();
 	  changeScore(counter);
 	  displayAnswer();
   }
@@ -27,6 +29,7 @@ $('#next').on('click', function (e) {
 
   counter++;
   displayNext();
+
 });
 
 // Creates and returns the div that contains the questions and
@@ -112,7 +115,8 @@ function createAnswerElement(index) {
   var wrong = $('<h3>Wrong!  Answer: '+ questions[index].correct_answer + '</h3>');
 
   if (selection === questions[index].correct_answer) {
-    aElement.append(correct);
+  	aElement.append(correct);
+  	numCorrect++;
   } else {
     aElement.append(wrong);
   }
@@ -149,12 +153,32 @@ function displayNext() {
   if(counter < questions.length){
     var nextQuestion = createQuestionElement(counter);
     quiz.append(nextQuestion);
+  } else {
+  	$('#question').remove();
+
+  	var endScreen = displayEndScreen();
+  	quiz.append(endScreen);
   }
 }
 
 //Save user's answer
 function choose() {
   selection = $('input[name="answer"]:checked').val();
+}
+
+//Creates and returns a div with user's score and replay options
+function displayEndScreen() {
+	var eElement = $('<div>', {
+    id: 'end-screen'
+  });
+
+	var complete = $('<h2>Done!  You answered ' + numCorrect + '/' + questions.length + 'correctly!</h2>');
+  eElement.append(complete);
+
+  var showScore = $('<h3>You got a score of ' + score + '!</h3>');
+  eElement.append(showScore);
+
+  return eElement;
 }
 
 displayNext();
