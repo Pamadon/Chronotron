@@ -42,6 +42,7 @@
 			<img class="trail-icon" src="/images/hike.png">
 			<p>Trails</p>
 			<%=text_field_tag(:location, nil, :placeholder=> "enter your location") %>
+			<%=select_tag(:mode, options_for_select($modes))%>
 			<%=submit_tag "pick trails", name: 'trails'%>
 			</div>
 	</div>

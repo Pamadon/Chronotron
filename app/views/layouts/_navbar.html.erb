@@ -44,6 +44,7 @@
                  <p>Your recreation starting location is <span class="nav-value"><%=$location%></span></p>
                  <p>Start from a new location</p>
                  <%=text_field_tag(:location, nil, :placeholder=> "enter your location") %>
+                 <%=select_tag(:mode, options_for_select($modes))%>
                  <%=submit_tag "pick trails", name: 'trails'%>
             <%end%>
             </p>

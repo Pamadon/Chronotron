@@ -4,6 +4,16 @@
 		<div class="hike">
 			Name: <span><%=$hikes[i]['name']%></span>
 			<br>
+
+			Origin: <span><%=$hikes[i]['origin']%></span>
+			<br>
+			Mode: <span><%=$hikes[i]['mode']%></span>
+			<br>
+			Mode: <span><%=$hikes[i]['mode']%></span>
+			<br>
+			Duration: <span><%=$hikes[i]['duration']['text']%></span>
+			<br>
+
 			Description: <span><%=$hikes[i]['activities'][0]['description']%></span>
 			<br>
 			Temp: <span><%=$hikes[i]['weather']%></span>
@@ -27,7 +37,7 @@
 <div class="no-hikes" hidden> No Hikes/Parks were found for your time allowed</div>
 <script>
 	if($(".hike").length === 0){
-		console.log('no hikes')
+		console.log('no hikes');
 		$('.no-hikes').show();
 	}
 </script>
