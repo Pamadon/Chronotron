@@ -5,7 +5,8 @@
 }
 
 .trail-pg,
-.trails-loading {
+.trails-loading,
+.no-hikes {
 	height: 100vh;
 }
 
@@ -23,4 +24,22 @@
 
 .trail-search p {
 	margin-top: 0;
+}
+
+.hike {
+	width: 70%;
+	padding: 1em;
+	background-color: #fff;
+}
+
+.map {
+
+}
+
+.map iframe {
+	width: 100%;
+}
+
+.no-hikes {
+	margin-top: 3em;
 }
