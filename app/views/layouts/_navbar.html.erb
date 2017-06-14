@@ -1,20 +1,24 @@
 <div class="navbar">
-	<a href="/">&#8592; Return to homepage</a>
+    <img src="/images/robot.png">
+	<h3><a href="/">&#8592;<br>Return to <br>homepage</a></h3>
+    <hr>
 	<div class="time-selected">
-		You chose <%=$time%> minutes
+		<p>You have <span class="nav-value"><%=$time%></span> minutes</p>
 	</div>
 	<div class="param-selected">
-		You chose <%=$choice%>
+		<p>You chose to spend your time on <span class="nav-value"><%=$choice%></span></p>
 	</div>
       <div class="home-search-choice">
+            <p>
             <%if $choice == "music"%>
-                Your music genre is <%=$genre%>
+                You're listening to <span class="nav-value"><%=$genre%></span> music
             <%elsif $choice == "videos"%>
-                Your video search is <%=$video_search%>
+                You're watching <span class="nav-value"><%=$video_search%></span> videos
             <%elsif $choice == "trivia"%>
-                Your trivia category is <%=$trivia_category%>
+                You're answering <span class="nav-value"><%=$trivia_category%></span> trivia questions
             <%elsif $choice == "trails"%>
-                Your recreation starting location is <%=$location%>
+                Your recreation starting location is <span class="nav-value"><%=$location%></span>
             <%end%>
+            </p>
       </div>
 </div>
