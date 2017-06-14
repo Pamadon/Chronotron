@@ -31,6 +31,9 @@ function createQuestionElement(index) {
     id: 'question'
   });
 
+  var displayScore = $('<span>Score: ' + score + '</span>');
+  qElement.append(displayScore);
+
   var header = $('<h2>Question ' + (index + 1) + ':</h2>');
   qElement.append(header);
 
