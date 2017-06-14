@@ -2,49 +2,20 @@ class YouTubeControllerController < ApplicationController
 
   def index
   end
-
-  def show
-  end
-
   def search
     if ($time)
       @wastetime = $time.to_i
     else
       @wastetime = 60
     end
-    if (params[:keyWord])
-       @keyWord = params[:keyWord]
-       $video_search =@keyWord
-    else
-      @keyWord = $video_search
-    end
-
-    if (params[:length] == "short")
-      @time =  "short"
-    elsif (params[:length] == "medium")
-      @time = "medium"
-
-    elsif (params[:length] == "long")
-      @time = "long"
-    else
-      @time = "any"
-    end
-    if (params[:numberVideos])
-      @numberOf = (params[:numberVideos])
-    else
-      @numberOf = 5
-    end
-      # @numberVideos = params[:numberVideos]
-      puts @keyWord
-      puts @time
       response = HTTParty.get('https://www.googleapis.com/youtube/v3/search?', {
         query: {
             part: 'snippet',
-            maxResults: @numberOf,
+            maxResults: $numberVideos,
             order: 'relevance',
-            q: @keyWord,
+            q: $video_search,
             type: 'video',
-            videoDuration: @time,
+            videoDuration: $time,
             videoEmbeddable: 'true',
             key: 'AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'
             }
