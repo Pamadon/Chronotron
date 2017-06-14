@@ -66,7 +66,7 @@ function createQuestionElement(index) {
   var displayScore = $('<span>Score: ' + score + '</span>');
   qElement.append(displayScore);
 
-  var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+  var header = $('<h2>Question ' + (index + 1) + '/' + questions.length + ':</h2>');
   qElement.append(header);
 
   var category = $('<h4>Category: ' + questions[index].category + '</h4>');
