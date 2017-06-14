@@ -37,6 +37,12 @@ $(document).ready(function(){
 		}
 	};
 
+    $('.home-form input').keydown(function (e) {
+      if (e.keyCode == 13) {
+          e.preventDefault();
+          return false;
+      }
+  });
 
 	// hide spinner on AJAX stop
   $(document).ajaxStop(function(){
