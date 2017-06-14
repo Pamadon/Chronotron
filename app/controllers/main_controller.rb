@@ -5,20 +5,20 @@ class MainController < ApplicationController
       $categories = [
         ["Any", nil],
         ["General Knowledge", "9"],
-        ["Entertainment: Books", "10"],
-        ["Entertainment: Film", "11"],
-        ["Entertainment: Music", "12"],
-        ["Entertainment: Musicals & Theatre", "13"],
-        ["Entertainment: Television", "14"],
-        ["Entertainment: Japanese Anime & Manga", "31"],
-        ["Entertainment: Cartoons & Animations", "32"],
-        ["Entertainment: Comics", "29"],
-        ["Entertainment: Video Games", "15"],
-        ["Entertainment: Board Games", "16"],
+        ["Books", "10"],
+        ["Film", "11"],
+        ["Music", "12"],
+        ["Musicals & Theatre", "13"],
+        ["Television", "14"],
+        ["Japanese Anime & Manga", "31"],
+        ["Cartoons & Animations", "32"],
+        ["Comics", "29"],
+        ["Video Games", "15"],
+        ["Board Games", "16"],
         ["Science & Nature", "17"],
-        ["Science: Computers", "18"],
-        ["Science: Mathematics", "19"],
-        ["Science: Gadgets", "30"],
+        ["Computers", "18"],
+        ["Mathematics", "19"],
+        ["Gadgets", "30"],
         ["Mythology", "20"],
         ["Sports", "21"],
         ["Geography", "22"],
@@ -50,7 +50,7 @@ class MainController < ApplicationController
       end
       $video_search = params[:video_query]
       $location = params[:location]
-      puts $location
+
 
       if params[:music]
         $choice = "music"

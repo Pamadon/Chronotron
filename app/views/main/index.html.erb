@@ -29,6 +29,7 @@
 			<img src="/images/trivia.png">
 			<p>Trivia</p>
 			<%=select_tag(:categories, options_for_select($categories))%>
+			<%=select_tag(:difficulties, options_for_select($difficulty))%>
 			<%=submit_tag "pick trivia", name: 'trivia'%>
 		</div>
 		<div class="choice">
