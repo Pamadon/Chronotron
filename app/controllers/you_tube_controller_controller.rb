@@ -15,7 +15,7 @@ class YouTubeControllerController < ApplicationController
             order: 'relevance',
             q: $video_search,
             type: 'video',
-            videoDuration: $time,
+            videoDuration: $video_length,
             videoEmbeddable: 'true',
             key: 'AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'
             }

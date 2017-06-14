@@ -50,14 +50,13 @@ class MainController < ApplicationController
         $trivia_category = find_trivia_category($category)
       end
       if (params[:length] == "short")
-        $time =  "short"
+        $video_length =  "short"
       elsif (params[:length] == "medium")
-        $time = "medium"
-
+        $video_length = "medium"
       elsif (params[:length] == "long")
-        $time = "long"
+        $video_length = "long"
       else
-        $time = "any"
+        $video_length = "any"
       end
       $numberVideos = params[:numberVideos]
       $video_search = params[:video_query]
