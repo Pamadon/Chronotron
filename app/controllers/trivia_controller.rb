@@ -3,15 +3,13 @@ class TriviaController < ApplicationController
 	end
 
 	def show
-		# response = HTTParty.get('https://opentdb.com/api.php?', {
-		# 	query: {
-		# 		amount: ,
-		# 		category: ,
-		# 		difficulty: ,
-		# 	}
-		# })
-
-		response = HTTParty.get('https://opentdb.com/api.php?amount=10&type=multiple')
+		response = HTTParty.get('https://opentdb.com/api.php?', {
+			query: {
+				amount: '50',
+				category: $category,
+				difficulty: $difficulty,
+			}
+		})
 
 		gon.trivia = response.body
 	end

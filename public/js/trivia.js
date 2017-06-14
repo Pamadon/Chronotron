@@ -2,6 +2,7 @@ var questions = (JSON.parse(gon.trivia)).results;
 var counter = 0;
 var quiz = $('#quiz');
 var selection = "";
+var score = 0;
 
 //Submit button functionality
 $('#submit').on('click', function (e) {
@@ -11,6 +12,7 @@ $('#submit').on('click', function (e) {
   $('#submit').hide();
 
   choose();
+  changeScore(counter);
   displayAnswer();
 });
 
@@ -99,7 +101,7 @@ function createAnswerElement(index) {
   });
 
   var correct = $('<h3>Correct!</h3>');
-  var wrong = $('<h3>Wrong!</h3>');
+  var wrong = $('<h3>Wrong!  Answer: '+ questions[index].correct_answer + '</h3>');
 
   if (selection === questions[index].correct_answer) {
     aElement.append(correct);
@@ -114,6 +116,18 @@ function createAnswerElement(index) {
 function displayAnswer() {
   var answer = createAnswerElement(counter);
   quiz.append(answer);
+}
+
+function changeScore(index) {
+	if (selection === questions[index].correct_answer) {
+    if (questions[index].difficulty === "easy") {
+ 			score += 100;
+    } else if (questions[index].difficulty === "medium") {
+    	score += 250;
+    } else if (questions[index].difficulty === "hard") {
+    	score += 500;
+    }
+  }
 }
 
 //Show next question
