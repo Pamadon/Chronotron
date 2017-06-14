@@ -3,7 +3,6 @@ class TrailController < ApplicationController
   end
 
   def show
-    @length = params[:length]
     puts params[:mode]
     hike_response = HTTParty.get "https://trailapi-trailapi.p.mashape.com/?limit=25&q[activities_activity_type_name_eq]=hiking&q[state_cont]=Washington&radius=25",
       headers:{
@@ -14,11 +13,9 @@ class TrailController < ApplicationController
   	if hike_response.code == 200
       @hike_result = JSON.parse(hike_response.body)
       for place in @hike_result['places']
-        if place['activities'][0]['length'].to_i <= @length.to_i
           place['mode'] = params[:mode]
           place['origin'] = $location
           $hikes.push(place)
-        end
       end
   	end
 		# puts response.body, response.code, response.message, response.headers.inspect
