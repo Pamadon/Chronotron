@@ -19,6 +19,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	margin: 0;
+	width: 100%;
 }
 
 
@@ -101,22 +102,8 @@ h5 {
 	background-color: #06D5DB;
 }
 
-
 .trail-icon {
 	margin-top: 1em;
-}
-
-.go {
-	margin-top: 2em;
-	text-align: center;
-}
-
-.go button {
-		padding: 20px;
-		border: none;
-		font-family: 'Jura', sans-serif;
-		font-weight: 700;
-		font-size: 2em;
 }
 
 /* MODAL */
@@ -172,7 +159,9 @@ h5 {
 /* navbar */
 
 .navbar {
-	width: 30%;
+	width: 200px;
+	max-width: 30%;
+	height: 100vh;
 	padding: 1em;
 	background-color: #fff;
 }
@@ -194,7 +183,12 @@ h5 {
 }
 
 .category {
+	margin: 0;
+}
+
+.section {
 	width: 100%;
+	margin: 0;
 }
 
 /* ------- GLOBAL COLORS ------- */
