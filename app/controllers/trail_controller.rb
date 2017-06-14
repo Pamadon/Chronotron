@@ -16,7 +16,7 @@ class TrailController < ApplicationController
       for place in @hike_result['places']
         if place['activities'][0]['length'].to_i <= @length.to_i and place['activities'][0]['length'].to_i > 0
           place['mode'] = params[:mode]
-          place['origin'] = params[:origin]
+          place['origin'] = $location
           $hikes.push(place)
         end
       end
