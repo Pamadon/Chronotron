@@ -1,7 +1,11 @@
+<h2 class="trivia-color">Chronotron Trivia</h2>
 <div id="quiz"></div>
-<div class='button' id='next'><a href='#'>Next</a></div>
-<div class='button' id='submit'><a href='#'>Submit</a></div>
+<div class='trivia-btn button' id='next'><a href='#'>Next</a></div>
+<div class='trivia-btn button' id='submit'><a href='#'>Submit</a></div>
 <script src="js/trivia.js"></script>
+
+
+
 <%= render_async you_tube_controller_tubeSearch_path%>
  <% for link in $relatedV do %>
     <div>
@@ -9,3 +13,4 @@
       </iframe>
     </div>
     <%end%>
+

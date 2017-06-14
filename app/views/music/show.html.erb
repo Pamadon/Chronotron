@@ -1,6 +1,18 @@
-<p>Hi, <%=@user.email%></p>
 
-<iframe src="https://open.spotify.com/embed?uri=<%=@playlist.uri%>" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+<div class="category music-pg">
+	<h2 class="music-header">Chronotron Music</h2>
+	<h4>Powered by <i class="fa fa-spotify" aria-hidden="true"></i> Spotify</h4>
+	<div class="spotify-intro">
+		<p>Awesome! You've logged in with Spotify using your <%=@user.email%> account.</p>
+		<p>Below you'll find a custom playlist created by Chronotron for your chosen genre and the time you have available to jam out. Your playlist is automatically saved to your Spotify profile, so you can listen to this combo again later, or share it wth your friends. Need a new genre or time limit? You can make changes in the sidebar on the left.</p>
+		<p class="disclaimer">&#42; Please note that because of the way Spotify embeds are created, your playlist may open in a new tab.</p>
+	</div>
+	<div class="music-embed">
+		<iframe src="https://open.spotify.com/embed?uri=<%=@playlist.uri%>" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+	</div>
+
+
+
 
 <%= render_async you_tube_controller_tubeSearch_path%>
  <% for link in $relatedV do %>
@@ -9,3 +21,4 @@
       </iframe>
     </div>
     <%end%>
+ </div>
