@@ -39,23 +39,33 @@ function createQuestionElement(index) {
     id: 'question'
   });
 
-  var displayScore = $('<span>Score: ' + score + '</span>');
-  qElement.append(displayScore);
+  var qElementA = $('<div>', {
+    id: 'question-data'
+  });
 
-  var header = $('<h2>Question ' + (index + 1) + ':</h2>');
-  qElement.append(header);
-
-  var category = $('<h4>Category: ' + questions[index].category + '</h4>');
-  qElement.append(category);
-
-  var difficulty = $('<h4>Difficulty: ' + questions[index].difficulty + '</h4>');
-  qElement.append(difficulty);
+  var header = $('<h3>Question ' + (index + 1) + '</h3>');
+  qElementA.append(header);
 
   var question = $('<p>').append(questions[index].question);
-  qElement.append(question);
+  qElementA.append(question);
 
   var radios = createRadios(index);
-  qElement.append(radios);
+  qElementA.append(radios);
+
+  var qElementB = $('<div>', {
+    id: 'question-cat'
+  });
+
+  var category = $('<h4>Category:</h4>' + '<p>' + questions[index].category + '</p>');
+  qElementB.append(category);
+
+  var difficulty = $('<h4>Difficulty:</h4>' + '<p>' + questions[index].difficulty + '</p>');
+  qElementB.append(difficulty);
+
+  var displayScore = $('<span>Score: ' + score + '</span>');
+  qElementB.append(displayScore);
+
+  qElement.append(qElementA).append(qElementB);
 
   return qElement;
 }
@@ -111,8 +121,8 @@ function createAnswerElement(index) {
     id: 'answer'
   });
 
-  var correct = $('<h3>Correct!</h3>');
-  var wrong = $('<h3>Wrong!  Answer: '+ questions[index].correct_answer + '</h3>');
+  var correct = $('<h4>Correct!</h4>');
+  var wrong = $('<h4>Wrong! The correct answer was: '+ questions[index].correct_answer + '</h4>');
 
   if (selection === questions[index].correct_answer) {
   	aElement.append(correct);
@@ -172,7 +182,7 @@ function displayEndScreen() {
     id: 'end-screen'
   });
 
-	var complete = $('<h2>Done!  You answered ' + numCorrect + '/' + questions.length + 'correctly!</h2>');
+	var complete = $('<h3>Quiz Complete! You answered ' + numCorrect + '/' + questions.length + 'correctly!</h2>');
   eElement.append(complete);
 
   var showScore = $('<h3>You got a score of ' + score + '!</h3>');
