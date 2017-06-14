@@ -1,53 +1,48 @@
 <div class="navbar">
-    <img src="/images/robot.png">
-    <h3><a href="/">&#8592;<br>Return to <br>homepage</a></h3>
-    <hr>
-    <div class="time-selected">
-       <p>You have <span class="nav-value"><%=$time%></span> minutes</p>
-
-       <p>Choose a new time:</p>
-       <%= form_tag('/', method: "post", :class => "home-form") do%>
-          <%= radio_button_tag(:time_limit, "5") %>
-          <%= label_tag(:time_limit_5, "5 min") %>
-          <%= radio_button_tag(:time_limit, "20") %>
-          <%= label_tag(:time_limit_20, "20 min") %>
-          <%= radio_button_tag(:time_limit, "40") %>
-          <%= label_tag(:time_limit_40, "40 min") %>
-          <%= radio_button_tag(:time_limit, "60", true) %>
-          <%= label_tag(:time_limit_60, "1 hr") %>
-          <%= radio_button_tag(:time_limit, "120") %>
-          <%= label_tag(:time_limit_120, "2 hours") %>
-          <%= radio_button_tag(:time_limit, "300") %>
-          <%= label_tag(:time_limit_300, "5+ hours") %>
-       </div>
-        <div class="param-selected">
-	<p>You chose to spend your time on <span class="nav-value"><%=$choice%></span></p>
-        </div>
-        <div class="home-search-choice">
-            <p>
-            <%if $choice == "music"%>
-                <p>You're listening to <span class="nav-value"><%=$genre%></span> music</p>
-                <p>Choose a different genre</p>
-                <%=select_tag(:genre, options_for_select($genres)) %>
-                <%=submit_tag "choose genre", name: 'music'%>
-            <%elsif $choice == "videos"%>
-                <p>You're watching <span class="nav-value"><%=$video_search%></span> videos</p>
-                <p>Choose a different video search</p>
-                <%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %>
-                <%=submit_tag "pick videos", name: 'videos'%>
-            <%elsif $choice == "trivia"%>
-                <p>You're answering <span class="nav-value"><%=$trivia_category%></span> trivia questions</p>
-                <p>Choose a different trivia category</p>
-                <%=select_tag(:categories, options_for_select($categories))%>
-                <%=submit_tag "pick trivia", name: 'trivia'%>
-            <%elsif $choice == "trails"%>
-                 <p>Your recreation starting location is <span class="nav-value"><%=$location%></span></p>
-                 <p>Start from a new location</p>
-                 <%=text_field_tag(:location, nil, :placeholder=> "enter your location") %>
-                 <%=submit_tag "pick trails", name: 'trails'%>
-            <%end%>
-            </p>
-       </div>
-
-      <%end%>
+  <img src="/images/robot.png">
+  <h3><a href="/">&#8592;<br>Return to <br>homepage</a></h3>
+  <div class="time-selected">
+    <p class="chosen">You chose to spend <span class="nav-value"><%=$time%></span> minutes on <span class="nav-value"><%=$choice%></span>.</p>
+    <p class="change">Want to switch it up?</p>
+    <p>Choose a new length of time:</p>
+      <%= form_tag('/', method: "post", :class => "home-form") do%>
+        <%= radio_button_tag(:time_limit, "5") %>
+        <%= label_tag(:time_limit_5, "5 min") %><br>
+        <%= radio_button_tag(:time_limit, "20") %>
+        <%= label_tag(:time_limit_20, "20 min") %><br>
+        <%= radio_button_tag(:time_limit, "40") %>
+        <%= label_tag(:time_limit_40, "40 min") %><br>
+        <%= radio_button_tag(:time_limit, "60", true) %>
+        <%= label_tag(:time_limit_60, "1 hr") %><br>
+        <%= radio_button_tag(:time_limit, "120") %>
+        <%= label_tag(:time_limit_120, "2 hours") %><br>
+        <%= radio_button_tag(:time_limit, "300") %>
+        <%= label_tag(:time_limit_300, "5+ hours") %>
+  </div>
+  <div class="home-search-choice">
+    <p>
+    <%if $choice == "music"%>
+      <p>You're currently listening to <span class="nav-value"><%=$genre%></span> music.</p>
+      <p>Choose a new genre:
+      <%=select_tag(:genre, options_for_select($genres)) %></p>
+      <%=submit_tag "I'm Ready for Change", name: 'music'%>
+    <%elsif $choice == "videos"%>
+      <p>You're watching <span class="nav-value"><%=$video_search%></span> videos.</p>
+      <p>Choose a new video search:
+      <%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %></p>
+      <%=submit_tag "I'm Ready for Change", name: 'videos'%>
+    <%elsif $choice == "trivia"%>
+      <p>You're answering <span class="nav-value"><%=$trivia_category%></span> trivia questions.</p>
+      <p>Choose a new trivia category:
+      <%=select_tag(:categories, options_for_select($categories))%></p>
+      <%=submit_tag "I'm Ready for Change", name: 'trivia'%>
+    <%elsif $choice == "trails"%>
+      <p>Your recreation starting location is <span class="nav-value"><%=$location%></span>.</p>
+      <p>Start from a new location:
+      <%=text_field_tag(:location, nil, :placeholder=> "enter your location") %></p>
+      <%=submit_tag "I'm Ready for Change", name: 'trails'%>
+    <%end%>
+    </p>
+  </div>
+  <%end%>
 </div>
