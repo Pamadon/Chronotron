@@ -35,8 +35,6 @@ class YouTubeControllerController < ApplicationController
   end
 
   def tubeSearch
-
-
     response1 = HTTParty.get('https://www.googleapis.com/youtube/v3/search?', {
       query: {
           part: 'snippet',
