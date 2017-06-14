@@ -34,5 +34,31 @@ class YouTubeControllerController < ApplicationController
     puts $videos[1]
   end
 
+  def tubeSearch
+
+
+    response1 = HTTParty.get('https://www.googleapis.com/youtube/v3/search?', {
+      query: {
+          part: 'snippet',
+          maxResults: '5',
+          order: 'relevance',
+          q: 'dogs',
+          type: 'video',
+          videoDuration: 'short',
+          videoEmbeddable: 'true',
+          key: 'AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'
+          }
+    })
+    $relatedV = []
+    if response1.code == 200
+      @results = JSON.parse(response1.body)
+        for item in  @results['items']
+        $relatedV.push(item['id']['videoId'])
+
+        end
+     end
+    puts $relatedV
+  end
+
 end
 
