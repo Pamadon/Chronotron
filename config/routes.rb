@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'you_tube_controller/search'
   post 'you_tube_controller/search'
   get 'you_tube_controller/main'
+  get 'you_tube_controller/tubeSearch'
 
   #~~~~~~~~~~~spotify~~~~~~~~~~~~~
   get '/music' => 'music#show'
