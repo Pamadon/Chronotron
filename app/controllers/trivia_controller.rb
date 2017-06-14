@@ -3,9 +3,15 @@ class TriviaController < ApplicationController
 	end
 
 	def show
+		if $time == '5'
+			@amount = 25
+		else
+			@amount = 50
+		end
+
 		response = HTTParty.get('https://opentdb.com/api.php?', {
 			query: {
-				amount: '50',
+				amount: @amount,
 				category: $category,
 				difficulty: $difficulty,
 			}

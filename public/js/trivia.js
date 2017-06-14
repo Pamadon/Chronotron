@@ -121,6 +121,7 @@ function displayAnswer() {
   quiz.append(answer);
 }
 
+//Update a user's score, based on question difficulty
 function changeScore(index) {
 	if (selection === questions[index].correct_answer) {
     if (questions[index].difficulty === "easy") {
