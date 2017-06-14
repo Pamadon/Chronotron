@@ -29,6 +29,10 @@ a {
 	font-family: 'Jura', sans-serif;
 }
 
+a:hover {
+	color: #9D2EF2
+}
+
 h1 {
 	text-align: center;
 	font-size: 5em;
@@ -37,6 +41,10 @@ h1 {
 
 h2 {
 	font-size: 3em;
+}
+
+h3 {
+	font-size: 1.5em;
 }
 
 h1,
@@ -86,7 +94,7 @@ h5 {
 }
 
 .choice:nth-child(3) {
-	background-color: #CAFF2D;
+	background-color: #1ED760;
 }
 
 .choice:nth-child(4) {
@@ -164,18 +172,32 @@ h5 {
 /* navbar */
 
 .navbar {
-	width: 20%;
-	margin-right: 3em;
+	width: 30%;
 	padding: 1em;
+	background-color: #fff;
 }
 
 .navbar a {
 	color: #000;
 }
 
+.navbar a:hover {
+	color: #9D2EF2
+}
+
+.navbar img {
+	width: 80%;
+}
+
+.nav-value {
+	font-weight: 700;
+}
+
 .category {
 	width: 100%;
 }
+
+/* ------- GLOBAL COLORS ------- */
 
 /* Video */
 .video-color {
@@ -184,7 +206,7 @@ h5 {
 
 /* Music */
 .music-color {
-	color: #CAFF2D;
+	color: #1ED760;
 }
 
 /* Trails */

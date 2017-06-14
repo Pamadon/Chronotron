@@ -38,6 +38,8 @@ gem 'httparty'
 
 gem 'foreman'
 
+gem 'watir-webdriver', '~> 0.9.9'
+
 gem 'render_async', '~> 0.1.2'
 
 gem 'rspotify', git: 'https://github.com/guilhermesad/rspotify.git'
@@ -52,6 +54,7 @@ gem 'htmlentities'
 
 gem 'gon'
 
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

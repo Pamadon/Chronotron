@@ -1,10 +1,6 @@
 <div class="category">
 <h2>Search for Hike</h2>
 	<%= form_tag("/trail/show", method: "post") do %>
-	  <%= label_tag(:length, "Search for hike by length (miles):") %>
-	  <%= text_field_tag(:length) %>
-	  <%= label_tag(:origin, "Map Start:") %>
-	  <%= text_field_tag(:origin) %>
 	  <%= label_tag(:mode, "Mode:") %>
 	  <%= select_tag(:mode, options_for_select([['walking', 'walking'], ['driving', 'driving'], ['bicycling', 'bicycling']]))%>
 	  <%= submit_tag("Search") %>

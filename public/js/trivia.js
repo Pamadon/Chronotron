@@ -1,8 +1,8 @@
-//TRIVIA GAME LOGIC
 var questions = (JSON.parse(gon.trivia)).results;
 var counter = 0;
 var quiz = $('#quiz');
 var selection = "";
+var score = 0;
 
 //Submit button functionality
 $('#submit').on('click', function (e) {
@@ -12,6 +12,7 @@ $('#submit').on('click', function (e) {
   $('#submit').hide();
 
   choose();
+  changeScore(counter);
   displayAnswer();
 });
 
@@ -30,29 +31,80 @@ function createQuestionElement(index) {
     id: 'question'
   });
 
+  var displayScore = $('<span>Score: ' + score + '</span>');
+  qElement.append(displayScore);
 
   var header = $('<h2>Question ' + (index + 1) + ':</h2>');
   qElement.append(header);
 
+  var category = $('<h4>Category: ' + questions[index].category + '</h4>');
+  qElement.append(category);
+
+  var difficulty = $('<h4>Difficulty: ' + questions[index].difficulty + '</h4>');
+  qElement.append(difficulty);
+
   var question = $('<p>').append(questions[index].question);
   qElement.append(question);
 
-  var true_input = '<input type="radio" id="true" name="answer" value="True" />';
-  var true_label = '<label for="true">True</label>';
-  var false_input = '<input type="radio" id="false" name="answer" value="False" />';
-  var false_label = '<label for="false">False</label>';
+  var radios = createRadios(index);
+  qElement.append(radios);
 
-  qElement.append(true_input).append(true_label).append(false_input).append(false_label);
+  return qElement;
+}
 
-    return qElement;
-  }
-  function createAnswerElement(index) {
+//Creates and returns a divs with the answer options as radio inputs
+function createRadios(index) {
+	var radioList =$('<ul>');
+	var item;
+	var input = '';
+	var label = '';
+	var choices = [];
+
+	choices.push(questions[index].correct_answer);
+	questions[index].incorrect_answers.forEach(function(answer) {
+		choices.push(answer);
+	});
+
+	shuffle(choices);
+
+	choices.forEach(function(option) {
+     item = $('<li>');
+     input = '<input type="radio" id="' + option + '" name="answer" value="' + option + '" />';
+     label = '<label for="' + option + '" >' + option + '</label>';
+     item.append(input);
+     item.append(label);
+     radioList.append(item);
+  });
+
+  return radioList;
+}
+
+//Shuffle the choices so the answer isn't always in the same spot
+function shuffle(array) {
+	var index = array.length;
+	var randomIndex;
+	var temp;
+
+	while (0 !== index) {
+		randomIndex = Math.floor(Math.random() * index);
+		index -= 1;
+
+		temp = array[index];
+		array[index] = array[randomIndex];
+		array[randomIndex] = temp;
+	}
+
+	return array;
+}
+
+//Creates and returns a div with "Correct"/"Wrong"
+function createAnswerElement(index) {
   var aElement = $('<div>', {
     id: 'answer'
   });
 
   var correct = $('<h3>Correct!</h3>');
-  var wrong = $('<h3>Wrong!</h3>');
+  var wrong = $('<h3>Wrong!  Answer: '+ questions[index].correct_answer + '</h3>');
 
   if (selection === questions[index].correct_answer) {
     aElement.append(correct);
@@ -69,6 +121,19 @@ function displayAnswer() {
   quiz.append(answer);
 }
 
+//Update a user's score, based on question difficulty
+function changeScore(index) {
+	if (selection === questions[index].correct_answer) {
+    if (questions[index].difficulty === "easy") {
+ 			score += 100;
+    } else if (questions[index].difficulty === "medium") {
+    	score += 250;
+    } else if (questions[index].difficulty === "hard") {
+    	score += 500;
+    }
+  }
+}
+
 //Show next question
 function displayNext() {
   $('#next').hide();
@@ -81,7 +146,6 @@ function displayNext() {
     quiz.append(nextQuestion);
   }
 }
-
 
 //Save user's answer
 function choose() {
