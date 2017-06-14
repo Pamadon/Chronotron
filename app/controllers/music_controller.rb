@@ -47,18 +47,18 @@ class MusicController < ApplicationController
     # initialize variables for generating
     wanted_playlist_time_in_ms = time * 60000
     current_playlist_time = wanted_playlist_time_in_ms;
-    result = RSpotify::Recommendations.generate(limit: 50, seed_genres: [genre])
+    result = RSpotify::Recommendations.generate(limit: 100, seed_genres: [genre])
     @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")
     tracks = result.tracks
     your_playlist = []
     track_counter = 0
-
+    current_track = tracks[track_counter]
     # loop that adds songs from recommendations to playlist
-    while current_playlist_time > 0 do
-      current_track = tracks[track_counter]
+    while current_playlist_time > 0  && current_track do
       your_playlist.push(current_track)
       track_counter += 1
       current_playlist_time -= current_track.duration_ms
+      current_track = tracks[track_counter]
     end
     # add final list of tracks to Spotify Playlist
     @playlist.add_tracks!(your_playlist)
