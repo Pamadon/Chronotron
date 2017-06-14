@@ -1,9 +1,20 @@
 <div class="navbar">
 	<a href="/">&#8592; Return to homepage</a>
 	<div class="time-selected">
-		You have x time left
+		You chose <%=$time%> minutes
 	</div>
 	<div class="param-selected">
-		You chose x
+		You chose <%=$choice%>
 	</div>
+      <div class="home-search-choice">
+            <%if $choice == "music"%>
+                Your music genre is <%=$genre%>
+            <%elsif $choice == "videos"%>
+                Your video search is <%=$video_search%>
+            <%elsif $choice == "trivia"%>
+                Your trivia category is <%=$category%>
+            <%elsif $choice == "trails"%>
+                Your recreation starting location is <%=$location%>
+            <%end%>
+      </div>
 </div>
