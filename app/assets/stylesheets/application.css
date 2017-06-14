@@ -182,6 +182,19 @@ h5 {
 	font-weight: 700;
 }
 
+.chosen {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+.change {
+	font-size: 1.1em;
+}
+
 .category {
 	margin: 0;
 }
