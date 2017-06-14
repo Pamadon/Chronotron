@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # ~~~~~~~~~Trails~~~~~~~~~~~
   get '/trail' => 'trail#index'
   post '/trail/show' => 'trail#show'
+  get '/trail/show' => 'trail#show'
   get '/trail/maps'  => 'trail#maps'
 
   #~~~~~~~~~~~youtube~~~~~~~~~~~~~
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'music#spotify'
   get '/auth/logout' => 'music#logout'
   get '/auth/failure' => 'music#failure'
-
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
   get 'trivia' => 'trivia#show'

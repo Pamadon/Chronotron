@@ -1,34 +1,43 @@
-<div class="hikes-loaded"></div>
+<div class="hikes-loaded">
+<h2>Chronotron Outdoors</h2>
 <%for i in (0...@loops)%>
 	<%if $hikes[i]['distance'] and ($hikes[i]['duration']['text'].sub(/\D+/, '').to_i)*2 + $hikes[i]['activities'][0]['length'].to_i/3.1*60 <= $time.to_i%>
 		<div class="hike">
-			Name: <span><%=$hikes[i]['name']%></span>
-			<br>
-			Description: <span><%=$hikes[i]['activities'][0]['description']%></span>
-			<br>
-			Temp: <span><%=$hikes[i]['weather']%></span>
-			<br>
-			length of hike: <span><%=$hikes[i]['activities'][0]['length']%></span>
-			<br>
-			address of hike: <span><%=$hikes[i]['end_address']%></span>
-			<br>
-			Total roundtrip time: <span><%=($hikes[i]['duration']['text'].sub(/\D+/, '').to_i + $hikes[i]['activities'][0]['length'].to_i/3.1*60).round %>minutes</span>
-			<br>
-			<iframe
-			  width="600"
-			  height="450"
-			  frameborder="0" style="border:0"
-			  src= <%='https://www.google.com/maps/embed/v1/place?key='+ENV['MAP_EMBED_KEY']+'&q='+$hikes[i]['lat'].to_s+','+$hikes[i]['lon'].to_s%> allowfullscreen>
-			</iframe>
-			<hr>
+			<h3><span><%=$hikes[i]['name']%></span></h3>
+			<div class="temp">
+				Current Temp: <span><%=$hikes[i]['weather']%></span>&#x2109;
+			</div>
+			<div class="length">
+				Length of Hike: <span><%=$hikes[i]['activities'][0]['length']%></span> miles
+			</div>
+			<div class="roundtrip">
+				Total time roundtrip: <span><%=($hikes[i]['duration']['text'].sub(/\D+/, '').to_i + $hikes[i]['activities'][0]['length'].to_i/3.1*60).round %>minutes</span>
+			</div>
+			<div class="address">
+				Address: <span><%=$hikes[i]['end_address']%></span>
+			</div>
+			<div class="description">
+				<span><%=$hikes[i]['activities'][0]['description']%></span>
+			</div>
+			<div class="map">
+				<iframe
+				  width="600"
+				  height="450"
+				  frameborder="0" style="border:0"
+				  src= <%='https://www.google.com/maps/embed/v1/place?key='+ENV['MAP_EMBED_KEY']+'&q='+$hikes[i]['lat'].to_s+','+$hikes[i]['lon'].to_s%> allowfullscreen>
+				</iframe>
+			</div>
 		</div>
 	<%end%>
 <%end%>
-<div class="no-hikes" hidden> No Hikes/Parks were found for your time allowed</div>
+<div class="no-hikes" hidden>
+	<h3>Does Not Compute</h3>
+	<h4>Chronotron couldn't find any hikes or parks that fit your time constraints. Use the sidebar, or <a href="/">return to the homepage</a>, to search again.</h4>
+</div>
 <script>
 	if($(".hike").length === 0){
 		console.log('no hikes')
 		$('.no-hikes').show();
 	}
 </script>
-
+</div>

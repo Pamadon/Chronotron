@@ -1,16 +1,6 @@
 <div class="category video">
   <div class="search">
     <h2 class="video-color">Search Youtube</h2>
-    <%= @data %>
-    <%= form_tag("/you_tube_controller/search", method: "post") do %>
-      <%= label_tag(:keyWord, "Search Youtube") %>
-      <%= text_field_tag(:keyWord, $video_search) %>
-   	  <%= label_tag(:length, "Video Length:") %>
-      <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
-  	  <%= label_tag(:numberVideos, "how many?") %>
-      <%= text_field_tag(:numberVideos, nil, :required=> true) %>
-      <%= submit_tag("Search") %>
-    <% end %>
   </div>
   <div class="videos-back">
     <% for link in $videos do %>

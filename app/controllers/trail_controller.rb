@@ -3,7 +3,9 @@ class TrailController < ApplicationController
   end
 
   def show
-    puts params[:mode]
+    if !params[:mode]
+      @disable_nav = true
+    end
     hike_response = HTTParty.get "https://trailapi-trailapi.p.mashape.com/?limit=25&q[activities_activity_type_name_eq]=hiking&q[state_cont]=Washington&radius=25",
       headers:{
         "X-Mashape-Key" => "gKkZRWGHnsmsh9H4030c2YJirj8mp1co61Djsntmdy8iYTxtf7",
@@ -13,12 +15,11 @@ class TrailController < ApplicationController
   	if hike_response.code == 200
       @hike_result = JSON.parse(hike_response.body)
       for place in @hike_result['places']
-          place['mode'] = params[:mode]
-          place['origin'] = $location
+          params[:mode] ? place['mode'] = params[:mode] : place['mode'] = 'driving'
+          $location != '' ? place['origin'] = $location : place['origin'] = 'Seattle'
           $hikes.push(place)
       end
   	end
-		# puts response.body, response.code, response.message, response.headers.inspect
   end
 
   def maps
