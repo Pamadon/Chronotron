@@ -14,9 +14,9 @@ class TrailController < ApplicationController
   	if hike_response.code == 200
       @hike_result = JSON.parse(hike_response.body)
       for place in @hike_result['places']
-        if place['activities'][0]['length'].to_i <= @length.to_i and place['activities'][0]['length'].to_i > 0
+        if place['activities'][0]['length'].to_i <= @length.to_i
           place['mode'] = params[:mode]
-          place['origin'] = params[:origin]
+          place['origin'] = $location
           $hikes.push(place)
         end
       end
