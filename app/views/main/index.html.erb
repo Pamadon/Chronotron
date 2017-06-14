@@ -1,9 +1,9 @@
-<h1>Chronotron</h1>
 <div class="intro">
 	<button id="modalbtn">Wait, what is this?</button>
 </div>
+<h1>Chronotron</h1>
 <div class="time">
-	How much time would you like to waste?
+	<h3>Hi there! How much time would you like to waste?</h3>
 	<%= form_tag('/', method: "post", :class => "home-form") do%>
 		<%= radio_button_tag(:time_limit, "5",  false, required: true) %>
 		<%= label_tag(:time_limit_5, "5 min") %>
@@ -17,6 +17,7 @@
 		<%= label_tag(:time_limit_120, "2 hours") %>
 		<%= radio_button_tag(:time_limit, "300", false, required: true) %>
 		<%= label_tag(:time_limit_300, "5+ hours") %>
+	</div>
 	<div class="choices">
 		<div class="choice">
 			<img src="/images/video.png">
@@ -45,8 +46,7 @@
 			<%=text_field_tag(:location, nil, :placeholder=> "enter your location") %>
 			<%=select_tag(:mode, options_for_select($modes))%>
 			<%=submit_tag "pick trails", name: 'trails'%>
-			</div>
-	</div>
+		</div>
 	<%end%>
 </div>
 

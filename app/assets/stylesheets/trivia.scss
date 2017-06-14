@@ -1,0 +1,79 @@
+.trivia-pg {
+	background-color: #FF6600;
+	padding: 2em;
+	height: 100vh;
+}
+
+.trivia-pg h2 {
+	margin-bottom: 1em;
+}
+
+.trivia-pg li {
+	list-style: none;
+	margin-left: -2.5em;
+	margin-bottom: .5em;
+}
+
+.trivia-question {
+	background-color: #fff;
+	padding: 1em;
+	width: 80%;
+}
+
+#quiz {
+	margin-bottom: 1em;
+}
+
+#question {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#question-data {
+	width: 60%;
+}
+
+#question-cat {
+	width: 30%;
+	border-left: 1px solid black;
+	padding-left: 2em;
+}
+
+#question-cat h4 {
+	margin-bottom: -.5em;
+	color: #FF6600;
+}
+
+.trivia-next {
+	background-color: #FF6600;
+	width: 150px;
+	padding: 10px;
+	color: #fff;
+	text-align: center;
+}
+
+.trivia-next:hover {
+	background-color: #9D2EF2;
+}
+
+.trivia-submit {
+	background-color: #9D2EF2;
+	width: 150px;
+	padding: 10px;
+	color: #fff;
+	text-align: center;
+}
+
+.trivia-submit:hover {
+	background-color: #FF6600;
+}
+
+.trivia-btn a{
+	color: #fff;
+}
+
+.trivia-btn a:hover {
+	color: #fff;
+}
+
