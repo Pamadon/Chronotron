@@ -5,24 +5,25 @@
 <div class="time">
 	How much time would you like to waste?
 	<%= form_tag('/', method: "post", :class => "home-form") do%>
-		<%= radio_button_tag(:time_limit, "5") %>
+		<%= radio_button_tag(:time_limit, "5",  false, required: true) %>
 		<%= label_tag(:time_limit_5, "5 min") %>
-		<%= radio_button_tag(:time_limit, "20") %>
+		<%= radio_button_tag(:time_limit, "20",  false, required: true) %>
 		<%= label_tag(:time_limit_20, "20 min") %>
-		<%= radio_button_tag(:time_limit, "40") %>
+		<%= radio_button_tag(:time_limit, "40",  false, required: true) %>
 		<%= label_tag(:time_limit_40, "40 min") %>
-		<%= radio_button_tag(:time_limit, "60", true) %>
+		<%= radio_button_tag(:time_limit, "60",  false, required: true) %>
 		<%= label_tag(:time_limit_60, "1 hr") %>
-		<%= radio_button_tag(:time_limit, "120") %>
+		<%= radio_button_tag(:time_limit, "120",  false, required: true) %>
 		<%= label_tag(:time_limit_120, "2 hours") %>
-		<%= radio_button_tag(:time_limit, "300") %>
+		<%= radio_button_tag(:time_limit, "300", false, required: true) %>
 		<%= label_tag(:time_limit_300, "5+ hours") %>
-
 	<div class="choices">
 		<div class="choice">
 			<img src="/images/video.png">
 			<p>Videos</p>
 			<%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %>
+			<%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
+      <p>Enter Number of Videos: <%= number_field_tag(:numberVideos, nil, min: 5, max: 50) %></p>
 			<%=submit_tag "pick videos", name: 'videos'%>
 		</div>
 		<div class="choice">
@@ -42,6 +43,7 @@
 			<img class="trail-icon" src="/images/hike.png">
 			<p>Trails</p>
 			<%=text_field_tag(:location, nil, :placeholder=> "enter your location") %>
+			<%=select_tag(:mode, options_for_select($modes))%>
 			<%=submit_tag "pick trails", name: 'trails'%>
 			</div>
 	</div>
