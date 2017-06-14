@@ -38,7 +38,7 @@ class YouTubeControllerController < ApplicationController
           part: 'snippet',
           maxResults: '5',
           order: 'relevance',
-          q: 'Top music videos',
+          q: $genre,
           type: 'video',
           videoDuration: 'short',
           videoEmbeddable: 'true',

@@ -24,7 +24,7 @@
 			<p>Videos</p>
 			<%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %>
 			<%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
-      <%= text_field_tag(:numberVideos, nil,:placeholder=> "Number of Videos", :required=> true) %>
+      <%= text_field_tag(:numberVideos, 5,:placeholder=> "Number of Videos", :required=> true) %>
 			<%=submit_tag "pick videos", name: 'videos'%>
 		</div>
 		<div class="choice">
