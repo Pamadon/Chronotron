@@ -35,6 +35,7 @@ class YouTubeControllerController < ApplicationController
   end
 
   def tubeSearch
+    @disable_nav = true
     response1 = HTTParty.get('https://www.googleapis.com/youtube/v3/search?', {
       query: {
           part: 'snippet',
