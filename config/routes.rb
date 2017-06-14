@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # ~~~~~~~~~Trails~~~~~~~~~~~
   get '/trail' => 'trail#index'
   post '/trail/show' => 'trail#show'
+  get '/trail/show' => 'trail#show'
   get '/trail/maps'  => 'trail#maps'
 
   #~~~~~~~~~~~youtube~~~~~~~~~~~~~
