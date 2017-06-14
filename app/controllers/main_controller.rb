@@ -36,7 +36,7 @@ class MainController < ApplicationController
       $time = params[:time_limit]
       $genre = params[:genre]
       $category = params[:categories]
-      $trivia_category =find_trivia_category($category)
+      $trivia_category = find_trivia_category($category)
       $video_search = params[:video_query]
       $location = params[:location]
       puts $location
@@ -59,6 +59,9 @@ end
 
 # helper function
 def find_trivia_category(num)
+  if num.empty?
+    return "Any"
+  end
   for category in $categories do
     if category[1] == num
       return category[0]
