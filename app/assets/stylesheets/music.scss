@@ -13,8 +13,9 @@ p {
 }
 
 .spotify-intro {
+	box-sizing: border-box;
 	background-color: #fff;
-	width: 55%;
+	width: 70%;
 	padding: 1em;
 	margin-bottom: 1em;
 }
@@ -22,4 +23,12 @@ p {
 .disclaimer {
 	font-style: italic;
 	font-size: .8em;
+}
+
+.music-embed {
+	width: 70%;
+}
+
+.music-embed iframe {
+	width: 100%;
 }

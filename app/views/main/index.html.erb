@@ -4,7 +4,7 @@
 </div>
 <div class="time">
 	How much time would you like to waste?
-	<%= form_tag('/', method: "post") do%>
+	<%= form_tag('/', method: "post", :class => "home-form") do%>
 		<%= radio_button_tag(:time_limit, "5") %>
 		<%= label_tag(:time_limit_5, "5 min") %>
 		<%= radio_button_tag(:time_limit, "20") %>

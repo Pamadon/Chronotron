@@ -29,6 +29,10 @@ a {
 	font-family: 'Jura', sans-serif;
 }
 
+a:hover {
+	color: #9D2EF2
+}
+
 h1 {
 	text-align: center;
 	font-size: 5em;
@@ -37,6 +41,10 @@ h1 {
 
 h2 {
 	font-size: 3em;
+}
+
+h3 {
+	font-size: 1.5em;
 }
 
 h1,
@@ -165,13 +173,24 @@ h5 {
 
 .navbar {
 	width: 30%;
-	margin-right: 3em;
 	padding: 1em;
 	background-color: #fff;
 }
 
 .navbar a {
 	color: #000;
+}
+
+.navbar a:hover {
+	color: #9D2EF2
+}
+
+.navbar img {
+	width: 80%;
+}
+
+.nav-value {
+	font-weight: 700;
 }
 
 .category {
