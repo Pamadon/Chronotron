@@ -55,10 +55,10 @@ class MusicController < ApplicationController
     current_track = tracks[track_counter]
     # loop that adds songs from recommendations to playlist
     while current_playlist_time > 0  && current_track do
-      current_track = tracks[track_counter]
       your_playlist.push(current_track)
       track_counter += 1
       current_playlist_time -= current_track.duration_ms
+      current_track = tracks[track_counter]
     end
     # add final list of tracks to Spotify Playlist
     @playlist.add_tracks!(your_playlist)
