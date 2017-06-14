@@ -14,6 +14,7 @@ class YouTubeControllerController < ApplicationController
     end
     if (params[:keyWord])
        @keyWord = params[:keyWord]
+       $video_search =@keyWord
     else
       @keyWord = $video_search
     end
