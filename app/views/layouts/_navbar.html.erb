@@ -1,24 +1,25 @@
 <div class="navbar">
 
+
   <img src="/images/robot.png">
   <h3><a href="/">&#8592;<br>Return to <br>homepage</a></h3>
   <div class="time-selected">
     <p class="chosen">You chose to spend <span class="nav-value"><%=$time%></span> minutes on <span class="nav-value"><%=$choice%></span>.</p>
     <p class="change">Want to switch it up?</p>
     <p>Choose a new length of time:</p>
-      <%= form_tag('/', method: "post", :class => "home-form") do%>
-        <%= radio_button_tag(:time_limit, "5") %>
-        <%= label_tag(:time_limit_5, "5 min") %><br>
-        <%= radio_button_tag(:time_limit, "20") %>
-        <%= label_tag(:time_limit_20, "20 min") %><br>
-        <%= radio_button_tag(:time_limit, "40") %>
-        <%= label_tag(:time_limit_40, "40 min") %><br>
-        <%= radio_button_tag(:time_limit, "60", true) %>
-        <%= label_tag(:time_limit_60, "1 hr") %><br>
-        <%= radio_button_tag(:time_limit, "120") %>
-        <%= label_tag(:time_limit_120, "2 hours") %><br>
-        <%= radio_button_tag(:time_limit, "300") %>
-        <%= label_tag(:time_limit_300, "5+ hours") %>
+     <%= form_tag('/', method: "post", :class => "home-form") do%>
+          <%= radio_button_tag(:time_limit, "5", false, required: true) %>
+          <%= label_tag(:time_limit_5, "5 min") %>
+          <%= radio_button_tag(:time_limit, "20", false, required: true ) %>
+          <%= label_tag(:time_limit_20, "20 min") %>
+          <%= radio_button_tag(:time_limit, "40",  false, required: true) %>
+          <%= label_tag(:time_limit_40, "40 min") %>
+          <%= radio_button_tag(:time_limit, "60",  false, required: true) %>
+          <%= label_tag(:time_limit_60, "1 hr") %>
+          <%= radio_button_tag(:time_limit, "120",  false, required: true) %>
+          <%= label_tag(:time_limit_120, "2 hours") %>
+          <%= radio_button_tag(:time_limit, "300",  false, required: true) %>
+          <%= label_tag(:time_limit_300, "5+ hours") %>
   </div>
   <div class="home-search-choice">
     <p>
@@ -46,5 +47,6 @@
     </p>
   </div>
   <%end%>
+
 
 </div>
