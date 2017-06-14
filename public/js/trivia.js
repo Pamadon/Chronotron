@@ -8,12 +8,17 @@ var score = 0;
 $('#submit').on('click', function (e) {
   e.preventDefault();
 
-  $('#next').show();
-  $('#submit').hide();
+  if (selection === "") {
+  	$('#errMsg').remove();
+  	quiz.append($('<h3 id="errMsg">Please make a selection</h3>'));
+  } else {
+  	$('#next').show();
+	  $('#submit').hide();
 
-  choose();
-  changeScore(counter);
-  displayAnswer();
+	  choose();
+	  changeScore(counter);
+	  displayAnswer();
+  }
 });
 
 //Next button functionality
