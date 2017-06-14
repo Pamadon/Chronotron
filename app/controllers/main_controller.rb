@@ -42,11 +42,15 @@ class MainController < ApplicationController
       $time = params[:time_limit]
       $genre = params[:genre]
       $category = params[:categories]
-      $difficulty = params[:difficulties]
-      $trivia_category = find_trivia_category($category)
+      $difficulty = params[:difficulty]
+      if $category.nil?
+        $trivia_category = "Any"
+      else
+        $trivia_category = find_trivia_category($category)
+      end
       $video_search = params[:video_query]
       $location = params[:location]
-      puts $location
+
 
       if params[:music]
         $choice = "music"
