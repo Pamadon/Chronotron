@@ -1,9 +1,12 @@
-<div class="category">
-<h2>Search for Hike</h2>
-	<%= form_tag("/trail/show", method: "post") do %>
-	  <%= label_tag(:mode, "Mode:") %>
-	  <%= select_tag(:mode, options_for_select([['walking', 'walking'], ['driving', 'driving'], ['bicycling', 'bicycling']]))%>
-	  <%= submit_tag("Search") %>
-	<% end %>
+<div class="category trail-pg">
+	<h2>Chronotron Outdoors</h2>
+	<div class="trail-search">
+		<p>How are you planning to get there?</p>
+			<%= form_tag("/trail/show", method: "post") do %>
+			  <%= label_tag(:mode, "I'll be") %>
+			  <%= select_tag(:mode, options_for_select([['walking', 'walking'], ['driving', 'driving'], ['bicycling', 'bicycling']]))%>
+			  <%= submit_tag("Search") %>
+			<% end %>
+		</div>
 </div>
 

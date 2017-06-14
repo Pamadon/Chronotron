@@ -1,8 +1,14 @@
-<%= render_async trail_maps_path%>
-<div id="spinner">Loading...</div>
-<script>
-	$(document).ajaxStop(function(){
-		$('#spinner').hide();
-	});
-</script>
-
+<div class="category">
+	<div class="trail-results">
+		<%= render_async trail_maps_path%>
+		<div id="spinner" class="trails-loading"><h2>
+			Loading...
+		</h2>
+		</div>
+		<script>
+			$(document).ajaxStop(function(){
+				$('#spinner').hide();
+			});
+		</script>
+	</div>
+</div>

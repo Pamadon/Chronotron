@@ -42,7 +42,7 @@ class MusicController < ApplicationController
     if ($genre)
       genre = $genre
     else
-      genre = "dubstep"
+      genre = "acoustic"
     end
     # initialize variables for generating
     wanted_playlist_time_in_ms = time * 60000
