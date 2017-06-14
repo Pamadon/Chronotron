@@ -9,6 +9,10 @@ class TriviaController < ApplicationController
 			@amount = 50
 		end
 
+		gon.amount = @amount
+		gon.category = $category
+		gon.difficulty = $difficulty
+
 		response = HTTParty.get('https://opentdb.com/api.php?', {
 			query: {
 				amount: @amount,

@@ -4,30 +4,27 @@ class MainController < ApplicationController
 
       $categories = [
         ["Any", nil],
-        ["General Knowledge", "9"],
-        ["Books", "10"],
-        ["Film", "11"],
-        ["Music", "12"],
-        ["Musicals & Theatre", "13"],
-        ["Television", "14"],
-        ["Japanese Anime & Manga", "31"],
-        ["Cartoons & Animations", "32"],
-        ["Comics", "29"],
+        ["General Knowledge", "9"], # <50/hard
+        ["Books", "10"], # < 25
+        ["Film", "11"], # < 25/hard
+        ["Music", "12"], # < 50/hard
+        ["Television", "14"], # <25/hard < 50
         ["Video Games", "15"],
-        ["Board Games", "16"],
+        ["Board Games", "16"], # < 25
         ["Science & Nature", "17"],
         ["Computers", "18"],
         ["Mathematics", "19"],
-        ["Gadgets", "30"],
         ["Mythology", "20"],
         ["Sports", "21"],
         ["Geography", "22"],
         ["History", "23"],
         ["Politics", "24"],
-        ["Art", "25"],
         ["Celebrities", "26"],
         ["Animals", "27"],
-        ["Vehicles", "28"]]
+        ["Vehicles", "28"],
+        ["Comics", "29"],
+        ["Japanese Anime & Manga", "31"],
+        ["Cartoons & Animations", "32"]]
 
       $difficulties = [
         ["Any", nil],

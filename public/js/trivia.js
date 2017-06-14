@@ -32,6 +32,30 @@ $('#next').on('click', function (e) {
 
 });
 
+//More! button functionality
+$('#more').on('click', function (e) {
+	e.preventDefault();
+
+	$.ajax({
+		url: 'https://opentdb.com/api.php?',
+		data:{
+			amount: gon.amount,
+			category: gon.category,
+			difficulty: gon.difficulty
+		},
+		success: function(data) {
+			var moreQuestions = data.results;
+
+			moreQuestions.forEach(function(q) {
+				questions.push(q);
+			});
+
+			$('#end-screen').remove();
+			displayNext();
+		}
+	})
+});
+
 // Creates and returns the div that contains the questions and
 // the answer selections
 function createQuestionElement(index) {
@@ -42,7 +66,7 @@ function createQuestionElement(index) {
   var displayScore = $('<span>Score: ' + score + '</span>');
   qElement.append(displayScore);
 
-  var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+  var header = $('<h2>Question ' + (index + 1) + '/' + questions.length + ':</h2>');
   qElement.append(header);
 
   var category = $('<h4>Category: ' + questions[index].category + '</h4>');
@@ -146,6 +170,7 @@ function changeScore(index) {
 //Show next question
 function displayNext() {
   $('#next').hide();
+  $('#more').hide();
   $('#submit').show();
   $('#answer').remove();
   $('#question').remove();
@@ -177,6 +202,11 @@ function displayEndScreen() {
 
   var showScore = $('<h3>You got a score of ' + score + '!</h3>');
   eElement.append(showScore);
+
+  var moreMsg = $('<p>Need to waste more time?  Get more questions!</p>');
+  eElement.append(moreMsg);
+
+  $('#more').show();
 
   return eElement;
 }
