@@ -2,33 +2,34 @@
 	<h2>Chronotron Outdoors</h2>
 	<%for i in (0...@loops)%>
 	<%if $hikes[i]['distance'] and ($hikes[i]['duration']['value'].to_i)/60*2 + $hikes[i]['activities'][0]['length'].to_i/3.1*60 <= $time.to_i%>
-	<div class="hike">
-		<div class="hike-info">
-			<h3><span><%=$hikes[i]['name']%></span></h3>
-			<div class="temp info-bit">
-				Current Temp: <span><%=$hikes[i]['weather']%></span>&#x2109;
-			</div>
-			<div class="length info-bit">
-				Length of Hike: <span><%=$hikes[i]['activities'][0]['length']%></span> miles
-			</div>
-			<div class="roundtrip info-bit">
-				Total time roundtrip: <span><%=($hikes[i]['duration']['value'].to_i/60*2 + $hikes[i]['activities'][0]['length'].to_i/3.1*60).round %>minutes</span>
-			</div>
-			<div class="address info-bit">
-				Address: <span><%=$hikes[i]['end_address']%></span>
-			</div>
-			<div class="description info-bit">
-				<span><%=$hikes[i]['activities'][0]['description']%></span>
-			</div>
-			</div>
-			<div class="map">
-				<iframe
-				  width="600"
-				  height="450"
-				  frameborder="0" style="border:0"
-				  src= <%='https://www.google.com/maps/embed/v1/place?key='+ENV['MAP_EMBED_KEY']+'&q='+$hikes[i]['lat'].to_s+','+$hikes[i]['lon'].to_s%> allowfullscreen>
-				</iframe>
-			</div>
+		<%= render partial: 'test', locals: {hike_name: $hikes[i]['name']} %>
+		<div class="hike">
+			<div class="hike-info">
+				<h3><span><%=$hikes[i]['name']%></span></h3>
+				<div class="temp info-bit">
+					Current Temp: <span><%=$hikes[i]['weather']%></span>&#x2109;
+				</div>
+				<div class="length info-bit">
+					Length of Hike: <span><%=$hikes[i]['activities'][0]['length']%></span> miles
+				</div>
+				<div class="roundtrip info-bit">
+					Total time roundtrip: <span><%=($hikes[i]['duration']['value'].to_i/60*2 + $hikes[i]['activities'][0]['length'].to_i/3.1*60).round %>minutes</span>
+				</div>
+				<div class="address info-bit">
+					Address: <span><%=$hikes[i]['end_address']%></span>
+				</div>
+				<div class="description info-bit">
+					<span><%=$hikes[i]['activities'][0]['description']%></span>
+				</div>
+				</div>
+				<div class="map">
+					<iframe
+					  width="600"
+					  height="450"
+					  frameborder="0" style="border:0"
+					  src= <%='https://www.google.com/maps/embed/v1/place?key='+ENV['MAP_EMBED_KEY']+'&q='+$hikes[i]['lat'].to_s+','+$hikes[i]['lon'].to_s%> allowfullscreen>
+					</iframe>
+				</div>
 		</div>
 	<%end%>
 	<%end%>
