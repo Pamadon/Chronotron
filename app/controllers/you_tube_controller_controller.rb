@@ -42,7 +42,7 @@ class YouTubeControllerController < ApplicationController
           part: 'snippet',
           maxResults: '5',
           order: 'relevance',
-          q: 'dogs',
+          q: 'Top music videos',
           type: 'video',
           videoDuration: 'short',
           videoEmbeddable: 'true',
