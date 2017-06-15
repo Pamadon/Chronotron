@@ -34,7 +34,13 @@ class MainController < ApplicationController
 
       $genres = [
         ["acoustic", "acoustic"], ["afrobeat", "afrobeat"], ["alt-rock", "alt-rock"],  ["ambient", "ambient"], ["bluegrass", "bluegrass"], ["blues", "blues"], ["chill", "chill"], ["classical", "classical"], ["comedy", "comedy"], ["country", "country"], ["dance", "dance"], ["dancehall", "dancehall"], ["death-metal", "death-metal"], ["dubstep", "dubstep"], ["edm", "edm"],["emo", "emo"], ["folk", "folk"], ["funk", "funk"], ["garage", "garage"],  ["grunge", "grunge"],  ["happy", "happy"], ["hip-hop", "hip-hop"], ["holidays","holidays"], ["house", "house"], ["indian", "indian"], ["indie", "indie"], ["industrial", "industrial"], ["j-pop", "j-pop"], ["jazz", "jazz"], ["latin", "latin"], ["metal", "metal"],  ["new-release","new-release"], ["party","party"], ["pop", "pop"], ["punk","punk"], ["r-n-b","r-n-b"], ["rainy-day","rainy-day"], ["reggae","reggae"], ["road-trip","road-trip"], ["rock","rock"], ["romance", "romance"], ["sad", "sad"], ["show-tunes","show-tunes"], ["singer-songwriter", "singer-songwriter"], ["ska","ska"], ["sleep","sleep"], ["soul", "soul"], ["study", "study"], ["summer", "summer"], ["techno","techno"], ["trance", "trance"], ["trip-hop","trip-hop"], ["work-out", "work-out"], ["world-music","world-music"]]
-      $modes = [['driving', 'driving'],['bicycling', 'bicycling'], ['walking','walking']]
+
+      $modes = [
+        ['driving', 'driving'],
+        ['bicycling', 'bicycling'],
+        ['walking','walking']
+      ]
+
     end
 
     def choice
