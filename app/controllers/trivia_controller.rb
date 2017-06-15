@@ -1,8 +1,4 @@
 class TriviaController < ApplicationController
-	def post
-		$currentAnswer = params[:currentAnswer]
-	end
-
 	def show
 		if $time == '5'
 			@amount = 25
