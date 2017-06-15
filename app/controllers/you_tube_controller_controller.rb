@@ -1,5 +1,6 @@
 class YouTubeControllerController < ApplicationController
   def search
+    gon.choice = $choice
     if ($time)
       @wastetime = $time.to_i
     else
@@ -20,10 +21,9 @@ class YouTubeControllerController < ApplicationController
       $videos = []
       if response.code == 200
         @video_result = JSON.parse(response.body)
-          for item in  @video_result['items']
+        for item in  @video_result['items']
           $videos.push(item['id']['videoId'])
-
-          end
+        end
        end
       puts $videos[1]
     end
@@ -33,7 +33,7 @@ class YouTubeControllerController < ApplicationController
     response1 = HTTParty.get('https://www.googleapis.com/youtube/v3/search?', {
       query: {
           part: 'snippet',
-          maxResults: '5',
+          maxResults: '3',
           order: 'relevance',
           q: $genre,
           type: 'video',

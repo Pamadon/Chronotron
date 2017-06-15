@@ -13,6 +13,7 @@ class MusicController < ApplicationController
 
     session[:user_id] = user.id
     session[:spotify_hash] = spotify_hash
+
     redirect_to '/music'
   end
 
@@ -27,6 +28,7 @@ class MusicController < ApplicationController
   end
 
   def show
+    gon.choice = $choice
     # get user and create RspotifyUser instance
     @user = RSpotify::User.new(session[:spotify_hash])
 

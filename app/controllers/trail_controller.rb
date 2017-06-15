@@ -3,6 +3,7 @@ class TrailController < ApplicationController
   end
 
   def show
+    gon.choice = $choice
     hike_response = HTTParty.get "https://trailapi-trailapi.p.mashape.com/?limit=25&q[activities_activity_type_name_eq]=hiking&q[state_cont]=Washington&radius=25",
       headers:{
         "X-Mashape-Key" => "gKkZRWGHnsmsh9H4030c2YJirj8mp1co61Djsntmdy8iYTxtf7",
@@ -17,11 +18,10 @@ class TrailController < ApplicationController
           $hikes.push(place)
       end
   	end
-    puts '------------first hike from show----------------', $hikes[0]
   end
 
   def maps
-    $hikes.size>10 ? @loops = 10 : @loops = $hikes.size
+    @loops = ($hikes.size.to_i)
     for i in (0...@loops)
       map_response = HTTParty.get "https://maps.googleapis.com/maps/api/directions/json", {
         query: {
@@ -39,6 +39,7 @@ class TrailController < ApplicationController
         $hikes[i]['end_address'] = @end_address
         $hikes[i]['distance'] = @distance
         $hikes[i]['duration'] = @duration
+        $hikes[i]['roundtrip'] = ($hikes[i]['duration']['value'].to_i/60*2 + $hikes[i]['activities'][0]['length'].to_i/3.1*60).to_i
       end
       weather_response = HTTParty.get "http://api.openweathermap.org/data/2.5/weather", {
         query: {
@@ -49,8 +50,11 @@ class TrailController < ApplicationController
       }
       @weather = JSON.parse(weather_response.body)
       $hikes[i]['weather'] = ((9*(@weather['main']['temp']-273)/5)+32).round
+        if ($hikes[i]['roundtrip'].class == NilClass)
+          $hikes[i]['roundtrip'] = 0
+        end
     end
-    puts '-----------first hike from maps---------', $hikes[0]
+    $hikes.sort_by!{ |k| k["roundtrip"]}
     render :partial => "maps"
   end
 end
