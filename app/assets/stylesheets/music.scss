@@ -37,6 +37,13 @@ p {
 	width: 100%;
 }
 
-.related-videos {
-	width: 70%
+.related-youtube {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 80%;
+	flex-wrap: flex;
+}
+.related-vids iframe {
+	width: 100%;
 }
