@@ -1,5 +1,4 @@
 <div class="category music-pg">
-
 	<div class="music-content">
 		<h2 class="music-header">Chronotron Music</h2>
 		<h4>Powered by <i class="fa fa-spotify" aria-hidden="true"></i> Spotify</h4>
@@ -12,8 +11,8 @@
 			<iframe src="https://open.spotify.com/embed?uri=<%=@playlist.uri%>" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
 		</div>
 		<div class="related-youtube">
+		<h3>Related Videos</h3>
 		<%= render_async you_tube_controller_tubeSearch_path%>
 		</div>
 	</div>
 </div>
-
