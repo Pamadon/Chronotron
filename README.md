@@ -4,6 +4,8 @@
 
 <p>“There's never enough time to do all the nothing you want.”</p>
 
+<h3>Purpose and General Approach</h3>
+<p></p>
 <h3>Tech Used</h3>
 <ul>
 	<li>Ruby on Rails</li>
