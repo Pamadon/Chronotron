@@ -45,7 +45,7 @@
             <p>Choose a new video search:</p>
             <%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %>
             <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
-            <%= number_field_tag(:numberVideos, nil, min: 5, max: 50) %>
+            <%= number_field_tag(:numberVideos, 5, min: 5, max: 50) %>
             <%=submit_tag "I'm Ready for Change", name: 'videos'%>
           </div>
         <div id="trivia">
