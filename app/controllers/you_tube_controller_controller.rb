@@ -1,7 +1,4 @@
 class YouTubeControllerController < ApplicationController
-
-  def index
-  end
   def search
     if ($time)
       @wastetime = $time.to_i

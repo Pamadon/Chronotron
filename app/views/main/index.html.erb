@@ -19,7 +19,7 @@
 		<%= radio_button_tag(:time_limit, "300", false, required: true) %>
 		<%= label_tag(:time_limit_300, "5+ hours") %>
 		<!-- THE TIME DIV NEEDS TO HAVE THE CHOICES DIV WITHIN IT TO CLOSE THE FORM PROPERLY. SK-->
-    
+
 <h3 class="choice-header">And what would you like to do?</h3>
 <div class="choices">
 
@@ -28,7 +28,7 @@
 			<p>Watch YouTube</p>
 			<span class="search-params">Search for: <%=text_field_tag(:video_query, nil, :placeholder=> "Specific search terms") %></span>
 			<span class="search-params">Length of Videos:<%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%></span>
-      <span class="search-params">Enter Number of Videos: <%= number_field_tag(:numberVideos, nil, min: 5, max: 50) %></span>
+      <span class="search-params">Enter Number of Videos: <%= number_field_tag(:numberVideos, 5, min: 5, max: 50) %></span>
 			<%=submit_tag "Let's Go!", name: 'videos'%>
 		</div>
 		<div class="choice">
