@@ -8,7 +8,6 @@
 <ul>
 	<li>Ruby on Rails</li>
 	<li>HTML & CSS</li>
-		<p></p>
 	<li>YouTube API</li>
 		<p>Used YouTube to search and display videos based upon relevance in the time allotment. Through allowing the user to search the length and number of videos he or she can search through and find the most relevant video to watch without having to search again. By doing so the user can find myriad topics from one location and consume them.
 </p>
