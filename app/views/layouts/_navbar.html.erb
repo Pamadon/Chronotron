@@ -5,9 +5,9 @@
     <p class="chosen">You chose to spend <span class="nav-value"><%=$time%></span> minutes on <span class="nav-value" id="currentCategory"><%=$choice%></span>.</p>
     <p class="change">Want to switch it up?</p>
     <p>Change Categories:</p>
-    <button id="first-option"></button>
-    <button id="second-option"></button>
-    <button id="third-option"></button>
+    <button id="first-option" class="choice-buttons"></button>
+    <button id="second-option" class="choice-buttons"></button>
+    <button id="third-option" class="choice-buttons"></button>
     <p>Choose a new length of time:</p>
      <%= form_tag('/', method: "post", :class => "home-form") do%>
           <%= radio_button_tag(:time_limit, "5", false, required: true) %>
