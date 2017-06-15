@@ -11,13 +11,13 @@
 		<%= label_tag(:time_limit_20, "20 min") %>
 		<%= radio_button_tag(:time_limit, "40",  false, required: true) %>
 		<%= label_tag(:time_limit_40, "40 min") %>
-		<%= radio_button_tag(:time_limit, "60",  false, required: true) %>
-		<%= label_tag(:time_limit_60, "1 hr") %>
+		<%= radio_button_tag(:time_limit, "60",  true, required: true) %>
+		<%= label_tag(:time_limit_60, "1 hour") %>
 		<%= radio_button_tag(:time_limit, "120",  false, required: true) %>
 		<%= label_tag(:time_limit_120, "2 hours") %>
 		<%= radio_button_tag(:time_limit, "300", false, required: true) %>
 		<%= label_tag(:time_limit_300, "5+ hours") %>
-	</div>
+		<!-- THE TIME DIV NEEDS TO HAVE THE CHOICES DIV WITHIN IT TO CLOSE THE FORM PROPERLY. SK-->
 	<div class="choices">
 		<div class="choice">
 			<img src="/images/video.png">
@@ -47,6 +47,7 @@
 			<%=select_tag(:mode, options_for_select($modes))%>
 			<%=submit_tag "pick trails", name: 'trails'%>
 		</div>
+	</div>
 	<%end%>
 </div>
 
