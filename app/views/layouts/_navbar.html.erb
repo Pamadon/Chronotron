@@ -24,35 +24,38 @@
           <%= label_tag(:time_limit_300, "5+ hours") %>
   </div>
   <div class="home-search-choice">
-    <p>
-    <%if $choice == "music"%>
-      <p>You're currently listening to <span class="nav-value"><%=$genre%></span> music.</p>
-      <p>Choose a new genre:
-      <%=select_tag(:genre, options_for_select($genres)) %></p><br><br>
-      <%=submit_tag "I'm Ready for Change", name: 'music'%>
-    <%elsif $choice == "videos"%>
-      <p>You're watching <span class="nav-value"><%=$video_search%></span> videos.</p>
-      <p>Choose a new video search:</p>
-      <%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %>
-      <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
-      <%= number_field_tag(:numberVideos, nil, min: 5, max: 50) %>
-      <%=submit_tag "I'm Ready for Change", name: 'videos'%>
-    <%elsif $choice == "trivia"%>
-      <p>You're answering <span class="nav-value"><%=$trivia_category%></span> trivia questions.</p>
-      <p>Choose a new trivia category:</p>
-      <%=select_tag(:categories, options_for_select($categories))%>
-      <%=select_tag(:difficulties, options_for_select($difficulties))%>
-      <br><br>
-      <%=submit_tag "I'm Ready for Change", name: 'trivia'%>
-    <%elsif $choice == "trails"%>
-      <p>Your recreation starting location is <span class="nav-value"><%=$location%></span>.</p>
-      <p>Start from a new location:
-      <%=text_field_tag(:location, nil, :placeholder=> "enter your location") %></p>
-      How will you get there? <%=select_tag(:mode, options_for_select($modes))%><br><br>
-      <%=submit_tag "I'm Ready for Change", name: 'trails'%>
-    <%end%>
-    </p>
-  </div>
+        <div>
+          <div id="music"%>
+              <p>You're currently listening to <span class="nav-value"><%=$genre%></span> music.</p>
+              <p>Choose a new genre:
+              <%=select_tag(:genre, options_for_select($genres)) %></p><br><br>
+              <%=submit_tag "I'm Ready for Change", name: 'music'%>
+          </div>
+        <div id="videos">
+            <p>You're watching <span class="nav-value"><%=$video_search%></span> videos.</p>
+            <p>Choose a new video search:</p>
+            <%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %>
+            <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
+            <%= number_field_tag(:numberVideos, nil, min: 5, max: 50) %>
+            <%=submit_tag "I'm Ready for Change", name: 'videos'%>
+          </div>
+        <div id="trivia">
+            <p>You're answering <span class="nav-value"><%=$trivia_category%></span> trivia questions.</p>
+            <p>Choose a new trivia category:</p>
+            <%=select_tag(:categories, options_for_select($categories))%>
+            <%=select_tag(:difficulties, options_for_select($difficulties))%>
+            <br><br>
+            <%=submit_tag "I'm Ready for Change", name: 'trivia'%>
+        </div>
+        <div id="trails">
+            <p>Your recreation starting location is <span class="nav-value"><%=$location%></span>.</p>
+            <p>Start from a new location:
+            <%=text_field_tag(:location, nil, :placeholder=> "enter your location") %></p>
+            How will you get there? <%=select_tag(:mode, options_for_select($modes))%><br><br>
+            <%=submit_tag "I'm Ready for Change", name: 'trails'%>
+        </div>
+    </div>
   <%end%>
 
+</div>
 </div>

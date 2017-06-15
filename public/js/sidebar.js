@@ -1,5 +1,5 @@
 var currentCategory = gon.choice;
-
+var buttons;
 
 function otherCatgoriesAvailable(currentCategory){
     var otherCategories = [];
@@ -20,27 +20,30 @@ function otherCatgoriesAvailable(currentCategory){
     return otherCategories;
 }
 
+function displayCategoryForms(category){
+  $(`#${category}`).show();
+  $(`#${category}`).siblings().hide();
+}
+
 
 function toggleCategory(){
   currentCategory = this.innerText;
-  console.log(currentCategory);
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].innerText ===currentCategory){
+      displayCategoryForms(currentCategory);
+    }
+  }
 }
 
 $(document).ready(function(){
-
-
     var otherCategories = otherCatgoriesAvailable(currentCategory);
 
-    var buttons = $('.choice-buttons');
-
-    buttons.on("click", toggleCategory);
-
-
-
-
+    buttons = $('.choice-buttons');
     for (var i=0; i < buttons.length; i++){
       buttons[i].innerText = otherCategories[i];
-      console.log(buttons[i]);
     }
+    displayCategoryForms(currentCategory);
+
+    buttons.on("click", toggleCategory);
 
 });
