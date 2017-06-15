@@ -1,5 +1,6 @@
 class TriviaController < ApplicationController
-	def index
+	def post
+		$currentAnswer = params[:currentAnswer]
 	end
 
 	def show
@@ -12,18 +13,23 @@ class TriviaController < ApplicationController
 		gon.amount = @amount
 		gon.category = $category
 		gon.difficulty = $difficulty
+		@responseCode = nil
 
-		response = HTTParty.get('https://opentdb.com/api.php?', {
-			query: {
-				amount: @amount,
-				category: $category,
-				difficulty: $difficulty,
-			}
-		})
+		while @responseCode != 0 do
+			response = HTTParty.get('https://opentdb.com/api.php?', {
+				query: {
+					amount: @amount,
+					category: $category,
+					difficulty: $difficulty,
+				}
+			})
+
+			@responseCode = (JSON.parse(response.body))["response_code"]
+			@amount = @amount - 5
+		end
 
 		gon.trivia = response.body
 	end
-
 end
 
 
