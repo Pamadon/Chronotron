@@ -3,17 +3,13 @@ class MusicController < ApplicationController
 
   def spotify
     @user = RSpotify::User.new(request.env['omniauth.auth'])
-
     spotify_hash = @user.to_hash
-
     user = User.find_or_create_by(email: @user.email) do |u|
       u.email = @user.email
       u.spotify_hash = spotify_hash
     end
-
     session[:user_id] = user.id
     session[:spotify_hash] = spotify_hash
-
     redirect_to '/music'
   end
 
@@ -31,7 +27,6 @@ class MusicController < ApplicationController
     gon.choice = $choice
     # get user and create RspotifyUser instance
     @user = RSpotify::User.new(session[:spotify_hash])
-
     # gets time from the global variable defined on front page
     time = $time.to_i
     if ($time)
