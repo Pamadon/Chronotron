@@ -60,6 +60,11 @@ h5 {
 	font-family: 'Jura', sans-serif;
 }
 
+input {
+	border: none;
+	background-color: #fff;
+}
+
 .time {
 	margin-top: 2em;
 	text-align: center;
@@ -89,6 +94,20 @@ input[type=radio]:checked + label {
 	 border-bottom: 4px solid #9D2EF2;
 }
 
+.search-params {
+	width: 100%;
+	font-family: 'Jura', sans-serif;
+	font-weight: 700;
+	margin-bottom: 1em;
+	text-align: left;
+}
+
+.terms input {
+	box-sizing: border-box;
+	padding: 10px;
+	width: 100%;
+}
+
 .choice-header {
 	text-align: center;
 	margin-top: 1.5em;
@@ -101,21 +120,22 @@ input[type=radio]:checked + label {
 	justify-content: space-between;
 	margin: auto;
 	margin-bottom: 2em;
+	font-size: 15px;
 }
 
 .choice {
-	width: 18%;
-	text-align: center;
-	padding: 25px;
+	box-sizing: border-box;
+	width: 24%;
+	padding: 1em;
 }
 
 .choice img {
-	width: 100%;
+	width: 70%;
 	margin-bottom: 1em;
 }
 
-.choice a {
-	font-size: 2em;
+.choice h3 {
+	font-weight: 700;
 	color: #fff;
 }
 
@@ -124,7 +144,7 @@ input[type=radio]:checked + label {
 }
 
 .choice:nth-child(2) {
-	background-color: #FF6600;
+	background-color: #FFA100;
 }
 
 .choice:nth-child(3) {
@@ -138,6 +158,7 @@ input[type=radio]:checked + label {
 .trail-icon {
 	margin-top: 1em;
 }
+
 
 /* MODAL */
 
@@ -230,13 +251,8 @@ input[type=radio]:checked + label {
 	font-size: 1.1em;
 }
 
-.category {
-	margin: 0;
-}
-
 .section {
 	width: 100%;
-	margin: 0;
 }
 
 /* ------- GLOBAL COLORS ------- */

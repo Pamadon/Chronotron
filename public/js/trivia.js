@@ -95,7 +95,7 @@ function createQuestionElement(index) {
   var difficulty = $('<h4>Difficulty:</h4>' + '<p>' + questions[index].difficulty + '</p>');
   qElementB.append(difficulty);
 
-  var displayScore = $('<span>Score: ' + score + '</span>');
+  var displayScore = $('<h4>Score:</h4> ' + '<p>' + score + '</p>');
   qElementB.append(displayScore);
 
   qElement.append(qElementA).append(qElementB);
