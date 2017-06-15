@@ -40,14 +40,14 @@
 		<li>Migrate DB</li>
     <li>Get API keys from Youtube, GoogleMaps, Spotify, OpenWeather, and GoogleMaps Embed - Then create a .env folder and enter these API keys after each declaration in the ENV file </li>
 			<ul>
-			<li>SPOTIFY_CLIENT_ID</li>
-			<li>SPOTIFY_CLIENT_SECRET</li>
-			<li>DEVELOPER_KEY</li>
-			<li>YOUTUBE_API_SERVICE_NAME</li>
-			<li>YOUTUBE_API_VERSION</li>
-			<li>WEATHER_KEY</li>
-			<li>GOOGLE_MAP_KEY</li>
-			<li>MAP_EMBED_KEY </li>
+			<li>SPOTIFY_CLIENT_ID=''</li>
+			<li>SPOTIFY_CLIENT_SECRET=''</li>
+			<li>DEVELOPER_KEY=''</li>
+			<li>YOUTUBE_API_SERVICE_NAME=''</li>
+			<li>YOUTUBE_API_VERSION=''</li>
+			<li>WEATHER_KEY=''</li>
+			<li>GOOGLE_MAP_KEY=''</li>
+			<li>MAP_EMBED_KEY=''</li>
 			</ul>
     <li>Run Bundle Install</li>
 		<li>In console type: Foreman run rails s</li>
