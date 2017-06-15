@@ -67,7 +67,7 @@ function createQuestionElement(index) {
     id: 'question-data'
   });
 
-  var header = $('<h3>Question ' + (index + 1) + '</h3>');
+  var header = $('<h3>Question ' + (index + 1) + ' of ' + questions.length + '</h3>');
   qElementA.append(header);
 
   var question = $('<p>').append(questions[index].question);
