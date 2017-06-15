@@ -12,4 +12,10 @@
 		</div>
 		<%= render_async you_tube_controller_tubeSearch_path%>
 	</div>
+	<div class="music-embed">
+		<iframe src="https://open.spotify.com/embed?uri=<%=@playlist.uri%>" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+	</div>
+<div class="related-videos">
+<%= render_async you_tube_controller_tubeSearch_path%>
+</div>
 </div>

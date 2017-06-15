@@ -18,6 +18,15 @@ $('#submit').on('click', function (e) {
   	$('#next').show();
 	  $('#submit').hide();
 
+		$.ajax({
+			type: 'GET',
+			url: '/trivia/info',
+			dataType: 'json',
+			data:{
+				currentAnswer: questions[counter].correct_answer
+			}
+		})
+
 	  changeScore(counter);
 	  displayAnswer();
   }
@@ -67,7 +76,7 @@ function createQuestionElement(index) {
     id: 'question-data'
   });
 
-  var header = $('<h3>Question ' + (index + 1) + '</h3>');
+  var header = $('<h3>Question ' + (index + 1) + ' of ' + questions.length + '</h3>');
   qElementA.append(header);
 
   var question = $('<p>').append(questions[index].question);

@@ -4,13 +4,13 @@ class MainController < ApplicationController
 
       $categories = [
         ["Any", nil],
-        ["General Knowledge", "9"], # <50/hard
-        ["Books", "10"], # < 25
-        ["Film", "11"], # < 25/hard
-        ["Music", "12"], # < 50/hard
-        ["Television", "14"], # <25/hard < 50
+        ["General Knowledge", "9"],
+        ["Books", "10"],
+        ["Film", "11"],
+        ["Music", "12"],
+        ["Television", "14"],
         ["Video Games", "15"],
-        ["Board Games", "16"], # < 25
+        ["Board Games", "16"],
         ["Science & Nature", "17"],
         ["Computers", "18"],
         ["Mathematics", "19"],
@@ -38,6 +38,7 @@ class MainController < ApplicationController
     end
 
     def choice
+
       $time = params[:time_limit]
       $genre = params[:genre]
       $category = params[:categories]

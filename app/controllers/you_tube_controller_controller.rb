@@ -1,8 +1,6 @@
 class YouTubeControllerController < ApplicationController
-
-  def index
-  end
   def search
+    gon.choice = $choice
     if ($time)
       @wastetime = $time.to_i
     else
@@ -23,10 +21,9 @@ class YouTubeControllerController < ApplicationController
       $videos = []
       if response.code == 200
         @video_result = JSON.parse(response.body)
-          for item in  @video_result['items']
+        for item in  @video_result['items']
           $videos.push(item['id']['videoId'])
-
-          end
+        end
        end
       puts $videos[1]
     end
@@ -38,9 +35,9 @@ class YouTubeControllerController < ApplicationController
           part: 'snippet',
           maxResults: '5',
           order: 'relevance',
-          q: $hikes[1]['name'],
+          q: $genre,
           type: 'video',
-          videoDuration: 'short',
+          videoDuration: 'long',
           videoEmbeddable: 'true',
           key: 'AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'
           }

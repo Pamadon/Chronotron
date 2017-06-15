@@ -8,11 +8,8 @@ Rails.application.routes.draw do
   get '/trail/maps'  => 'trail#maps'
 
   #~~~~~~~~~~~youtube~~~~~~~~~~~~~
-  get 'you_tube_controller/index'
-  get 'you_tube_controller/show'
   get 'you_tube_controller/search'
   post 'you_tube_controller/search'
-  get 'you_tube_controller/main'
   get 'you_tube_controller/tubeSearch'
 
   #~~~~~~~~~~~spotify~~~~~~~~~~~~~
@@ -23,7 +20,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
   get 'trivia' => 'trivia#show'
-
+  get 'trivia/info' => 'trivia#post'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
