@@ -50,7 +50,7 @@ class MusicController < ApplicationController
     wanted_playlist_time_in_ms = time * 60000
     current_playlist_time = wanted_playlist_time_in_ms;
     result = RSpotify::Recommendations.generate(limit: 100, seed_genres: [genre])
-    @playlist= @user.create_playlist!("your-chronotron-generated-playlist!")
+    @playlist= @user.create_playlist!("#{genre} by chronotron")
     tracks = result.tracks
     $your_playlist = []
     track_counter = 0
