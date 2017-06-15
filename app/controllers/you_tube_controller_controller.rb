@@ -33,7 +33,7 @@ class YouTubeControllerController < ApplicationController
     response1 = HTTParty.get('https://www.googleapis.com/youtube/v3/search?', {
       query: {
           part: 'snippet',
-          maxResults: '5',
+          maxResults: '3',
           order: 'relevance',
           q: $genre,
           type: 'video',

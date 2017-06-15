@@ -22,34 +22,37 @@
 	<h3 class="choice-header">And what would you like to do?</h3>
 	<div class="choices">
 		<div class="choice">
-			<img src="/images/video.png">
 			<h3>Watch YouTube</h3>
-			<p class="search-params terms"><%=text_field_tag(:video_query, nil, :placeholder=> "Enter specific search terms") %></p>
+			<img src="/images/video.png">
+			<p class="search-params terms">
+				Search for: <%=text_field_tag(:video_query, nil, :placeholder=> "Be specific!") %></p>
 			<p class="search-params">
-				Length of Videos: <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
-      	Number of Videos: <%= number_field_tag(:numberVideos, 5, min: 5, max: 50) %>
+				Length of Videos: <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]), :class=> 'dropdown' )%>
+      	Number of Videos: <%= number_field_tag(:numberVideos, 5, min: 5, max: 50, :class=> 'numform') %>
       </p>
-			<%=submit_tag "Let's Go!", name: 'videos'%>
+			<%=submit_tag "Let's Watch!", name: 'videos', :class => 'pick-cat' %>
 		</div>
 		<div class="choice">
-			<img src="/images/trivia.png">
 			<h3>Play Trivia</h3>
-			<p class="search-params"><%=select_tag(:categories, options_for_select($categories))%></p>
-			<p class="search-params"><%=select_tag(:difficulties, options_for_select($difficulties))%></p>
-			<p class="search-params"><%=submit_tag "pick trivia", name: 'trivia'%></p>
+			<img src="/images/trivia.png">
+			<p class="search-params">
+			Trivia Category: <%=select_tag(:categories, options_for_select($categories), :class=> 'dropdown' )%>
+			Level of Difficulty: <%=select_tag(:difficulties, options_for_select($difficulties), :class=> 'dropdown' )%></p>
+			<%=submit_tag "Let's Play!", name: 'trivia', :class => 'pick-cat' %>
 		</div>
 		<div class="choice">
-			<img src="/images/music.png">
 			<h3>Listen to Music</h3>
-			<%=select_tag(:genre, options_for_select($genres)) %>
-			<%=submit_tag "create a spotify playlist", name: 'music'%>
+			<img src="/images/music.png">
+			<p class="search-params">
+			Playlist Genre: <%=select_tag(:genre, options_for_select($genres), :class=> 'dropdown' ) %></p>
+			<%=submit_tag "Let's Jam!", name: 'music', :class => 'pick-cat' %>
 		</div>
 		<div class="choice">
-			<img class="trail-icon" src="/images/hike.png">
 			<h3>Visit a Park or Trail</h3>
-			<%=text_field_tag(:location, nil, :placeholder=> "enter your location") %>
-			<%=select_tag(:mode, options_for_select($modes))%>
-			<%=submit_tag "pick trails", name: 'trails'%>
+			<img class="trail-icon" src="/images/hike.png">
+			<p class="search-params terms">Starting Location: <%=text_field_tag(:location, nil, :placeholder=> "Current Zip Code") %></p>
+			<p class="search-params">Mode of Transportation: <%=select_tag(:mode, options_for_select($modes), :class=> 'dropdown' )%></p>
+			<%=submit_tag "Let's Go!", name: 'trails', :class => 'pick-cat' %>
 		</div>
 	</div>
 	<%end%>

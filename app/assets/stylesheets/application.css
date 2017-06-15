@@ -63,7 +63,9 @@ h5 {
 input {
 	border: none;
 	background-color: #fff;
+	margin-top: .5em;
 }
+
 
 .time {
 	margin-top: 2em;
@@ -77,8 +79,6 @@ input {
 
 .time-choices
 input[type=radio] {
-/*	display: inline-block;
-	margin-left: 2em;*/
 	display: none;
 }
 
@@ -92,6 +92,44 @@ input[type=radio] + label {
 .time-choices
 input[type=radio]:checked + label {
 	 border-bottom: 4px solid #9D2EF2;
+}
+
+.dropdown {
+	width: 100%;
+	border-radius: 0;
+	margin-bottom: 1em;
+}
+
+.numform {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 2em;
+}
+
+.pick-cat {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	background-color: #000;
+	color: #fff;
+	font-family: 'Jura', sans-serif;
+	border: 4px solid transparent;
+	font-size: 1.5em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.pick-cat:hover {
+	background-color: #fff;
+	color: #000;
+	border: 4px solid #000;
+	cursor: pointer;
+}
+
+.trailterms {
+	margin-bottom: 1em;
 }
 
 .search-params {
@@ -127,10 +165,13 @@ input[type=radio]:checked + label {
 	box-sizing: border-box;
 	width: 24%;
 	padding: 1em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	position: relative;
 }
 
 .choice img {
-	width: 70%;
+	width: 60%;
 	margin-bottom: 1em;
 }
 
@@ -144,7 +185,7 @@ input[type=radio]:checked + label {
 }
 
 .choice:nth-child(2) {
-	background-color: #FFA100;
+	background-color: #FFB400;
 }
 
 .choice:nth-child(3) {
