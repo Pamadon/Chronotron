@@ -24,10 +24,10 @@
 
 <h3>Wire Frames</h3>
 <ul>
+		<li><img src="public/images/photo(3).jpg" alt=""></li>
+		<li><img src="public/images/photo(2).jpg" alt=""></li>
     <li><img src="public/images/photo.jpg" alt=""></li>
     <li><img src="public/images/photo(1).jpg" alt=""></li>
-    <li><img src="public/images/photo(2).jpg" alt=""></li>
-    <li><img src="public/images/photo(3).jpg" alt=""></li>
 </ul>
 
 
