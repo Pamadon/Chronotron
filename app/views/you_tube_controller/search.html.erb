@@ -1,13 +1,17 @@
-<div class="category video">
-  <div class="search">
-    <h2 class="video-color">Search Youtube</h2>
+<div class="category video-pg">
+  <div class="video-content">
+  <h2>Chronotron Videos</h2>
+    <h4>Powered by <i class="fa fa-youtube" aria-hidden="true"></i> YouTube</h4>
+  <div class="video-intro">
+    <p>Below you'll find custom video search results curated by Chronotron for your chosen search terms, length of videos you'd like to watch, and the number of videos you'd like to watch within your alotted time. Want to make some changes and check out something new? Use the sidebar to switch up your preferences.</p>
   </div>
   <div class="videos-back">
     <% for link in $videos do %>
-      <div>
-       <iframe id="ytplayer" type="text/html" width="600" height="360" src="https://www.youtube.com/embed/<%=link%>?autoplay=0&origin=http://example.com" frameborder="0">
+      <div class="vid-iframe">
+       <iframe id="ytplayer" type="text/html" width="100%" max-width="800px" height="400px" src="https://www.youtube.com/embed/<%=link%>?autoplay=0&origin=http://example.com" frameborder="0">
         </iframe>
       </div>
     <%end%>
+  </div>
   </div>
 </div>
