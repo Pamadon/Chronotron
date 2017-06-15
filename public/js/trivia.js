@@ -17,15 +17,10 @@ $('#submit').on('click', function (e) {
   } else {
   	$('#next').show();
 	  $('#submit').hide();
+	  $('#related-videos').remove();
 
-		$.ajax({
-			type: 'GET',
-			url: '/trivia/info',
-			dataType: 'json',
-			data:{
-				currentAnswer: questions[counter].correct_answer
-			}
-		})
+	  var vids = getRelatedVideos();
+	  $('#videos').append(vids);
 
 	  changeScore(counter);
 	  displayAnswer();
@@ -228,6 +223,36 @@ function displayEndScreen() {
   $('#more').show();
 
   return eElement;
+}
+
+//Creates and returns a div with videos related to current question's answer
+function getRelatedVideos() {
+	var vElement = $('<div>', {
+		id: 'related-videos'
+	});
+
+	$.ajax({
+		type: 'GET',
+		url: 'https://www.googleapis.com/youtube/v3/search?',
+		dataType: 'json',
+		data: {
+			part: 'snippet',
+      maxResults: '5',
+      order: 'relevance',
+      q: questions[counter].correct_answer,
+      type: 'video',
+      videoDuration: 'any',
+      videoEmbeddable: 'true',
+      key: 'AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'
+		},
+		success: function(data) {
+			data.items.forEach(function(video) {
+			vElement.append($('<iframe id="ytplayer" type="text/html" width="150" height="90" src="https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0&origin=http://example.com" frameborder="0"></iframe>')
+			)});
+		}
+	})
+
+	return vElement;
 }
 
 displayNext();

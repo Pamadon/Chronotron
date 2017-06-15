@@ -1,8 +1,4 @@
 class TriviaController < ApplicationController
-	def post
-		$currentAnswer = params[:currentAnswer]
-	end
-
 	def show
 		gon.choice = $choice
 		if $time == '5'
