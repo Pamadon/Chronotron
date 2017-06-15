@@ -19,7 +19,6 @@ Rails.application.routes.draw do
 
   #~~~~~~~~~~~~trivia~~~~~~~~~~~~~
   get 'trivia' => 'trivia#show'
-  get 'trivia/post'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

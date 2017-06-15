@@ -77,4 +77,5 @@
 <ul>
 	<li>Users would like a way to track how much time has been spent on each activity.</li>
 	<li>Users would like guidance if they don't know what they want to do, or what to search videos for.</li>
+	<li>Additional topics would be great, as well as the ability to customize the home page for your favorite categories.</li>
 </ul>

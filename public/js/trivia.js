@@ -19,8 +19,9 @@ $('#submit').on('click', function (e) {
 	  $('#submit').hide();
 	  $('#related-videos').remove();
 
+
 	  var vids = getRelatedVideos();
-	  $('#videos').append(vids);
+	  $('#trivia-videos').append(vids);
 
 	  changeScore(counter);
 	  displayAnswer();
@@ -239,7 +240,7 @@ function getRelatedVideos() {
 			part: 'snippet',
       maxResults: '5',
       order: 'relevance',
-      q: questions[counter].correct_answer,
+      q: 'history' + questions[counter].correct_answer,
       type: 'video',
       videoDuration: 'any',
       videoEmbeddable: 'true',
@@ -247,10 +248,10 @@ function getRelatedVideos() {
 		},
 		success: function(data) {
 			data.items.forEach(function(video) {
-			vElement.append($('<iframe id="ytplayer" type="text/html" width="150" height="90" src="https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0&origin=http://example.com" frameborder="0"></iframe>')
-			)});
+ 			vElement.append($('<iframe id="ytplayer" type="text/html" width="150" height="90" src="https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0&origin=http://example.com" frameborder="0"></iframe>')
+ 			)});
 		}
-	})
+	});
 
 	return vElement;
 }
