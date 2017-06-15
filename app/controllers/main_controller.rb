@@ -38,6 +38,7 @@ class MainController < ApplicationController
     end
 
     def choice
+      gon.choice = $choice
       $time = params[:time_limit]
       $genre = params[:genre]
       $category = params[:categories]

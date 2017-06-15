@@ -3,6 +3,7 @@ class TriviaController < ApplicationController
 	end
 
 	def show
+		gon.choice = $choice
 		if $time == '5'
 			@amount = 25
 		else
