@@ -15,11 +15,32 @@
 		<p>Used Trail for parks and trails information within a specific area. This allows the user to identify hikes, walks, and parks.</p>
 	<li>Spotify API</li>
 		<p>Used spotify to make  playlist on the user profile on the time allowed for wasting. The user connects their spotty account to the embedded Iframe which allows for communication with the users web phone applications. This dynamically stores the user’s playlists which can be accessed from any device. By doing this way we have allowed users to take their created playlists wherever they go!</p>
-	<li>Weather API</li>
+	<li>OpenWeather API</li>
 		<p>Placed weather conditions on the page for the displayed park.</p>
 	<li>Open Trivia API</li>
 		<p>Used OpenTrivia to return questions on a topic in true/false or multiple choice format. Then created a javascript game that creates an environment that the user interacts with to play a game of Trivia. The user is told if they get the question right or not and their score is incremented thusly.
 </p>
 </ul>
+
+<h3>Wire Frames</h3>
+<ul>
+    <li><img src="public/images/photo.jpg" alt=""></li>
+    <li><img src="public/images/photo(1).jpg" alt=""></li>
+    <li><img src="public/images/photo(2).jpg" alt=""></li>
+    <li><img src="public/images/photo(3).jpg" alt=""></li>
+</ul>
+
+
+
+<h3>Installation Instructions:</h3>
+<ol>
+    <li>Fork/Clone Repository</li>
+    <li>Create new folder and clone project</li>
+		<li>Create DB</li>
+		<li>Migrate DB</li>
+    <li>Get API keys from Youtube, GoogleMaps, Spotify, OpenWeather, and GoogleMaps Embed </li>
+    <li>Run Bundle Install</li>
+		<li>In console type: Foreman run rails s</li>
+</ol>
 
 

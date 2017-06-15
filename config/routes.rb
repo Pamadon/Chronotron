@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   get '/trail/maps'  => 'trail#maps'
 
   #~~~~~~~~~~~youtube~~~~~~~~~~~~~
-
-
   get 'you_tube_controller/search'
   post 'you_tube_controller/search'
   get 'you_tube_controller/tubeSearch'

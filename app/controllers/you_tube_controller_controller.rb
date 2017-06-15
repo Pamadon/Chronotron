@@ -20,10 +20,9 @@ class YouTubeControllerController < ApplicationController
       $videos = []
       if response.code == 200
         @video_result = JSON.parse(response.body)
-          for item in  @video_result['items']
+        for item in  @video_result['items']
           $videos.push(item['id']['videoId'])
-
-          end
+        end
        end
       puts $videos[1]
     end
