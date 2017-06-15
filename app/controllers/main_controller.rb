@@ -4,27 +4,27 @@ class MainController < ApplicationController
 
       $categories = [
         ["Any", nil],
-        ["General Knowledge", "9"], # <50/hard
-        ["Books", "10"], # < 25
-        ["Film", "11"], # < 25/hard
-        ["Music", "12"], # < 50/hard
-        ["Television", "14"], # <25/hard < 50
+        ["General Knowledge", "9"],
+        ["Books", "10"],
+        ["Film", "11"],
+        ["Music", "12"],
+        ["Television", "14"],
         ["Video Games", "15"],
-        ["Board Games", "16"], # < 25
-        ["Science & Nature", "17"], # < 50 easy & hard
-        ["Computers", "18"], # < 25 hard < 50 easy & hard
-        ["Mathematics", "19"], # < 25
-        ["Mythology", "20"], # < 25
-        ["Sports", "21"], # < 25/hard < 50
-        ["Geography", "22"], # < 50 hard
-        ["History", "23"], # < 50 easy & hard
-        ["Politics", "24"], # < 25
-        ["Celebrities", "26"], # < 25
-        ["Animals", "27"], # < 25
-        ["Vehicles", "28"], # < 25 easy & hard
-        ["Comics", "29"], # < 25
-        ["Japanese Anime & Manga", "31"], # < 25/hard < 50
-        ["Cartoons & Animations", "32"]] # < 25
+        ["Board Games", "16"],
+        ["Science & Nature", "17"],
+        ["Computers", "18"],
+        ["Mathematics", "19"],
+        ["Mythology", "20"],
+        ["Sports", "21"],
+        ["Geography", "22"],
+        ["History", "23"],
+        ["Politics", "24"],
+        ["Celebrities", "26"],
+        ["Animals", "27"],
+        ["Vehicles", "28"],
+        ["Comics", "29"],
+        ["Japanese Anime & Manga", "31"],
+        ["Cartoons & Animations", "32"]]
 
       $difficulties = [
         ["Any", nil],

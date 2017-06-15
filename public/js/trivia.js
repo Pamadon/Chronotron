@@ -18,6 +18,15 @@ $('#submit').on('click', function (e) {
   	$('#next').show();
 	  $('#submit').hide();
 
+		$.ajax({
+			type: 'GET',
+			url: '/trivia/info',
+			dataType: 'json',
+			data:{
+				currentAnswer: questions[counter].correct_answer
+			}
+		})
+
 	  changeScore(counter);
 	  displayAnswer();
   }

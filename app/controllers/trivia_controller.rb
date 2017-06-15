@@ -1,5 +1,6 @@
 class TriviaController < ApplicationController
-	def index
+	def post
+		$currentAnswer = params[:currentAnswer]
 	end
 
 	def show
@@ -29,7 +30,6 @@ class TriviaController < ApplicationController
 
 		gon.trivia = response.body
 	end
-
 end
 
 
