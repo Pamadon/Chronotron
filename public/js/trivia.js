@@ -240,7 +240,7 @@ function getRelatedVideos() {
 			part: 'snippet',
       maxResults: '5',
       order: 'relevance',
-      q: questions[counter].correct_answer,
+      q: 'history' + questions[counter].correct_answer,
       type: 'video',
       videoDuration: 'any',
       videoEmbeddable: 'true',
