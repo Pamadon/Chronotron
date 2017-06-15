@@ -32,6 +32,30 @@ $('#next').on('click', function (e) {
 
 });
 
+//More! button functionality
+$('#more').on('click', function (e) {
+	e.preventDefault();
+
+	$.ajax({
+		url: 'https://opentdb.com/api.php?',
+		data:{
+			amount: gon.amount,
+			category: gon.category,
+			difficulty: gon.difficulty
+		},
+		success: function(data) {
+			var moreQuestions = data.results;
+
+			moreQuestions.forEach(function(q) {
+				questions.push(q);
+			});
+
+			$('#end-screen').remove();
+			displayNext();
+		}
+	})
+});
+
 // Creates and returns the div that contains the questions and
 // the answer selections
 function createQuestionElement(index) {
@@ -39,23 +63,33 @@ function createQuestionElement(index) {
     id: 'question'
   });
 
-  var displayScore = $('<span>Score: ' + score + '</span>');
-  qElement.append(displayScore);
+  var qElementA = $('<div>', {
+    id: 'question-data'
+  });
 
-  var header = $('<h2>Question ' + (index + 1) + ':</h2>');
-  qElement.append(header);
-
-  var category = $('<h4>Category: ' + questions[index].category + '</h4>');
-  qElement.append(category);
-
-  var difficulty = $('<h4>Difficulty: ' + questions[index].difficulty + '</h4>');
-  qElement.append(difficulty);
+  var header = $('<h3>Question ' + (index + 1) + '</h3>');
+  qElementA.append(header);
 
   var question = $('<p>').append(questions[index].question);
-  qElement.append(question);
+  qElementA.append(question);
 
   var radios = createRadios(index);
-  qElement.append(radios);
+  qElementA.append(radios);
+
+  var qElementB = $('<div>', {
+    id: 'question-cat'
+  });
+
+  var category = $('<h4>Category:</h4>' + '<p>' + questions[index].category + '</p>');
+  qElementB.append(category);
+
+  var difficulty = $('<h4>Difficulty:</h4>' + '<p>' + questions[index].difficulty + '</p>');
+  qElementB.append(difficulty);
+
+  var displayScore = $('<span>Score: ' + score + '</span>');
+  qElementB.append(displayScore);
+
+  qElement.append(qElementA).append(qElementB);
 
   return qElement;
 }
@@ -111,8 +145,8 @@ function createAnswerElement(index) {
     id: 'answer'
   });
 
-  var correct = $('<h3>Correct!</h3>');
-  var wrong = $('<h3>Wrong!  Answer: '+ questions[index].correct_answer + '</h3>');
+  var correct = $('<h4>Correct!</h4>');
+  var wrong = $('<h4>Wrong! The correct answer was: '+ questions[index].correct_answer + '</h4>');
 
   if (selection === questions[index].correct_answer) {
   	aElement.append(correct);
@@ -146,6 +180,7 @@ function changeScore(index) {
 //Show next question
 function displayNext() {
   $('#next').hide();
+  $('#more').hide();
   $('#submit').show();
   $('#answer').remove();
   $('#question').remove();
@@ -172,11 +207,16 @@ function displayEndScreen() {
     id: 'end-screen'
   });
 
-	var complete = $('<h2>Done!  You answered ' + numCorrect + '/' + questions.length + 'correctly!</h2>');
+	var complete = $('<h3>Quiz Complete! You answered ' + numCorrect + '/' + questions.length + 'correctly!</h2>');
   eElement.append(complete);
 
   var showScore = $('<h3>You got a score of ' + score + '!</h3>');
   eElement.append(showScore);
+
+  var moreMsg = $('<p>Need to waste more time?  Get more questions!</p>');
+  eElement.append(moreMsg);
+
+  $('#more').show();
 
   return eElement;
 }

@@ -38,7 +38,7 @@ class YouTubeControllerController < ApplicationController
           part: 'snippet',
           maxResults: '5',
           order: 'relevance',
-          q: $genre,
+          q: $hikes[1]['name'],
           type: 'video',
           videoDuration: 'short',
           videoEmbeddable: 'true',

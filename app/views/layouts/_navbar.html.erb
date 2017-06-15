@@ -12,8 +12,8 @@
           <%= label_tag(:time_limit_20, "20 min") %><br>
           <%= radio_button_tag(:time_limit, "40",  false, required: true) %>
           <%= label_tag(:time_limit_40, "40 min") %><br>
-          <%= radio_button_tag(:time_limit, "60",  false, required: true) %>
-          <%= label_tag(:time_limit_60, "1 hr") %><br>
+          <%= radio_button_tag(:time_limit, "60",  true, required: true) %>
+          <%= label_tag(:time_limit_60, "1 hour") %><br>
           <%= radio_button_tag(:time_limit, "120",  false, required: true) %>
           <%= label_tag(:time_limit_120, "2 hours") %><br>
           <%= radio_button_tag(:time_limit, "300",  false, required: true) %>
@@ -35,8 +35,10 @@
       <%=submit_tag "I'm Ready for Change", name: 'videos'%>
     <%elsif $choice == "trivia"%>
       <p>You're answering <span class="nav-value"><%=$trivia_category%></span> trivia questions.</p>
-      <p>Choose a new trivia category:
-      <%=select_tag(:categories, options_for_select($categories))%></p><br><br>
+      <p>Choose a new trivia category:</p>
+      <%=select_tag(:categories, options_for_select($categories))%>
+      <%=select_tag(:difficulties, options_for_select($difficulties))%>
+      <br><br>
       <%=submit_tag "I'm Ready for Change", name: 'trivia'%>
     <%elsif $choice == "trails"%>
       <p>Your recreation starting location is <span class="nav-value"><%=$location%></span>.</p>
