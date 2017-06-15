@@ -55,25 +55,24 @@
 
 
 <h3>UX Testing</h3>
-	<p>UX testing was performed at all stages of the websites creation.</p>
-	<h4>Paper Prototype Testing</h4>
-	<p>Changes made from this stage:</p>
-	<ul>
-		<li>Users were drawn toward selecting all inputs on the front page. We originally had the user select time, then provide further input on each page.</li>
-		<li>Since the music page relies on Spotify, and opens a new tab if the user does not have the Spotify app installed on their computer, it was suggested to reorder the home page by activities that keep the user invested in our app. Originally music was the first page listed.</li>
-	</ul>
-	<h4>First Deployment Testing</h4>
-	<p>Changes made from this stage:</p>
-	<ul>
-		<li>Too many options for music genres. We limited the possible choices so not to overwhelm the user.</li>
-		<li>The "short", "med", and "long" option and number field for video search weresn't clear on the home page, so we added labels.</li>
-		<li>To switch categories the user had to return to the home page. We added a category toggle on the sidebar nav.</li>
-		<li>The music button on the home page originally said "choose genre". Users wanted to know that it would use their spotify accounts before pressing the button to sign in.</li>
-		<li>Users forgot to select how much time they wanted to spend, which is required before proceeding. We made a default time of 1 hour so not to disrupt the user with a reminder.</li>
-	</ul>
-
-	<h4>Next Steps</h4>
-	<ul>
-		<li>Users would like a way to track how much time has been spent on each activity.</li>
-		<li>Users would like guidance if they don't know what they want to do, or what to search videos for.</li>
-	</ul>
+<p>UX testing was performed at all stages of the websites creation.</p>
+<h4>Paper Prototype Testing</h4>
+<p>Changes made from this stage:</p>
+<ul>
+	<li>Users were drawn toward selecting all inputs on the front page. We originally had the user select time, then provide further input on each page.</li>
+	<li>Since the music page relies on Spotify, and opens a new tab if the user does not have the Spotify app installed on their computer, it was suggested to reorder the home page by activities that keep the user invested in our app. Originally music was the first page listed.</li>
+</ul>
+<h4>First Deployment Testing</h4>
+<p>Changes made from this stage:</p>
+<ul>
+	<li>Too many options for music genres. We limited the possible choices so not to overwhelm the user.</li>
+	<li>The "short", "med", and "long" option and number field for video search weresn't clear on the home page, so we added labels.</li>
+	<li>To switch categories the user had to return to the home page. We added a category toggle on the sidebar nav.</li>
+	<li>The music button on the home page originally said "choose genre". Users wanted to know that it would use their spotify accounts before pressing the button to sign in.</li>
+	<li>Users forgot to select how much time they wanted to spend, which is required before proceeding. We made a default time of 1 hour so not to disrupt the user with a reminder.</li>
+</ul>
+<h4>Next Steps</h4>
+<ul>
+	<li>Users would like a way to track how much time has been spent on each activity.</li>
+	<li>Users would like guidance if they don't know what they want to do, or what to search videos for.</li>
+</ul>
