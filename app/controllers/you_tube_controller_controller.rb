@@ -1,5 +1,6 @@
 class YouTubeControllerController < ApplicationController
   def search
+    gon.choice = $choice
     if ($time)
       @wastetime = $time.to_i
     else

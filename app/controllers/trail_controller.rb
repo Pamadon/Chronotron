@@ -3,6 +3,7 @@ class TrailController < ApplicationController
   end
 
   def show
+    gon.choice = $choice
     hike_response = HTTParty.get "https://trailapi-trailapi.p.mashape.com/?limit=25&q[activities_activity_type_name_eq]=hiking&q[state_cont]=Washington&radius=25",
       headers:{
         "X-Mashape-Key" => "gKkZRWGHnsmsh9H4030c2YJirj8mp1co61Djsntmdy8iYTxtf7",
