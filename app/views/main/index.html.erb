@@ -19,41 +19,41 @@
 		<%= radio_button_tag(:time_limit, "300", false, required: true) %>
 		<%= label_tag(:time_limit_300, "5+ hours") %>
 		<!-- THE TIME DIV NEEDS TO HAVE THE CHOICES DIV WITHIN IT TO CLOSE THE FORM PROPERLY. SK-->
-    
-<h3 class="choice-header">And what would you like to do?</h3>
-<div class="choices">
-
+	<h3 class="choice-header">And what would you like to do?</h3>
+	<div class="choices">
 		<div class="choice">
 			<img src="/images/video.png">
-			<p>Watch YouTube</p>
-			<span class="search-params">Search for: <%=text_field_tag(:video_query, nil, :placeholder=> "Specific search terms") %></span>
-			<span class="search-params">Length of Videos:<%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%></span>
-      <span class="search-params">Enter Number of Videos: <%= number_field_tag(:numberVideos, nil, min: 5, max: 50) %></span>
+			<h3>Watch YouTube</h3>
+			<p class="search-params terms"><%=text_field_tag(:video_query, nil, :placeholder=> "Enter specific search terms") %></p>
+			<p class="search-params">
+				Length of Videos: <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
+      	Number of Videos: <%= number_field_tag(:numberVideos, 5, min: 5, max: 50) %>
+      </p>
 			<%=submit_tag "Let's Go!", name: 'videos'%>
 		</div>
 		<div class="choice">
 			<img src="/images/trivia.png">
-			<p>Play Trivia</p>
-			<%=select_tag(:categories, options_for_select($categories))%>
-			<%=select_tag(:difficulties, options_for_select($difficulties))%>
-			<%=submit_tag "pick trivia", name: 'trivia'%>
+			<h3>Play Trivia</h3>
+			<p class="search-params"><%=select_tag(:categories, options_for_select($categories))%></p>
+			<p class="search-params"><%=select_tag(:difficulties, options_for_select($difficulties))%></p>
+			<p class="search-params"><%=submit_tag "pick trivia", name: 'trivia'%></p>
 		</div>
 		<div class="choice">
 			<img src="/images/music.png">
-			<p>Listen to Music</p>
+			<h3>Listen to Music</h3>
 			<%=select_tag(:genre, options_for_select($genres)) %>
 			<%=submit_tag "create a spotify playlist", name: 'music'%>
 		</div>
 		<div class="choice">
 			<img class="trail-icon" src="/images/hike.png">
-			<p>Visit a Park or Trail</p>
+			<h3>Visit a Park or Trail</h3>
 			<%=text_field_tag(:location, nil, :placeholder=> "enter your location") %>
 			<%=select_tag(:mode, options_for_select($modes))%>
 			<%=submit_tag "pick trails", name: 'trails'%>
 		</div>
 	</div>
 	<%end%>
-</div>
+	</div>
 </div>
 
 <div id="hpmodal" class="modal">

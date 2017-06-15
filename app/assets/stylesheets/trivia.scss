@@ -1,7 +1,11 @@
 .trivia-pg {
-	background-color: #FF6600;
+	background-color: #FFA100;
 	padding: 2em;
-	height: 100vh;
+	height: 1000px;
+}
+
+.trivia-content {
+	margin-left: 15%;
 }
 
 .trivia-pg h2 {
@@ -17,6 +21,7 @@
 .trivia-question {
 	background-color: #fff;
 	padding: 1em;
+	padding-left: 2em;
 	width: 80%;
 }
 
@@ -42,38 +47,30 @@
 
 #question-cat h4 {
 	margin-bottom: -.5em;
-	color: #FF6600;
+	color: #FFA100;
 }
 
-.trivia-next {
-	background-color: #FF6600;
+.trivia-btn {
+	box-sizing: border-box;
+	background-color: #9D2EF2;
+	border: 2px solid #9D2EF2;
 	width: 150px;
 	padding: 10px;
 	color: #fff;
 	text-align: center;
+	font-weight: 700;
 }
 
-.trivia-next:hover {
-	background-color: #9D2EF2;
+.trivia-btn:hover {
+	background-color: #fff;
 }
 
-.trivia-submit {
-	background-color: #9D2EF2;
-	width: 150px;
-	padding: 10px;
-	color: #fff;
-	text-align: center;
-}
-
-.trivia-submit:hover {
-	background-color: #FF6600;
+.trivia-btn:hover a,
+.trivia-btn a:hover {
+	color: #9D2EF2;
 }
 
 .trivia-btn a{
-	color: #fff;
-}
-
-.trivia-btn a:hover {
 	color: #fff;
 }
 
