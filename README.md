@@ -4,11 +4,13 @@
 
 <p>“There's never enough time to do all the nothing you want.”</p>
 
+
 <h3>Purpose</h3>
 <p>The purpose of Chronotron is to allow you to put your free time to good use. Give Chronotron an amount of time you need to spend and it will provide you enough content to fill that void. Search YouTube for interesting videos. Test your knowledge and learn fun facts with trivia questions. Discover new music with an auto-generated Spotify playlist. Find a nearby hike or park and take in the beauty of the Pacific Northwest.</p>
 
 <h3>General Approach</h3>
 <p>Working in a group of five allowed us to create something expansive. We wanted to generate as much content for the user as possible so we each selected a way for the user to spend their allotted time: video, music, trivia, and hiking. In order to create a cohesive and rich experience, one team member focused on front end and worked as project manager. The four topics were divided between the remaining team members and each built out their own content generator. Once each facet was built, they were brought together to produce The Chronotron. </p>
+
 
 <h3>Tech Used</h3>
 <ul>
@@ -35,8 +37,6 @@
     <li><img src="public/images/photo.jpg" alt=""></li>
     <li><img src="public/images/photo(1).jpg" alt=""></li>
 </ul>
-
-
 
 <h3>Installation Instructions:</h3>
 <ol>
