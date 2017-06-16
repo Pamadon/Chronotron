@@ -248,7 +248,7 @@ function getRelatedVideos() {
     },
 		success: function(data) {
 			data.items.forEach(function(video) {
- 			vElement.append($('<iframe id="ytplayer" class="trivia-vids" type="text/html" width="31%" height="150" src="https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0&origin=http://example.com" frameborder="0"></iframe>')
+ 			vElement.append($('<iframe id="ytplayer" class="trivia-vids" type="text/html" allowfullscreen="allowfullscreen" width="31%" height="200" src="https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0&origin=http://example.com" frameborder="0"></iframe>')
 
  			)});
 		}
