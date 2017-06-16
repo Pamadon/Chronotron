@@ -91,7 +91,7 @@ function createQuestionElement(index) {
   var difficulty = $('<h4>Difficulty:</h4>' + '<p>' + questions[index].difficulty + '</p>');
   qElementB.append(difficulty);
 
-  var displayScore = $('<h4>Score:</h4> ' + '<p>' + score + '</p>');
+  var displayScore = $('<h3>Score:</h3> ' + '<h2>' + score + '</h2>');
   qElementB.append(displayScore);
 
   qElement.append(qElementA).append(qElementB);
@@ -238,17 +238,21 @@ function getRelatedVideos() {
 		dataType: 'json',
 		data: {
 			part: 'snippet',
-      maxResults: '5',
+      maxResults: '3',
       order: 'relevance',
       q: 'history' + questions[counter].correct_answer,
       type: 'video',
       videoDuration: 'any',
       videoEmbeddable: 'true',
       key: 'AIzaSyB9vzAQ4Nn-Ig3fzaRdDEO0zptnI85vPSM'
-		},
+    },
 		success: function(data) {
 			data.items.forEach(function(video) {
+<<<<<<< HEAD
  			vElement.append($('<iframe id="ytplayer" type="text/html" width="31%" height="150" src="https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0&origin=http://example.com" frameborder="0"></iframe>')
+=======
+ 			vElement.append($('<iframe id="ytplayer" class="trivia-vids" type="text/html" width="31%" height="150" src="https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0&origin=http://example.com" frameborder="0"></iframe>')
+>>>>>>> 64d1fb28c213e9377e723b3e6fe7b0d12d779526
  			)});
 		}
 	});
