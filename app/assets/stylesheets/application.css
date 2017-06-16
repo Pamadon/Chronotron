@@ -61,11 +61,10 @@ h5 {
 }
 
 input {
-	border: none;
+	border: 1px solid #000;
 	background-color: #fff;
 	margin-top: .5em;
 }
-
 
 .time {
 	margin-top: 2em;
@@ -98,6 +97,7 @@ input[type=radio]:checked + label {
 	width: 100%;
 	border-radius: 0;
 	margin-bottom: 1em;
+	border: 1px solid #000;
 }
 
 .numform {
@@ -225,6 +225,11 @@ input[type=radio]:checked + label {
 	font-size: 1em;
 }
 
+#modalbtn:hover {
+	border: 1px solid #9D2EF2;
+	color: #9D2EF2;
+}
+
 .modal-content {
 	border: 4px solid black;
 	width: 50%;
@@ -288,11 +293,80 @@ input[type=radio]:checked + label {
 	border-top: 1px solid black;
 }
 
+.change-header {
+	font-weight: 700;
+}
+
 .change {
-	font-size: 1.1em;
+	font-size: 1em;
+	font-weight: 700;
 }
 
 .section {
+	width: 100%;
+}
+
+.choice-buttons {
+	border: 3px solid black;
+	width: 100%;
+	padding: 10px;
+	background-color: #fff;
+	margin-bottom: 1em;
+	font-family: 'Jura', sans-serif;
+	font-weight: 700;
+	font-size: 1em;
+}
+
+.choice-buttons:hover {
+	border: 3px solid #9D2EF2;
+	color: #9D2EF2;
+	cursor: pointer;
+}
+
+.change-button {
+	box-sizing: border-box;
+	background-color: #000;
+	border: 3px solid #000;
+	color: #fff;
+	width: 100%;
+	font-family: 'Jura', sans-serif;
+	font-weight: 700;
+	font-size: 1em;
+	padding: 10px;
+	text-transform: uppercase;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.change-button:hover {
+	background-color: #fff;
+	border: 3px solid #000;
+	color: #000;
+	cursor: pointer;
+}
+
+.time-selected {
+	margin-bottom: .5em;
+}
+
+.time-change {
+	margin-bottom: .5em;
+}
+
+.new-vid {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 1em;
+}
+
+.new-vid-title {
+	margin-bottom: 0;
+}
+
+.new-vid-num {
+	box-sizing: border-box;
+	padding: 2px;
 	width: 100%;
 }
 

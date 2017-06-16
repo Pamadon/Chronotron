@@ -12,12 +12,12 @@
     <%elsif $choice == "trails"%>
       Your recreation starting location is <span class="nav-value"><%=$location%></span>.</p>
     <%end%>
-    <p class="change">Want to switch it up?</p>
-    <p>Change Categories:</p>
-    <button id="first-option" class="choice-buttons"></button>
-    <button id="second-option" class="choice-buttons"></button>
-    <button id="third-option" class="choice-buttons"></button>
-    <p>Choose a new length of time:</p>
+    <h3 class="change-header">Change it Up</h3>
+    <p>Switch categories to:</p>
+      <button id="first-option" class="choice-buttons"></button>
+      <button id="second-option" class="choice-buttons"></button>
+      <button id="third-option" class="choice-buttons"></button>
+    <p class="time-change">Change time:</p>
      <%= form_tag('/', method: "post", :class => "home-form") do%>
           <%= radio_button_tag(:time_limit, "5", false, required: true) %>
           <%= label_tag(:time_limit_5, "5 min") %><br>
@@ -33,38 +33,31 @@
           <%= label_tag(:time_limit_300, "5+ hours") %>
   </div>
   <div class="home-search-choice">
-        <div>
+        <div class="cat-swap">
           <div id="music">
-            <h3>MUSIC</h3>
-            <p>Choose a new genre:
-            <%=select_tag(:genre, options_for_select($genres)) %></p><br><br>
-            <%=submit_tag "I'm Ready for Change", name: 'music'%>
+            <p>Change music genre:
+            <%=select_tag(:genre, options_for_select($genres), :class=>'dropdown') %></p>
+            <%=submit_tag "Make a Change", name: 'music', :class=>'change-button'%>
           </div>
-        <div id="videos">
-            <h3>VIDEOS</h3>
-            <p>Choose a new video search:</p>
-            <%=text_field_tag(:video_query, nil, :placeholder=> "search for videos") %>
-            <%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]))%>
-            <%= number_field_tag(:numberVideos, 5, min: 5, max: 50) %>
-            <%=submit_tag "I'm Ready for Change", name: 'videos'%>
+          <div id="videos">
+            <p class="new-vid-title">Change your search:</p>
+            <%= text_field_tag(:video_query, nil, :placeholder=> "Be specific!", :class=>'new-vid') %>
+            Video length:<%= select_tag(:length, options_for_select([['short', 'short'], ['medium', 'medium'], ['long', 'long']]), :class=>'dropdown')%>
+            How many videos? <%= number_field_tag(:numberVideos, 5, min: 5, max: 50, :class=>'new-vid-num') %>
+            <%=submit_tag "Make a Change", name: 'videos', :class=>'change-button'%>
           </div>
-        <div id="trivia">
-            <h3>TRIVIA</h3>
-            <p>Choose a new trivia category:</p>
-            <%=select_tag(:categories, options_for_select($categories))%>
-            <%=select_tag(:difficulties, options_for_select($difficulties))%>
-            <br><br>
-            <%=submit_tag "I'm Ready for Change", name: 'trivia'%>
-        </div>
-        <div id="trails">
-            <h3>TRAILS</h3>
-            <p>Start from a new location:
-            <%=text_field_tag(:location, nil, :placeholder=> "enter your location") %></p>
-            How will you get there? <%=select_tag(:mode, options_for_select($modes))%><br><br>
-            <%=submit_tag "I'm Ready for Change", name: 'trails'%>
-        </div>
+          <div id="trivia">
+            <p>New trivia category:
+            <%=select_tag(:categories, options_for_select($categories), :class=>'dropdown')%>
+            Difficulty: <%=select_tag(:difficulties, options_for_select($difficulties), :class=>'dropdown')%>
+            <%=submit_tag "Make a Change", name: 'trivia', :class=>'change-button'%>
+          </div>
+          <div id="trails">
+            Where are you? <%=text_field_tag(:location, nil, :placeholder=> "Enter a Zip Code", :class=>'new-vid') %>
+            How will you get there? <%=select_tag(:mode, options_for_select($modes), :class=>'dropdown')%>
+            <%=submit_tag "Make a Change", name: 'trails', :class=>'change-button'%>
+          </div>
     </div>
   <%end%>
-
-</div>
+  </div>
 </div>
