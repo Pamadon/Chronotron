@@ -12,7 +12,7 @@
 <p>Working in a group of five allowed us to create something expansive. We wanted to generate as much content for the user as possible so we each selected a way for the user to spend their allotted time: video, music, trivia, and hiking. In order to create a cohesive and rich experience, one team member focused on front end and worked as project manager. The four topics were divided between the remaining team members and each built out their own content generator. Once each facet was built, they were brought together to produce The Chronotron. </p>
 <ul>
     <li><img src="public/images/FRONT.PNG" alt=""></li>
-		<li><img src="public/images/Andrew.PNG" alt=""></li
+		<li><img src="public/images/Andrew.png" alt=""></li
     <li><img src="public/images/SPOTIFY.PNG" alt=""></li>
     <li><img src="public/images/VIDEOS.PNG" alt=""></li>
     <li><img src="public/images/TRAILS.PNG" alt=""></li>
