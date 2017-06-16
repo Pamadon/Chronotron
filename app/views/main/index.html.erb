@@ -48,7 +48,7 @@
 			<%=submit_tag "Let's Jam!", name: 'music', :class => 'pick-cat' %>
 		</div>
 		<div class="choice">
-			<h3>Visit a Park or Trail</h3>
+			<h3>Find a Trail</h3>
 			<img class="trail-icon" src="/images/hike.png">
 			<p class="search-params terms">Starting Location: <%=text_field_tag(:location, nil, :placeholder=> "Current Zip Code") %></p>
 			<p class="search-params">Mode of Transportation: <%=select_tag(:mode, options_for_select($modes), :class=> 'dropdown' )%></p>

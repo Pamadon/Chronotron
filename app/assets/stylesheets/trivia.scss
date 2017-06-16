@@ -6,6 +6,7 @@
 
 .trivia-content {
 	margin-left: 15%;
+	box-sizing: border-box;
 }
 
 .trivia-pg h2 {
@@ -74,3 +75,12 @@
 	color: #fff;
 }
 
+.related-youtube {
+	box-sizing: border-box;
+	width: 84%;
+	margin-top: 2em;
+}
+
+.trivia-vids {
+	margin-right: 1em;
+}
